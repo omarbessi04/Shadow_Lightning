@@ -31,8 +31,12 @@ public class PlayerMovement : MonoBehaviour {
 	bool wallSliding;
 	int wallDirX;
 
-	void Start() {
+	void Start()
+	{
+		
 		controller = GetComponent<PlayerController2D> ();
+		
+		GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>().target = controller;
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -48,6 +52,16 @@ public class PlayerMovement : MonoBehaviour {
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
 		}
+	}
+
+	public void UpdateVariables(float _maxJumpHeight, float _minJumpHeight, float _timeToApex)
+	{
+		maxJumpHeight = _maxJumpHeight;
+		minJumpHeight = _minJumpHeight;
+		timeToJumpApex = _timeToApex;
+		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 	}
 
 	public void SetDirectionalInput (Vector2 input) {

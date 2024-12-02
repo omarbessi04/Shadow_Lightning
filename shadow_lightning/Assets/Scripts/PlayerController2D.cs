@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
-public class PlayerController2D : RaycastController {
-	
+public class PlayerController2D : RaycastController
+{
+    
 	float maxClimbAngle = 80;
 	float maxDescendAngle = 80;
 	
@@ -63,7 +65,7 @@ public class PlayerController2D : RaycastController {
 			Debug.DrawRay(rayOrigin, Vector2.right * directionX,Color.red);
 
 			if (hit) {
-
+                
 				if (hit.distance == 0) {
 					continue;
 				}
