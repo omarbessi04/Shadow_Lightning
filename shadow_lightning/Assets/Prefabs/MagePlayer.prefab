@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 222011070485312297}
   - component: {fileID: 1992454454901090401}
   - component: {fileID: 710244826591839105}
-  - component: {fileID: 1112144881384740172}
   - component: {fileID: 4783747052847306655}
+  - component: {fileID: 4879506683048021007}
   m_Layer: 0
   m_Name: MagePlayer
   m_TagString: Untagged
@@ -188,21 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9457d2ee6200f4bb5f6d08ddf0b3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1112144881384740172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231906290867126495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56318a1ce0535fe439228a9e912aaae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canPossess: 0
-  enemyToPossess: {fileID: 0}
-  mage: {fileID: 0}
 --- !u!50 &4783747052847306655
 Rigidbody2D:
   serializedVersion: 4
@@ -230,3 +215,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4879506683048021007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231906290867126495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93027f8a64c4f9f488af78aadd68ea08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mageAttack: {fileID: 9009821393777345795, guid: 2d36a686e9fbd3f49b7ca5629a280848, type: 3}
