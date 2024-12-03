@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Xml.Serialization;
 
 [RequireComponent (typeof (PlayerController2D))]
 public class PlayerMovement : MonoBehaviour
@@ -31,6 +32,18 @@ public class PlayerMovement : MonoBehaviour
 	Vector2 directionalInput;
 	bool wallSliding;
 	int wallDirX;
+
+	/// <summary>
+	/// Það þarf að gera þetta ef maður vill spila SFX í einhverju code file, sjá svo "audioManager.PlaySFX(audioManager.FunnyJumpExample);"
+
+	[Header("--- Omar Was Here ---")]
+	AudioManager audioManager;
+
+	private void Awake(){
+		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+	}
+
+	/// </summary>
 
 	void Start()
 	{
@@ -70,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	public void OnJumpInputDown() {
+		audioManager.PlaySFX(audioManager.FunnyJumpExample);
 		if (wallSliding) {
 			if (wallDirX == directionalInput.x) {
 				velocity.x = -wallDirX * wallJumpClimb.x;

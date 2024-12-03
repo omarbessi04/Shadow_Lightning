@@ -13,6 +13,13 @@ public class PossessController : MonoBehaviour
 
     public GameObject mage;
 
+	[Header("--- Omar Was Here ---")]
+	AudioManager audioManager;
+
+	private void Awake(){
+		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+	}
+
     private void Start()
     {
     }
@@ -37,6 +44,7 @@ public class PossessController : MonoBehaviour
         {
             Instantiate(mage, transform.position, Quaternion.identity);
         }
+        audioManager.SwitchMusic(audioManager.BattleMusic);
 
         gameObject.active = false;
     }
