@@ -2,14 +2,15 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent (typeof (PlayerController2D))]
-public class PlayerMovement : MonoBehaviour {
-
+public class PlayerMovement : MonoBehaviour
+{
+	
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
-	float moveSpeed = 6;
+	public float moveSpeed = 6;
 
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
