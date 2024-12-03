@@ -246,8 +246,8 @@ Transform:
   m_GameObject: {fileID: 296452034}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -7.32, y: -3.48, z: 0.020564094}
-  m_LocalScale: {x: 4.539884, y: 0.2791572, z: 1}
+  m_LocalPosition: {x: -9.2216, y: -3.48, z: 0.020564094}
+  m_LocalScale: {x: 4.539884, y: 1.0219666, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -419,7 +420,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4745098, g: 0.20985593, b: 0.19215688, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -493,6 +494,26 @@ MonoBehaviour:
   lookSmoothTimeX: 0.2
   verticalSmoothTime: 0.2
   focusAreaSize: {x: 3, y: 5}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 43
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 1
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &640587919
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +966,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 782753226, guid: 96695f47b63c9e64ab70737074619cde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.32, y: 0.32}
@@ -963,7 +984,7 @@ Transform:
   m_GameObject: {fileID: 1252196682}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.104, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1141,7 +1162,8 @@ MonoBehaviour:
   wayPointPos1: {x: 0, y: 0}
   wayPointPos2: {x: 0, y: 0}
   direction: {x: 1, y: 0}
-  sRen: {fileID: 1252196683}
+  sRen: {fileID: 1252196682}
+  offset: -0.104
 --- !u!1 &1703654498
 GameObject:
   m_ObjectHideFlags: 0
