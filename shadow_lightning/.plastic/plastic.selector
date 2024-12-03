@@ -1,4 +1,0 @@
-repository "shadow_lightning/shadow_lightning@2413000@cloud"
-  path "/"
-    br "/main"
-    co "/main"
