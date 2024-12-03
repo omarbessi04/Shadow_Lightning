@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     public Vector2 wayPointPos1;
     public Vector2 wayPointPos2;
 
-    private bool goingRight;
+    public bool goingRight;
 
     public Vector2 direction = new Vector2(1, 0);
 
@@ -22,6 +22,12 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (goingRight == false)
+        {
+            speed = speed * -1;
+            sRen.GetComponent<SpriteRenderer>().flipX = true;
+            sRen.transform.localPosition = new Vector3(offset, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
+        }
         wayPointPos1 = wayPoint1.position;
         wayPointPos2 = wayPoint2.position;
     }
@@ -36,8 +42,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 goingRight = false;
                 speed = speed * -1;
-                sRen.GetComponent<SpriteRenderer>().flipX = false;
-                sRen.transform.localPosition = new Vector3(0, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
+                sRen.GetComponent<SpriteRenderer>().flipX = true;
+                sRen.transform.localPosition = new Vector3(offset, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
             }
         }
         else
@@ -48,8 +54,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 goingRight = true;
                 speed = speed * -1;
-                sRen.GetComponent<SpriteRenderer>().flipX = true;
-                sRen.transform.localPosition = new Vector3(offset, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
+                sRen.GetComponent<SpriteRenderer>().flipX = false;
+                sRen.transform.localPosition = new Vector3(0, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
             }
         }
         
