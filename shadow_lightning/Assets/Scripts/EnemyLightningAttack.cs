@@ -67,6 +67,14 @@ public class EnemyLightningAttack : MonoBehaviour
     public void Attack()
     {
         Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
+        if (playerDirection.x > 0)
+        {
+            playerDirection = new Vector2(1, 0);
+        }
+        else
+        {
+            playerDirection = new Vector2(-1, 0);
+        }
         lightningAttack.GetComponent<ElectricAttack>().direction = new Vector2(playerDirection.x, 0);
         Instantiate(lightningAttack, marker2D.position, quaternion.identity);
     }

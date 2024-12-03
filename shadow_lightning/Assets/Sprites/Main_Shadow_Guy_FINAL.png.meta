@@ -105,7 +105,7 @@ TextureImporter:
         width: 17
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -113,6 +113,69 @@ TextureImporter:
       bones: []
       spriteID: 77c72a6ceef80bc4b856cdea214f172f
       internalID: -1882602704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_Shadow_Guy_FINAL_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80d264341aa69648a57397db1890f67
+      internalID: 1930379132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_Shadow_Guy_FINAL_2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 0
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa0a489de3b9d542881470fdc21d588
+      internalID: 1352165829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_Shadow_Guy_FINAL_3
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 0
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12024c4080e5cd43bccfdcc508ea673
+      internalID: -1770903204
       vertices: []
       indices: 
       edges: []
@@ -129,6 +192,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Main_Shadow_Guy_FINAL_0: -1882602704
+      Main_Shadow_Guy_FINAL_1: 1930379132
+      Main_Shadow_Guy_FINAL_2: 1352165829
+      Main_Shadow_Guy_FINAL_3: -1770903204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
