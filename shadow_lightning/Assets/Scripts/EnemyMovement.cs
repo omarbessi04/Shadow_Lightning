@@ -36,8 +36,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 goingRight = false;
                 speed = speed * -1;
-                sRen.GetComponent<SpriteRenderer>().flipX = true;
-                sRen.transform.localPosition.x = offset;
+                sRen.GetComponent<SpriteRenderer>().flipX = false;
+                sRen.transform.localPosition = new Vector3(0, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
             }
         }
         else
@@ -48,8 +48,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 goingRight = true;
                 speed = speed * -1;
-                sRen.GetComponent<SpriteRenderer>().flipX = false;
-                sRen.transform.localPosition.x = 0;
+                sRen.GetComponent<SpriteRenderer>().flipX = true;
+                sRen.transform.localPosition = new Vector3(offset, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
             }
         }
         
