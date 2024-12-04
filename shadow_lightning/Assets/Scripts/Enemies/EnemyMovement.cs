@@ -34,6 +34,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool moveTowardsPlayer = false;
     public bool shouldMove = false;
+
+    public bool flippedRight = true;
     
     // Start is called before the first frame update
     void Start()
@@ -42,8 +44,7 @@ public class EnemyMovement : MonoBehaviour
         if (goingRight == false)
         {
             direction = new Vector2(direction.x * -1, direction.y);
-            sRen.GetComponent<SpriteRenderer>().flipX = true;
-            sRen.transform.localPosition = new Vector3(offset, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
+            flipX(true);
         }
         wayPointPos1 = wayPoint1.position;
         wayPointPos2 = wayPoint2.position;
@@ -84,9 +85,7 @@ public class EnemyMovement : MonoBehaviour
                 {
                     goingRight = false;
                     direction = new Vector2(direction.x * -1, direction.y);
-                    sRen.GetComponent<SpriteRenderer>().flipX = true;
-                    sRen.transform.localPosition = new Vector3(offset, sRen.transform.localPosition.y,
-                        sRen.transform.localPosition.z);
+                    flipX(true);
                 }
             }
             else
@@ -97,9 +96,7 @@ public class EnemyMovement : MonoBehaviour
                 {
                     goingRight = true;
                     direction = new Vector2(direction.x * -1, direction.y);
-                    sRen.GetComponent<SpriteRenderer>().flipX = false;
-                    sRen.transform.localPosition =
-                        new Vector3(0, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
+                    flipX(false);
                 }
             }
             if (controller.collisions.above || controller.collisions.below) {
@@ -150,12 +147,17 @@ public class EnemyMovement : MonoBehaviour
             sRen.GetComponent<SpriteRenderer>().flipX = true;
             sRen.transform.localPosition = new Vector3(offset, sRen.transform.localPosition.y,
                 sRen.transform.localPosition.z);
+            flippedRight = false;
+
+
         }
         else
         {
             sRen.GetComponent<SpriteRenderer>().flipX = false;
             sRen.transform.localPosition =
                 new Vector3(0, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
+            flippedRight = true;
+
         }
             
     }

@@ -6,16 +6,19 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovement))]
 public class EnemySwordAttack : MonoBehaviour
 {
+    public float damage = 1f;
     public bool inRange = false;
     public float attackCooldown;
     public EnemyDetection enemyDetect;
-    public GameObject lightningAttack; 
     private GameObject Player = null;
     private EnemyMovement Movement;
     public Animator Animator;
 
     public Transform marker2D;
-    private bool isAttacking = false; 
+    private bool isAttacking = false;
+
+    public bool playerHit = false;
+    public bool playerInAttack;
 
     void Start()
     {
@@ -73,28 +76,20 @@ public class EnemySwordAttack : MonoBehaviour
         }
         isAttacking = false; 
     }
-
-    public void setProjectileDirection()
-    {
-        Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
-        if (playerDirection.x > 0)
-        {
-            playerDirection = new Vector2(1, 0);
-        }
-        else
-        {
-            playerDirection = new Vector2(-1, 0);
-        }
-        lightningAttack.GetComponent<ElectricAttack>().direction = new Vector2(playerDirection.x, 0);
-    }
+    
 
     public void AnimationReset()
     {
         Animator.SetBool("Attacking", false);
+        playerHit = false;
     }
 
     public void Attack()
     {
-        Instantiate(lightningAttack, marker2D.position, quaternion.identity);
+        if (!playerHit && playerInAttack)
+        {
+            GameManager.instance.heartSystem.TakeDamage(damage);
+            playerHit = true;
+        }
     }
 }

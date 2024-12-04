@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemySwordAttackRange : MonoBehaviour
 {
    public EnemySwordAttack EnemySwordAttack;
+   public bool Left;
 
    private void OnTriggerEnter2D(Collider2D other)
    {
