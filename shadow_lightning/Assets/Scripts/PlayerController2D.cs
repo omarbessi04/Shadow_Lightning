@@ -114,9 +114,6 @@ public class PlayerController2D : RaycastController
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY,Color.red);
 
 			if (hit) {
-				Debug.Log("Just Got Hit");
-				Debug.Log($"{hit.collider}: {hit.collider.tag}");
-
 				if (hit.collider.tag == "Through") {
 					Debug.Log("Collider is 'though' ");
 					if (directionY == 1 || hit.distance == 0) {
