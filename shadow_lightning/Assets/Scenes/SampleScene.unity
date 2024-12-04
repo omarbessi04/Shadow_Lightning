@@ -178,6 +178,103 @@ MonoBehaviour:
   - {fileID: 205234786}
   - {fileID: 1948688670}
   Health: 3
+--- !u!1 &81304800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81304801}
+  - component: {fileID: 81304803}
+  - component: {fileID: 81304802}
+  m_Layer: 0
+  m_Name: SwordAttackHitboxLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &81304801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81304800}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.211, y: 0.014000006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2332541940377271701}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &81304802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81304800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13451347b4b69c441b6f91aa70b743c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemySwordAttack: {fileID: 7933663606838453124}
+  Left: 1
+  EnemyMovement: {fileID: 7889270340628100907}
+--- !u!68 &81304803
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81304800}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.42701775, y: 0.10662256}
+  - {x: -0.42372015, y: 0.036892485}
+  - {x: -0.33012715, y: 0.017105205}
+  - {x: -0.0665416, y: -0.11201225}
+  - {x: 0.06786085, y: -0.23154512}
+  - {x: 0.18123989, y: -0.07909435}
+  - {x: 0.17719913, y: 0.060391188}
+  - {x: 0.026822686, y: 0.19849953}
+  - {x: -0.2744641, y: 0.2021679}
+  - {x: -0.4273913, y: 0.10445888}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &93529091
 GameObject:
   m_ObjectHideFlags: 0
@@ -9631,11 +9728,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7809974542567793698, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.893
+      value: 1.481
       objectReference: {fileID: 0}
     - target: {fileID: 9118082366932578054, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.486
+      value: -0.854
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15687,11 +15784,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7809974542567793698, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.915
+      value: 0.622
       objectReference: {fileID: 0}
     - target: {fileID: 9118082366932578054, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.343
+      value: -1.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15725,7 +15822,7 @@ Transform:
   m_GameObject: {fileID: 1736995772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 0, z: 0}
+  m_LocalPosition: {x: -0.15, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15744,6 +15841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemySwordAttack: {fileID: 7933663606838453124}
+  Left: 0
 --- !u!58 &1736995775
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15776,9 +15874,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06815948, y: 0.055766825}
+  m_Offset: {x: 0.056737408, y: 0.055766806}
   serializedVersion: 2
-  m_Radius: 0.28188968
+  m_Radius: 0.20976643
 --- !u!1 &1768172291
 GameObject:
   m_ObjectHideFlags: 0
@@ -15959,6 +16057,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948688668}
   m_CullTransparentMesh: 1
+--- !u!1 &2043469626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043469627}
+  - component: {fileID: 2043469629}
+  - component: {fileID: 2043469628}
+  m_Layer: 0
+  m_Name: SwordAttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043469627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043469626}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.094, y: 0.014, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2332541940377271701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043469628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043469626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13451347b4b69c441b6f91aa70b743c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemySwordAttack: {fileID: 7933663606838453124}
+  Left: 0
+  EnemyMovement: {fileID: 7889270340628100907}
+--- !u!68 &2043469629
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043469626}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.42701775, y: 0.10662256}
+  - {x: -0.42372015, y: 0.036892485}
+  - {x: -0.33012715, y: 0.017105205}
+  - {x: -0.0665416, y: -0.11201225}
+  - {x: 0.06786085, y: -0.23154512}
+  - {x: 0.18123989, y: -0.07909435}
+  - {x: 0.17719913, y: 0.060391188}
+  - {x: 0.026822686, y: 0.19849953}
+  - {x: -0.2744641, y: 0.2021679}
+  - {x: -0.4273913, y: 0.10445888}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!114 &2081530060 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 358594136616584110, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
@@ -15979,7 +16174,7 @@ Transform:
   m_GameObject: {fileID: 1227814527079165939}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.132, y: 0, z: 0}
+  m_LocalPosition: {x: 1.802, y: 0, z: 0}
   m_LocalScale: {x: 0.14285713, y: 0.14285713, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16062,7 +16257,7 @@ Transform:
   m_GameObject: {fileID: 2873098623065095336}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.083, y: 0, z: 0}
+  m_LocalPosition: {x: -0.444, y: 0, z: 0}
   m_LocalScale: {x: 0.14285713, y: 0.14285713, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16093,7 +16288,7 @@ Transform:
   m_GameObject: {fileID: 5058982637776538420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.256, y: -2.455, z: 0}
+  m_LocalPosition: {x: -4.256, y: -2.15, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16101,6 +16296,8 @@ Transform:
   - {fileID: 425362099189878951}
   - {fileID: 5876482202625434075}
   - {fileID: 1736995773}
+  - {fileID: 2043469627}
+  - {fileID: 81304801}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2844599255426316549
@@ -16244,7 +16441,7 @@ Transform:
   m_GameObject: {fileID: 5068516981795790929}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.1017143, y: -0.021714311, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16337,6 +16534,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   moveTowardsPlayer: 1
   shouldMove: 1
+  flippedRight: 1
 --- !u!114 &7933663606838453123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16366,12 +16564,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fb785ed1d847f4ebdbbeb156304261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
   inRange: 0
   attackCooldown: 3
   enemyDetect: {fileID: 5663867207197167244}
-  lightningAttack: {fileID: 5058982637776538420}
   Animator: {fileID: 7933663606838453126}
   marker2D: {fileID: 3465222793586582095}
+  playerHit: 0
+  playerInAttack: 0
 --- !u!212 &7933663606838453125
 SpriteRenderer:
   m_ObjectHideFlags: 0
