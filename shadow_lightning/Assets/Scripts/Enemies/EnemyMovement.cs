@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyDetection))]
 public class EnemyMovement : MonoBehaviour
 {
+    public float waitTime = 3f;
     public float speed;
     private EnemyMovementController controller;
     public bool idle = true;
@@ -121,7 +122,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator idleWait()
     {
         waiting = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(waitTime);
 
         if (enemyDetection.Detected == false)
         {
