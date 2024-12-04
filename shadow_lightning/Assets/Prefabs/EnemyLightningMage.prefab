@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 358594136616584110}
   - component: {fileID: 3592631883180825419}
   - component: {fileID: 1032769932543400991}
+  - component: {fileID: -8674034171054352634}
   - component: {fileID: 5692445575950028160}
   - component: {fileID: 4621609973873631760}
   - component: {fileID: 7071443362726475564}
@@ -55,6 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  controller: {fileID: -8674034171054352634}
   idle: 1
   wayPoint1: {fileID: 7809974542567793698}
   wayPoint2: {fileID: 9118082366932578054}
@@ -64,6 +66,7 @@ MonoBehaviour:
   direction: {x: 1, y: 0}
   sRen: {fileID: 3446194569404830932}
   offset: -0.104
+  waiting: 0
 --- !u!61 &3592631883180825419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,6 +125,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeEnemy: Mage
+--- !u!114 &-8674034171054352634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436447740072198065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5b886ae5f192643a8c6266c963676f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 8
+  horizontalRayCount: 4
+  verticalRayCount: 4
 --- !u!50 &5692445575950028160
 Rigidbody2D:
   serializedVersion: 4

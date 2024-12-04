@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void HandleWallSliding() {
 		wallDirX = (controller.collisions.left) ? -1 : 1;
-		wallSliding = false;
+
 		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
 			wallSliding = true;
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
+    private EnemyMovementController controller;
     public bool idle = true;
     
     public Transform wayPoint1;
@@ -25,6 +26,8 @@ public class EnemyMovement : MonoBehaviour
     private EnemyDetection enemyDetection;
     public bool waiting = false;
     private Coroutine idleCoroutine; 
+    public float Gravity = -20f;
+    public Vector2 velocity;
     
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,7 @@ public class EnemyMovement : MonoBehaviour
         }
         wayPointPos1 = wayPoint1.position;
         wayPointPos2 = wayPoint2.position;
+        controller = GetComponent<EnemyMovementController>();
     }
 
     void FixedUpdate()
@@ -86,8 +90,12 @@ public class EnemyMovement : MonoBehaviour
                         new Vector3(0, sRen.transform.localPosition.y, sRen.transform.localPosition.z);
                 }
             }
-
-            transform.Translate(direction * Time.deltaTime * speed);
+            if (controller.collisions.above || controller.collisions.below) {
+                velocity.y = 0;
+            }
+            velocity.y += Gravity * Time.deltaTime;
+            velocity.x = direction.x * speed;
+            controller.Move (velocity * Time.deltaTime);
         }
     }
 
