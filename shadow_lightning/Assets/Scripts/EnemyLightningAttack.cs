@@ -20,6 +20,7 @@ public class EnemyLightningAttack : MonoBehaviour
     {
         Movement = GetComponent<EnemyMovement>();
     }
+    
 
     void FixedUpdate()
     {
@@ -31,13 +32,16 @@ public class EnemyLightningAttack : MonoBehaviour
         if (enemyDetect.Detected)
         {
             float distanceToPlayer = (transform.position.x - Player.transform.position.x);
-            if (distanceToPlayer > 0)
+            if (Animator.GetBool("Attacking") == false)
             {
-                Movement.flipX(true);
-            }
-            else
-            {
-                Movement.flipX(false);
+                if (distanceToPlayer > 0)
+                {
+                    Movement.flipX(true);
+                }
+                else
+                {
+                    Movement.flipX(false);
+                }
             }
         }
 
@@ -46,6 +50,7 @@ public class EnemyLightningAttack : MonoBehaviour
             StartCoroutine(AttackRoutine());
         }
     }
+    
 
     IEnumerator AttackRoutine()
     {
@@ -59,12 +64,7 @@ public class EnemyLightningAttack : MonoBehaviour
         isAttacking = false; 
     }
 
-    public void AnimationReset()
-    {
-        Animator.SetBool("Attacking", false);
-    }
-
-    public void Attack()
+    public void setProjectileDirection()
     {
         Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
         if (playerDirection.x > 0)
@@ -76,6 +76,15 @@ public class EnemyLightningAttack : MonoBehaviour
             playerDirection = new Vector2(-1, 0);
         }
         lightningAttack.GetComponent<ElectricAttack>().direction = new Vector2(playerDirection.x, 0);
+    }
+
+    public void AnimationReset()
+    {
+        Animator.SetBool("Attacking", false);
+    }
+
+    public void Attack()
+    {
         Instantiate(lightningAttack, marker2D.position, quaternion.identity);
     }
 }

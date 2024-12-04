@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 4621609973873631760}
   - component: {fileID: 7071443362726475564}
   - component: {fileID: 7401650925402644486}
-  m_Layer: 8
+  - component: {fileID: 2819169613097531913}
+  m_Layer: 0
   m_Name: EnemyLightningMage
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -39,7 +40,6 @@ Transform:
   - {fileID: 9118082366932578054}
   - {fileID: 7809974542567793698}
   - {fileID: 4037722846881682782}
-  - {fileID: 4381395020734865111}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &358594136616584110
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 3
-  enemyDetect: {fileID: 2067610361642181196}
+  enemyDetect: {fileID: 2819169613097531913}
   lightningAttack: {fileID: 9009821393777345795, guid: 2d36a686e9fbd3f49b7ca5629a280848, type: 3}
   Animator: {fileID: 7401650925402644486}
   marker2D: {fileID: 6454602890708833994}
@@ -200,6 +200,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2819169613097531913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436447740072198065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1493841998a674642a0f4b97bf9925e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Detected: 0
+  enemyMovement: {fileID: 358594136616584110}
+  detectionRange: 100
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3446194569404830932
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,98 +334,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5321971001047337232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6061941728324574813
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4381395020734865111}
-  - component: {fileID: 1286022336269680464}
-  - component: {fileID: 2067610361642181196}
-  m_Layer: 0
-  m_Name: detectionRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4381395020734865111
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6061941728324574813}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.168, y: 0, z: 0}
-  m_LocalScale: {x: 0.14285713, y: 0.14285713, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5321971001047337232}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1286022336269680464
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6061941728324574813}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.4282317, y: -0.012809396}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 9.13388, y: 2.0759776}
-  m_EdgeRadius: 0
---- !u!114 &2067610361642181196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6061941728324574813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1493841998a674642a0f4b97bf9925e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Detected: 0
-  enemyMovement: {fileID: 358594136616584110}
 --- !u!1 &8409729429733362640
 GameObject:
   m_ObjectHideFlags: 0

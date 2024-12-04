@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 710244826591839105}
   - component: {fileID: 4783747052847306655}
   - component: {fileID: 4879506683048021007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MagePlayer
   m_TagString: PlayerEnemy
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 653279068959073253}
   - component: {fileID: 1044568578138636225}
   - component: {fileID: 2878588973012181858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sRen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
