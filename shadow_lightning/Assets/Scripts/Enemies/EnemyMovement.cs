@@ -28,6 +28,11 @@ public class EnemyMovement : MonoBehaviour
     private Coroutine idleCoroutine; 
     public float Gravity = -20f;
     public Vector2 velocity;
+
+    private GameObject Player = null;
+
+    public bool moveTowardsPlayer = false;
+    public bool shouldMove = false;
     
     // Start is called before the first frame update
     void Start()
@@ -46,12 +51,17 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (enemyDetection.Detected && Player == null)
+        {
+            Player = GameObject.FindWithTag("PlayerEnemy");
+        }
         if (enemyDetection.Detected)
         {
             idle = false;
             
             if (idleCoroutine != null)
             {
+                shouldMove = true;
                 StopCoroutine(idleCoroutine);
                 idleCoroutine = null;
                 waiting = false;
@@ -59,6 +69,7 @@ public class EnemyMovement : MonoBehaviour
         }
         if (idle == false && enemyDetection.Detected == false && waiting == false)
         {
+            shouldMove = false;
             idleCoroutine = StartCoroutine(idleWait());
         }
         if (idle)
@@ -97,6 +108,14 @@ public class EnemyMovement : MonoBehaviour
             velocity.x = direction.x * speed;
             controller.Move (velocity * Time.deltaTime);
         }
+
+        if (moveTowardsPlayer && shouldMove && idle == false)
+        {
+            Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
+            velocity.y += Gravity * Time.deltaTime;
+            velocity.x = playerDirection.x * speed;
+            controller.Move (velocity * Time.deltaTime);
+        }
     }
 
     IEnumerator idleWait()
@@ -107,6 +126,7 @@ public class EnemyMovement : MonoBehaviour
         if (enemyDetection.Detected == false)
         {
             idle = true;
+            shouldMove = true;
 
             if (goingRight)
             {

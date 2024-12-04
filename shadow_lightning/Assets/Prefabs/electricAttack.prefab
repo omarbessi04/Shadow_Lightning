@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2086942887699671487}
   - component: {fileID: 8933071882153224658}
   - component: {fileID: 3177061310301722492}
+  - component: {fileID: 4337991454423300803}
   m_Layer: 0
   m_Name: electricAttack
   m_TagString: Untagged
@@ -146,3 +147,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08125469, y: 0.08125466}
   m_EdgeRadius: 0
+--- !u!95 &4337991454423300803
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9009821393777345795}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75cf1f697479ee9478111c2c224c42a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
