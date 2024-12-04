@@ -32,7 +32,9 @@ public class EnemySwordAttack : MonoBehaviour
 
         if (enemyDetect.Detected)
         {
-            float distanceToPlayer = (transform.position.x - Player.transform.position.x);
+            if (Animator.GetBool("Attacking") == false)
+            {
+                float distanceToPlayer = (transform.position.x - Player.transform.position.x);
                 if (distanceToPlayer > 0)
                 {
                     Movement.flipX(true);
@@ -41,7 +43,7 @@ public class EnemySwordAttack : MonoBehaviour
                 {
                     Movement.flipX(false);
                 }
-            
+            }
 
             if (inRange)
             {
