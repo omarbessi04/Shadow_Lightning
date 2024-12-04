@@ -44,11 +44,15 @@ public class EnemySwordAttack : MonoBehaviour
                     Movement.flipX(false);
                 }
             }
-
-            if (inRange)
-            {
-                Movement.moveTowardsPlayer = false;
-            }
+        }
+        
+        if (inRange)
+        {
+            Movement.moveTowardsPlayer = false;
+        }
+        else
+        {
+            Movement.moveTowardsPlayer = true;
         }
 
         if (enemyDetect.Detected && !isAttacking && inRange)
@@ -61,7 +65,7 @@ public class EnemySwordAttack : MonoBehaviour
     IEnumerator AttackRoutine()
     {
         isAttacking = true; 
-        while (enemyDetect.Detected)
+        while (enemyDetect.Detected && inRange)
         {
             Animator.SetBool("Attacking", true);
             yield return new WaitForSeconds(attackCooldown);
