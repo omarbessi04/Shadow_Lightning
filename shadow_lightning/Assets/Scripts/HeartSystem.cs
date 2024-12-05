@@ -15,6 +15,12 @@ public class HeartSystem : MonoBehaviour
         GameManager.instance.heartSystem = this;
     }
 
+    private void Update() {
+        if (Health < 1){
+            SceneTransitionScript.instance.TeleportTo("GameOver");
+        }
+    }
+
     public void TakeDamage(float damage)
     {
         Health -= damage;
