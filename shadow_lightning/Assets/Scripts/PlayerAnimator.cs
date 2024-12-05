@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
@@ -7,7 +8,19 @@ public class PlayerAnimator : MonoBehaviour
    public float offset;
 
    public bool lookingRight = true;
-    
+
+
+   private void Start()
+   {
+      if (lookingRight == false)
+      {
+         sRen.flipX = true;
+         if (offset != 0)
+         {
+            transform.localPosition = new Vector3(offset, transform.localPosition.y, transform.localPosition.z);
+         }
+      }
+   }
 
    void Update()
    {

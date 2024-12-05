@@ -54,7 +54,6 @@ MonoBehaviour:
   maxJumpHeight: 4
   minJumpHeight: 1
   timeToJumpApex: 0.4
-  moveSpeed: 6
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 1}
   wallLeap: {x: 0, y: 0}
@@ -126,7 +125,9 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
+  maxSlopeAngle: 80
   playerInput: {x: 0, y: 0}
+  onPlatform: 0
 --- !u!114 &710244826591839105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mageAttack: {fileID: 4665979439306034115, guid: c79816b2bdb238c4e98986308eda540e, type: 3}
   playerAnimator: {fileID: 2878588973012181858}
-  cooldown: 0.5
+  cooldown: 0.1
   markerRight: {fileID: 7711596627094824972}
   markerLeft: {fileID: 8055984560371036225}
 --- !u!95 &5187365227967791879
