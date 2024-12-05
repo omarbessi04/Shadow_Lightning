@@ -32,38 +32,6 @@ AnimationClip:
       value: {fileID: 1640651518, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
     - time: 0.41666666
       value: {fileID: -1235643268, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 0.5
-      value: {fileID: 1131499298, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 0.5833333
-      value: {fileID: 1306190664, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 0.6666667
-      value: {fileID: 542394929, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 0.75
-      value: {fileID: 2147147380, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 0.8333333
-      value: {fileID: 383056387, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 0.9166667
-      value: {fileID: -1687307192, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1
-      value: {fileID: -1822484615, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.0833334
-      value: {fileID: 598292201, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.1666666
-      value: {fileID: -438638165, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.25
-      value: {fileID: -1984860056, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.3333334
-      value: {fileID: -301425460, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.4166666
-      value: {fileID: 1899622989, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.5
-      value: {fileID: 774289459, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.5833334
-      value: {fileID: 888526342, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.6666666
-      value: {fileID: 1960845463, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - time: 1.75
-      value: {fileID: 975689974, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -92,33 +60,17 @@ AnimationClip:
     - {fileID: -433646226, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
     - {fileID: 1640651518, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
     - {fileID: -1235643268, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 1131499298, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 1306190664, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 542394929, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 2147147380, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 383056387, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: -1687307192, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: -1822484615, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 598292201, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: -438638165, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: -1984860056, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: -301425460, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 1899622989, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 774289459, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 888526342, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 1960845463, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
-    - {fileID: 975689974, guid: d06b503c38f4ffc47bd7c64148868797, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.8333334
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -133,8 +85,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.75
-    functionName: 
+  - time: 0
+    functionName: MoveUp
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
