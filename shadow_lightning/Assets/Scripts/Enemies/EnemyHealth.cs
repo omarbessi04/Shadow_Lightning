@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float Health = 3f;
+    public SpriteRenderer mySprite;
     private EnemyMovement EnemyMovement;
 
     private void Start()
@@ -17,10 +18,18 @@ public class EnemyHealth : MonoBehaviour
     {
         EnemyMovement.idle = false;
         Health -= Damage;
+       StartCoroutine(ChangeColor());
         if (Health <= 0)
         {
             GameManager.instance.alive_enemy_count -= 1;
             Destroy(gameObject);
         }
+    
+    }
+
+    private IEnumerator ChangeColor(){
+        mySprite.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        mySprite.color = Color.white;
     }
 }
