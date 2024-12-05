@@ -11,6 +11,8 @@ public class PossessController : MonoBehaviour
     public Collider2D enemyToPossess;
     public Transform Spawner;
     private PlayerController2D controller2D;
+    private Animator Animator;
+    private bool turningRight;
 
     public GameObject mage;
     public GameObject sword;
@@ -24,6 +26,7 @@ public class PossessController : MonoBehaviour
 
     private void Start()
     {
+        Animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -33,22 +36,44 @@ public class PossessController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 GameManager.instance.alive_enemy_count -= 1;
-                possess();
+                enemyToPossess.GameObject().GetComponent<EnemyMovement>().speed = 0;
+                enemyToPossess.GameObject().GetComponent<EnemyMovement>().idle = false;
+                enemyToPossess.GameObject().GetComponent<EnemyMovement>().shouldMove = false;
+
+                if (enemyToPossess.GameObject().GetComponent<EnemyMovement>().flippedRight)
+                {
+                    turningRight = true;
+                }
+                else
+                {
+                    turningRight = false;
+                }
+                Animator.SetBool("Possessing", true);
+                
             }
         }
     }
-
-    void possess()
+    
+    public void possess()
     {
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
         enemyToPossess.GameObject().SetActive(false);
 
         if (enemyType == "Mage")
         {
+            if (turningRight == false)
+            {
+                mage.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
+            }
+
             Instantiate(mage, Spawner.position, Quaternion.identity);
         }
         else if (enemyType == "Sword")
         {
+            if (turningRight == false)
+            {
+                sword.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
+            }
             Instantiate(sword, Spawner.position, Quaternion.identity);
         }
         audioManager.SwitchMusic(audioManager.BattleMusic);
