@@ -8,11 +8,11 @@ using UnityEngine;
 public class PossessController : MonoBehaviour
 {
     public bool canPossess = false;
-    public Collider2D enemyToPossess;
+    public Collider2D enemyToPossess = null;
     public Transform Spawner;
     private PlayerController2D controller2D;
     private Animator Animator;
-    private bool turningRight;
+    public bool turningRight;
 
     public GameObject mage;
     public GameObject sword;
@@ -35,11 +35,9 @@ public class PossessController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                GameManager.instance.alive_enemy_count -= 1;
-                enemyToPossess.GameObject().GetComponent<EnemyMovement>().speed = 0;
-                enemyToPossess.GameObject().GetComponent<EnemyMovement>().idle = false;
-                enemyToPossess.GameObject().GetComponent<EnemyMovement>().shouldMove = false;
-
+                GetComponent<PlayerController2D>().enabled = false;
+                GetComponent<PlayerMovement>().enabled = false;
+                canPossess = false;
                 if (enemyToPossess.GameObject().GetComponent<EnemyMovement>().flippedRight)
                 {
                     turningRight = true;
@@ -48,6 +46,13 @@ public class PossessController : MonoBehaviour
                 {
                     turningRight = false;
                 }
+                print(turningRight);
+                GameManager.instance.alive_enemy_count -= 1;
+                enemyToPossess.GameObject().GetComponent<EnemyMovement>().speed = 0;
+                enemyToPossess.GameObject().GetComponent<EnemyMovement>().idle = false;
+                enemyToPossess.GameObject().GetComponent<EnemyMovement>().shouldMove = false;
+                
+
                 Animator.SetBool("Possessing", true);
                 
             }
@@ -70,6 +75,7 @@ public class PossessController : MonoBehaviour
         }
         else if (enemyType == "Sword")
         {
+            print(turningRight);
             if (turningRight == false)
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
@@ -83,18 +89,38 @@ public class PossessController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (!Animator.GetBool("Possessing"))
         {
-            canPossess = true;
-            enemyToPossess = other;
+            if (other.tag == "Enemy")
+            {
+                canPossess = true;
+                if (enemyToPossess == null)
+                {
+                    enemyToPossess = other;
+                }
+            }
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
-        {
-            canPossess = false;
-            enemyToPossess = null;
+        if (!Animator.GetBool("Possessing")){
+            if (other.tag == "Enemy")
+            {
+                if (enemyToPossess != null)
+                {
+                    if (enemyToPossess == other)
+                    {
+                        enemyToPossess = null;
+                        canPossess = false;
+                    }
+                }
+                else
+                {
+                    canPossess = false;
+                    enemyToPossess = null;
+                }
+            }
         }
     }
 }

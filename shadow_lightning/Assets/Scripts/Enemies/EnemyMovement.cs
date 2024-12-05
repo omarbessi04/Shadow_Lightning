@@ -47,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
         if (goingRight == false)
         {
             direction = new Vector2(direction.x * -1, direction.y);
+            
             flipX(true);
         }
         wayPointPos1 = wayPoint1.position;
