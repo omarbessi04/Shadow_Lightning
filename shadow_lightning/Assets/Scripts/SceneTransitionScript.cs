@@ -20,11 +20,9 @@ public class SceneTransitionScript : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if(!other.CompareTag("PlayerEnemy")) return;
 
-        if(!other.CompareTag("Player")) return;
-
-        if (GameManager.instance.alive_enemy_count > 1) return;
-                  
+        if (GameManager.instance.alive_enemy_count != 0) return;
         GameManager.instance.transitionedFromScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(trantitionTo);
 

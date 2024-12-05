@@ -30,6 +30,7 @@ public class PossessController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                GameManager.instance.alive_enemy_count -= 1;
                 possess();
             }
         }
