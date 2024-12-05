@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
 	float velocityXSmoothing;
 
 	PlayerController2D controller;
+	private Animator Animator;
 
 	Vector2 directionalInput;
 	bool wallSliding;
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start()
 	{
+		Animator = GetComponent<Animator>();
 		controller = GetComponent<PlayerController2D> ();
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -49,6 +51,9 @@ public class PlayerMovement : MonoBehaviour {
 	void Update() {
 		CalculateVelocity ();
 		HandleWallSliding ();
+		
+		Animator.SetFloat("yVelocity", velocity.y);
+		Animator.SetFloat("xVelocity", Mathf.Abs(velocity.x));
 
 		controller.Move (velocity * Time.deltaTime, directionalInput);
 
