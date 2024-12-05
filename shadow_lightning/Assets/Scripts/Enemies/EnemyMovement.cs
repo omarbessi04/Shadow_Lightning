@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,8 @@ public class EnemyMovement : MonoBehaviour
     public bool moveTowardsPlayer = false;
     public bool shouldMove = false;
 
+    public Animator Animator = null;
+
     public bool flippedRight = true;
     
     // Start is called before the first frame update
@@ -53,6 +56,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        Animator.SetFloat("Xvelocity", MathF.Abs(velocity.x));
         if (enemyDetection.Detected && Player == null)
         {
             Player = GameObject.FindWithTag("PlayerEnemy");
@@ -113,6 +117,10 @@ public class EnemyMovement : MonoBehaviour
             velocity.y += Gravity * Time.deltaTime;
             velocity.x = playerDirection.x * speed;
             controller.Move (velocity * Time.deltaTime);
+        }
+        else if ((!moveTowardsPlayer || !shouldMove) && idle == false)
+        {
+            velocity.x = 0;
         }
     }
 

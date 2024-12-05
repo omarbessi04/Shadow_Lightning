@@ -4,7 +4,9 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 
 	public PlayerController2D target;
-	public float verticalOffset;
+	private float verticalOffset;
+	public float verticalOffsetGround;
+	public float verticalOffsetOnPlatform;
 	public float lookAheadDstX;
 	public float lookSmoothTimeX;
 	public float verticalSmoothTime;
@@ -25,6 +27,14 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	void LateUpdate() {
+		if (target.onPlatform)
+		{
+			verticalOffset = verticalOffsetOnPlatform;
+		}
+		else
+		{
+			verticalOffset = verticalOffsetGround;
+		}
 		focusArea.Update (target.collider.bounds);
 
 		Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;

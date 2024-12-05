@@ -72,6 +72,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   moveTowardsPlayer: 0
   shouldMove: 0
+  Animator: {fileID: 7401650925402644486}
   flippedRight: 1
 --- !u!61 &3592631883180825419
 BoxCollider2D:
