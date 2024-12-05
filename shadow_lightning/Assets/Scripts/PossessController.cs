@@ -37,7 +37,7 @@ public class PossessController : MonoBehaviour
     {
         if (canPossess)
         {
-            if (!myCamEffects.ZIWorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
+            if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
             {
                 Debug.Log("I have decided to zoom in");
                 myCamEffects.StartZoom();
@@ -68,13 +68,12 @@ public class PossessController : MonoBehaviour
         }
         else
         {
-            checkCamera();
+            if(!myCamEffects.WorkingOnIt) checkCamera();
         }
     }
 
     private void checkCamera(){
-        if ((!myCamEffects.ZOWorkingOnIt) && (myCam.orthographicSize != myCamEffects.maxZoom)){
-            Debug.Log("I have decided to zoom out");
+        if (myCam.orthographicSize != myCamEffects.maxZoom){
             myCamEffects.StopZoom();
         }
     }

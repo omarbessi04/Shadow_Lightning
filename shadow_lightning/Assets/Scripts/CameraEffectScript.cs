@@ -10,8 +10,7 @@ public class CameraEffectScript : MonoBehaviour
     public float maxZoom = 8f;
     private float velocity = 0.1f;
     private float smoothTime = 0.25f;
-    public bool ZIWorkingOnIt = false;
-    public bool ZOWorkingOnIt = false;
+    public bool WorkingOnIt = false;
     private Coroutine currentCoroutine = null;
 
     [SerializeField] private Camera cam;
@@ -41,7 +40,7 @@ public class CameraEffectScript : MonoBehaviour
 
     private IEnumerator ZoomIn()
     {
-        ZIWorkingOnIt = true;
+        WorkingOnIt = true;
 
         while (Math.Abs(cam.orthographicSize - minZoom) > 0.01f)
         {
@@ -52,12 +51,12 @@ public class CameraEffectScript : MonoBehaviour
         }
 
         cam.orthographicSize = minZoom;
-        ZIWorkingOnIt = false;
+        WorkingOnIt = false;
     }
 
     private IEnumerator ZoomOut()
     {
-        ZOWorkingOnIt = true;
+        WorkingOnIt = true;
 
         while (Math.Abs(cam.orthographicSize - maxZoom) > 0.01f)
         {
@@ -68,6 +67,6 @@ public class CameraEffectScript : MonoBehaviour
         }
 
         cam.orthographicSize = maxZoom;
-        ZOWorkingOnIt = false;
+        WorkingOnIt = false;
     }
 }
