@@ -1,17 +1,15 @@
 using UnityEngine;
 using System.Collections;
-using System.Xml.Serialization;
 
 [RequireComponent (typeof (PlayerController2D))]
-public class PlayerMovement : MonoBehaviour
-{
-	
+public class PlayerMovement : MonoBehaviour {
+
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
-	float accelerationTimeGrounded = .2f;
-	public float moveSpeed = 6;
+	float accelerationTimeGrounded = .1f;
+	float moveSpeed = 6;
 
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
@@ -33,24 +31,9 @@ public class PlayerMovement : MonoBehaviour
 	bool wallSliding;
 	int wallDirX;
 
-	/// <summary>
-	/// Það þarf að gera þetta ef maður vill spila SFX í einhverju code file, sjá svo "audioManager.PlaySFX(audioManager.FunnyJumpExample);"
-
-	[Header("--- Omar Was Here ---")]
-	AudioManager audioManager;
-
-	private void Awake(){
-		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
-	}
-
-	/// </summary>
-
 	void Start()
 	{
-		
 		controller = GetComponent<PlayerController2D> ();
-		
-		GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>().target = controller;
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -64,18 +47,12 @@ public class PlayerMovement : MonoBehaviour
 		controller.Move (velocity * Time.deltaTime, directionalInput);
 
 		if (controller.collisions.above || controller.collisions.below) {
-			velocity.y = 0;
+			if (controller.collisions.slidingDownMaxSlope) {
+				velocity.y += controller.collisions.slopeNormal.y * -gravity * Time.deltaTime;
+			} else {
+				velocity.y = 0;
+			}
 		}
-	}
-
-	public void UpdateVariables(float _maxJumpHeight, float _minJumpHeight, float _timeToApex)
-	{
-		maxJumpHeight = _maxJumpHeight;
-		minJumpHeight = _minJumpHeight;
-		timeToJumpApex = _timeToApex;
-		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
-		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 	}
 
 	public void SetDirectionalInput (Vector2 input) {
@@ -83,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	public void OnJumpInputDown() {
-		audioManager.PlaySFX(audioManager.FunnyJumpExample);
 		if (wallSliding) {
 			if (wallDirX == directionalInput.x) {
 				velocity.x = -wallDirX * wallJumpClimb.x;
@@ -99,7 +75,14 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 		if (controller.collisions.below) {
-			velocity.y = maxJumpVelocity;
+			if (controller.collisions.slidingDownMaxSlope) {
+				if (directionalInput.x != -Mathf.Sign (controller.collisions.slopeNormal.x)) { // not jumping against max slope
+					velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
+					velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
+				}
+			} else {
+				velocity.y = maxJumpVelocity;
+			}
 		}
 	}
 
@@ -112,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void HandleWallSliding() {
 		wallDirX = (controller.collisions.left) ? -1 : 1;
-
+		wallSliding = false;
 		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
 			wallSliding = true;
 
@@ -141,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void CalculateVelocity() {
 		float targetVelocityX = directionalInput.x * moveSpeed;
-		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 		velocity.y += gravity * Time.deltaTime;
 	}
 }

@@ -9,9 +9,11 @@ public class PossessController : MonoBehaviour
 {
     public bool canPossess = false;
     public Collider2D enemyToPossess;
+    public Transform Spawner;
     private PlayerController2D controller2D;
 
     public GameObject mage;
+    public GameObject sword;
 
 	[Header("--- Omar Was Here ---")]
 	AudioManager audioManager;
@@ -42,7 +44,11 @@ public class PossessController : MonoBehaviour
 
         if (enemyType == "Mage")
         {
-            Instantiate(mage, transform.position, Quaternion.identity);
+            Instantiate(mage, Spawner.position, Quaternion.identity);
+        }
+        else if (enemyType == "Sword")
+        {
+            Instantiate(sword, Spawner.position, Quaternion.identity);
         }
         audioManager.SwitchMusic(audioManager.BattleMusic);
 
