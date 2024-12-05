@@ -677,6 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 3
+  mySprite: {fileID: 7738333891246611227}
 --- !u!114 &431513362797695051
 MonoBehaviour:
   m_ObjectHideFlags: 0
