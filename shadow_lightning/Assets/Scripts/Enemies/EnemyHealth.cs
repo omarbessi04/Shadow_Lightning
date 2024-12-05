@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
         Health -= Damage;
         if (Health <= 0)
         {
+            GameManager.instance.alive_enemy_count -= 1;
             Destroy(gameObject);
         }
     }
