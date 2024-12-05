@@ -9236,7 +9236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a91314466cd8446884e24062bda1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trantitionTo: Screen2
+  trantitionTo: MainMenu
   exitTime: 0
   startPoint: {fileID: 0}
   exitDirection: {x: 0, y: 0}
