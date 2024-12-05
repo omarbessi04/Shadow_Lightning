@@ -15,8 +15,12 @@ public class EnemyLightningAttack : MonoBehaviour
 
     public Transform marker2D;
     private bool isAttacking = false;
-
     private GameObject currentProjectile;
+    AudioManager audioManager;
+
+	private void Awake(){
+		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+	}
 
     void Start()
     {
@@ -50,6 +54,7 @@ public class EnemyLightningAttack : MonoBehaviour
         if (enemyDetect.Detected && !isAttacking)
         {
             StartCoroutine(AttackRoutine());
+            audioManager.PlaySFX(audioManager.ElectricZap);
         }
     }
     
