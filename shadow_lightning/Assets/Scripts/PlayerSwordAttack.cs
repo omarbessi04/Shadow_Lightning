@@ -12,6 +12,12 @@ public class PlayerSwordAttack : MonoBehaviour
     public List<GameObject> enemiesHit = new List<GameObject>();
     private float timer;
     public Animator Animator;
+    AudioManager audioManager;
+
+
+	private void Awake(){
+		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+	}
 
     private void Start()
     {
@@ -25,9 +31,11 @@ public class PlayerSwordAttack : MonoBehaviour
         {
             if (Animator.GetBool("Attacking") == false && timer < 0)
             {
+                audioManager.PlaySFX(audioManager.SwordHit);
                 Animator.SetBool("Attacking", true);
             }
         }
+        
     }
 
     void AttackDone()

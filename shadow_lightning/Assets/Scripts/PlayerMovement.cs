@@ -30,6 +30,12 @@ public class PlayerMovement : MonoBehaviour {
 	Vector2 directionalInput;
 	bool wallSliding;
 	int wallDirX;
+	AudioManager audioManager;
+
+	private void Awake(){
+		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+	}
+
 
 	void Start()
 	{
@@ -60,6 +66,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void OnJumpInputDown() {
+		audioManager.PlaySFX(audioManager.Jump);
 		if (wallSliding) {
 			if (wallDirX == directionalInput.x) {
 				velocity.x = -wallDirX * wallJumpClimb.x;

@@ -6,10 +6,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
 
-    [Header("--- Audio Clips ---")]
+    [Header("--- Music Clips ---")]
     public AudioClip SneakMusic;
     public AudioClip BattleMusic;
-    public AudioClip FunnyJumpExample;
+
+    [Header("--- SFX Clips ---")]
+    public AudioClip SwordHit;
+    public AudioClip ElectricZap; 
+    public AudioClip Jump;
 
     private void Start(){
         musicSource.clip = SneakMusic;

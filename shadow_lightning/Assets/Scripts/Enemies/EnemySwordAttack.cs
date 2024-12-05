@@ -19,6 +19,12 @@ public class EnemySwordAttack : MonoBehaviour
 
     public bool playerHit = false;
     public bool playerInAttack;
+    AudioManager audioManager;
+
+	private void Awake(){
+		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+	}
+
 
     void Start()
     {
@@ -60,7 +66,9 @@ public class EnemySwordAttack : MonoBehaviour
 
         if (enemyDetect.Detected && !isAttacking && inRange)
         {
+            audioManager.PlaySFX(audioManager.SwordHit);
             StartCoroutine(AttackRoutine());
+            
         }
     }
     

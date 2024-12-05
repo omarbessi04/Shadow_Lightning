@@ -13,6 +13,13 @@ public class PlayerMageAttack : MonoBehaviour
     private float timer;
     private Animator Animator;
 
+    AudioManager audioManager;
+
+	private void Awake(){
+		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+	}
+
+
     private void Start()
     {
         Animator = GetComponent<Animator>();
@@ -25,6 +32,7 @@ public class PlayerMageAttack : MonoBehaviour
         {
             if (Animator.GetBool("Attacking") == false && timer < 0)
             {
+                audioManager.PlaySFX(audioManager.ElectricZap);
                 Animator.SetBool("Attacking", true);
             }
         }
