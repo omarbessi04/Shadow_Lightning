@@ -2260,7 +2260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 708425013}
-  verticalOffset: 1
+  verticalOffsetGround: 2
+  verticalOffsetOnPlatform: 0
   lookAheadDstX: 1
   lookSmoothTimeX: 0.2
   verticalSmoothTime: 0.2
@@ -2464,6 +2465,7 @@ MonoBehaviour:
   collider: {fileID: 0}
   maxSlopeAngle: 80
   playerInput: {x: 0, y: 0}
+  onPlatform: 0
 --- !u!61 &708425014
 BoxCollider2D:
   m_ObjectHideFlags: 0
