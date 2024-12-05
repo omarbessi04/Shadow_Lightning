@@ -46,7 +46,7 @@ public class PossessController : MonoBehaviour
         }
         audioManager.SwitchMusic(audioManager.BattleMusic);
 
-        gameObject.active = false;
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

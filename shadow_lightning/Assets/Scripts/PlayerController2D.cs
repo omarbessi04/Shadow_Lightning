@@ -115,7 +115,6 @@ public class PlayerController2D : RaycastController
 
 			if (hit) {
 				if (hit.collider.tag == "Through") {
-					Debug.Log("Collider is 'though' ");
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
 					}
