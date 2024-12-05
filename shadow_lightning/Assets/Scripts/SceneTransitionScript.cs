@@ -11,6 +11,12 @@ public class SceneTransitionScript : MonoBehaviour
     [SerializeField] private float exitTime;
     [SerializeField] Transform startPoint;
     [SerializeField] Vector2 exitDirection;
+    public static SceneTransitionScript instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     private void Start(){
         if (trantitionTo == GameManager.instance.transitionedFromScene){
@@ -24,7 +30,11 @@ public class SceneTransitionScript : MonoBehaviour
 
         if (GameManager.instance.alive_enemy_count != 0) return;
         GameManager.instance.transitionedFromScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(trantitionTo);
+        TeleportTo(trantitionTo);
 
+    }
+
+    public void TeleportTo(string goTo){
+        SceneManager.LoadScene(goTo);
     }
 }
