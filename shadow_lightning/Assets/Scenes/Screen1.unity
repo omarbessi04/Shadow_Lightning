@@ -19951,6 +19951,14 @@ PrefabInstance:
       propertyPath: detectionRange
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 699282651471602366, guid: 7c1ee48aebf6f604ca1379882bc33b33, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.148
+      objectReference: {fileID: 0}
+    - target: {fileID: 699282651471602366, guid: 7c1ee48aebf6f604ca1379882bc33b33, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.259
+      objectReference: {fileID: 0}
     - target: {fileID: 5595616920855475663, guid: 7c1ee48aebf6f604ca1379882bc33b33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.013
