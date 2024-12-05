@@ -61,7 +61,6 @@ public class PossessController : MonoBehaviour
                 enemyToPossess.GameObject().GetComponent<EnemyMovement>().speed = 0;
                 enemyToPossess.GameObject().GetComponent<EnemyMovement>().idle = false;
                 enemyToPossess.GameObject().GetComponent<EnemyMovement>().shouldMove = false;
-                checkCamera();
 
                 Animator.SetBool("Possessing", true);
                 
