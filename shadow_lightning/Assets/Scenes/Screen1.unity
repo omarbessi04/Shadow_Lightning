@@ -211,9 +211,9 @@ MonoBehaviour:
   SFXSource: {fileID: 410812296}
   SneakMusic: {fileID: 8300000, guid: f40b0fca3d08b03408a51cac98404447, type: 3}
   BattleMusic: {fileID: 8300000, guid: 6a50b4d5264053947b27677b55f7fd96, type: 3}
-  FunnyJumpExample: {fileID: 8300000, guid: 92a750929f3c7bf438ede8cbd1a4a05e, type: 3}
   SwordHit: {fileID: 8300000, guid: 0d2db8240a77c9f46b165feed8852776, type: 3}
   ElectricZap: {fileID: 8300000, guid: 3db1c3d411134e84c9e9600c658d7009, type: 3}
+  Jump: {fileID: 0}
 --- !u!4 &93529093
 Transform:
   m_ObjectHideFlags: 0
