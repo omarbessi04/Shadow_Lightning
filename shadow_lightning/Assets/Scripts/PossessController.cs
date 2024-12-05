@@ -14,12 +14,16 @@ public class PossessController : MonoBehaviour
 
     public GameObject mage;
     public GameObject sword;
+    Camera myCam;
+    CameraEffectScript myCamEffects;
 
 	[Header("--- Omar Was Here ---")]
 	AudioManager audioManager;
 
 	private void Awake(){
 		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+        myCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        myCamEffects = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraEffectScript>();
 	}
 
     private void Start()
@@ -30,11 +34,30 @@ public class PossessController : MonoBehaviour
     {
         if (canPossess)
         {
+            if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
+            {
+                Debug.Log("I have decided to zoom in");
+                myCamEffects.StartZoom();
+            }
+
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 GameManager.instance.alive_enemy_count -= 1;
                 possess();
+                checkCamera();
             }
+        }
+        else
+        {
+            checkCamera();
+        }
+    }
+
+    private void checkCamera(){
+        if (!myCamEffects.WorkingOnIt && myCam.orthographicSize != myCamEffects.maxZoom)
+        {
+            Debug.Log("I have decided to zoom out");
+            myCamEffects.StopZoom();
         }
     }
 
