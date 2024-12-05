@@ -123,12 +123,12 @@ public class PlayerController2D : RaycastController {
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
 					}
-					if (collisions.fallingThroughPlatform) {
+					if (collisions.fallingThroughPlatform == hit.collider) {
 						continue;
 					}
-					if (playerInput.y == -1) {
-						collisions.fallingThroughPlatform = true;
-						Invoke("ResetFallingThroughPlatform",.5f);
+					if (playerInput.y == -1)
+					{
+						collisions.fallingThroughPlatform = hit.collider;
 						continue;
 					}
 				}
@@ -136,7 +136,6 @@ public class PlayerController2D : RaycastController {
 				{
 					onPlatform = false;
 				}
-
 				moveAmount.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
 
@@ -147,6 +146,7 @@ public class PlayerController2D : RaycastController {
 				collisions.below = directionY == -1;
 				collisions.above = directionY == 1;
 			}
+			collisions.fallingThroughPlatform = null;
 		}
 
 		if (collisions.climbingSlope) {
@@ -229,10 +229,7 @@ public class PlayerController2D : RaycastController {
 		}
 
 	}
-
-	void ResetFallingThroughPlatform() {
-		collisions.fallingThroughPlatform = false;
-	}
+    
 
 	public struct CollisionInfo {
 		public bool above, below;
@@ -246,7 +243,7 @@ public class PlayerController2D : RaycastController {
 		public Vector2 slopeNormal;
 		public Vector2 moveAmountOld;
 		public int faceDir;
-		public bool fallingThroughPlatform;
+		public Collider2D fallingThroughPlatform;
 
 		public void Reset() {
 			above = below = false;

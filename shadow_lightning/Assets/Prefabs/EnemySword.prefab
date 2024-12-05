@@ -116,103 +116,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8835173848400173453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3180652099029894805
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1556438409838134870}
-  - component: {fileID: 8515329301654263068}
-  - component: {fileID: 7165398832929450440}
-  m_Layer: 0
-  m_Name: SwordAttackHitboxLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1556438409838134870
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3180652099029894805}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.211, y: 0.014000006, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8835173848400173453}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!68 &8515329301654263068
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3180652099029894805}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.42701775, y: 0.10662256}
-  - {x: -0.42372015, y: 0.036892485}
-  - {x: -0.33012715, y: 0.017105205}
-  - {x: -0.0665416, y: -0.11201225}
-  - {x: 0.06786085, y: -0.23154512}
-  - {x: 0.18123989, y: -0.07909435}
-  - {x: 0.17719913, y: 0.060391188}
-  - {x: 0.026822686, y: 0.19849953}
-  - {x: -0.2744641, y: 0.2021679}
-  - {x: -0.4273913, y: 0.10445888}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
---- !u!114 &7165398832929450440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3180652099029894805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13451347b4b69c441b6f91aa70b743c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemySwordAttack: {fileID: 8183293944246908871}
-  Left: 1
-  EnemyMovement: {fileID: 901549325648605003}
 --- !u!1 &5772399982589463233
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,16 +328,16 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.42701775, y: 0.10662256}
-  - {x: -0.42372015, y: 0.036892485}
-  - {x: -0.33012715, y: 0.017105205}
+  - {x: -0.0922527, y: 0.0761894}
+  - {x: -0.047309786, y: -0.0015494339}
+  - {x: -0.0706442, y: -0.05817686}
   - {x: -0.0665416, y: -0.11201225}
   - {x: 0.06786085, y: -0.23154512}
   - {x: 0.18123989, y: -0.07909435}
-  - {x: 0.17719913, y: 0.060391188}
-  - {x: 0.026822686, y: 0.19849953}
-  - {x: -0.2744641, y: 0.2021679}
-  - {x: -0.4273913, y: 0.10445888}
+  - {x: 0.17079215, y: 0.03956849}
+  - {x: 0.062061332, y: 0.060749356}
+  - {x: -0.04541425, y: 0.07402821}
+  - {x: -0.08782101, y: 0.06922046}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -453,6 +356,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySwordAttack: {fileID: 8183293944246908871}
   Left: 0
+  EnemyMovement: {fileID: 901549325648605003}
+--- !u!1 &8655362933182861470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096355691294207944}
+  - component: {fileID: 5742751733979469134}
+  - component: {fileID: 2762743268372555952}
+  m_Layer: 0
+  m_Name: SwordAttackHitbox (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1096355691294207944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655362933182861470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.211, y: 0.01400001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8835173848400173453}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!68 &5742751733979469134
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655362933182861470}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.0922527, y: 0.0761894}
+  - {x: -0.047309786, y: -0.0015494339}
+  - {x: -0.0706442, y: -0.05817686}
+  - {x: -0.0665416, y: -0.11201225}
+  - {x: 0.06786085, y: -0.23154512}
+  - {x: 0.18123989, y: -0.07909435}
+  - {x: 0.17079215, y: 0.03956849}
+  - {x: 0.062061332, y: 0.060749356}
+  - {x: -0.04541425, y: 0.07402821}
+  - {x: -0.08782101, y: 0.06922046}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &2762743268372555952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655362933182861470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13451347b4b69c441b6f91aa70b743c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemySwordAttack: {fileID: 8183293944246908871}
+  Left: 1
   EnemyMovement: {fileID: 901549325648605003}
 --- !u!1 &8683404084398749758
 GameObject:
@@ -529,7 +529,7 @@ Transform:
   - {fileID: 7183463546641360061}
   - {fileID: 304711790549222543}
   - {fileID: 406950697111083179}
-  - {fileID: 1556438409838134870}
+  - {fileID: 1096355691294207944}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &901549325648605003
@@ -677,6 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 3
+  mySprite: {fileID: 7738333891246611227}
 --- !u!114 &431513362797695051
 MonoBehaviour:
   m_ObjectHideFlags: 0

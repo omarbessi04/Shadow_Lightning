@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float waitTime = 3f;
+    public float base_speed;
     public float speed;
     private EnemyMovementController controller;
     public bool idle = true;
@@ -43,10 +44,12 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        base_speed = speed;
         enemyDetection = GetComponent<EnemyDetection>();
         if (goingRight == false)
         {
             direction = new Vector2(direction.x * -1, direction.y);
+            
             flipX(true);
         }
         wayPointPos1 = wayPoint1.position;
@@ -56,6 +59,14 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (enemyDetection.Detected)
+        {
+            speed = base_speed + 1;
+        }
+        else
+        {
+            speed = base_speed;
+        }
         Animator.SetFloat("Xvelocity", MathF.Abs(velocity.x));
         if (enemyDetection.Detected && Player == null)
         {
