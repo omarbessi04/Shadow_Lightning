@@ -9,6 +9,8 @@ public class PlayerController2D : RaycastController {
 	[HideInInspector]
 	public Vector2 playerInput;
 
+	[HideInInspector] public bool onPlatform = false;
+
 	public override void Start() {
 		base.Start ();
 		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().target = this;
@@ -112,7 +114,12 @@ public class PlayerController2D : RaycastController {
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY,Color.red);
 
 			if (hit) {
-				if (hit.collider.tag == "Through") {
+				if (hit.collider.tag == "Through")
+				{
+					if (directionY == -1)
+					{
+						onPlatform = true;
+					}
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
 					}
@@ -124,6 +131,10 @@ public class PlayerController2D : RaycastController {
 						Invoke("ResetFallingThroughPlatform",.5f);
 						continue;
 					}
+				}
+				else
+				{
+					onPlatform = false;
 				}
 
 				moveAmount.y = (hit.distance - skinWidth) * directionY;
