@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -13,6 +10,12 @@ public class HeartSystem : MonoBehaviour
     {
         UpdateHealthBar();
         GameManager.instance.heartSystem = this;
+    }
+
+    private void Update() {
+        if (Health < 1){
+            SceneTransitionScript.instance.TeleportTo("GameOver");
+        }
     }
 
     public void TakeDamage(float damage)

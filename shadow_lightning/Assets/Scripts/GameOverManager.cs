@@ -6,7 +6,11 @@ public class GameOverManager : MonoBehaviour{
 
     [SerializeField] private string startScreen;
 
-    public void ButtonPressed(){
+    public void RetryButtonPressed(){
         SceneTransitionScript.instance.TeleportTo(startScreen);
+    }
+
+    public void QuitButtonPressed(){
+        Application.Quit();
     }
 }
