@@ -90,9 +90,14 @@ public class PossessController : MonoBehaviour
             if (turningRight == false)
             {
                 mage.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
+                Instantiate(mage, new Vector2(enemyToPossess.transform.position.x-0.184f, enemyToPossess.transform.position.y), Quaternion.identity);
             }
-
-            Instantiate(mage, Spawner.position, Quaternion.identity);
+            else
+            {
+                mage.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
+                Instantiate(mage, enemyToPossess.transform.position, Quaternion.identity);
+            }
+            
         }
         else if (enemyType == "Sword")
         {
@@ -100,8 +105,13 @@ public class PossessController : MonoBehaviour
             if (turningRight == false)
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
+                Instantiate(sword, new Vector2(enemyToPossess.transform.position.x + 0.85f, enemyToPossess.transform.position.y), Quaternion.identity);
             }
-            Instantiate(sword, Spawner.position, Quaternion.identity);
+            else
+            {
+                sword.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
+                Instantiate(sword, enemyToPossess.transform.position, Quaternion.identity);
+            }
         }
         audioManager.SwitchMusic(audioManager.BattleMusic);
 
