@@ -11725,7 +11725,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571acfc1f1bff104c977d9a4bbbe4dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionedFromScene: 
   heartSystem: {fileID: 0}
+  alive_enemy_count: 0
 --- !u!4 &926531518
 Transform:
   m_ObjectHideFlags: 0

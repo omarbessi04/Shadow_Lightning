@@ -14,7 +14,9 @@ public class EnemyLightningAttack : MonoBehaviour
     public Animator Animator;
 
     public Transform marker2D;
-    private bool isAttacking = false; 
+    private bool isAttacking = false;
+
+    private GameObject currentProjectile;
 
     void Start()
     {
@@ -76,6 +78,8 @@ public class EnemyLightningAttack : MonoBehaviour
             playerDirection = new Vector2(-1, 0);
         }
         lightningAttack.GetComponent<ElectricAttack>().direction = new Vector2(playerDirection.x, 0);
+        currentProjectile = Instantiate(lightningAttack, marker2D.position, quaternion.identity);
+        currentProjectile.SetActive(false);
     }
 
     public void AnimationReset()
@@ -85,6 +89,7 @@ public class EnemyLightningAttack : MonoBehaviour
 
     public void Attack()
     {
-        Instantiate(lightningAttack, marker2D.position, quaternion.identity);
+        currentProjectile.transform.position = marker2D.position;
+        currentProjectile.SetActive(true);
     }
 }
