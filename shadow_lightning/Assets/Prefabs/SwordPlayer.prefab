@@ -68,16 +68,16 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.2260864, y: 0.10053374}
-  - {x: -0.25323296, y: 0.045010913}
-  - {x: -0.22864665, y: 0.023194041}
-  - {x: -0.0665416, y: -0.11201225}
-  - {x: 0.06786085, y: -0.23154512}
-  - {x: 0.18123989, y: -0.07909435}
-  - {x: 0.17719913, y: 0.060391188}
-  - {x: 0.026822686, y: 0.19849953}
-  - {x: -0.2744641, y: 0.2021679}
-  - {x: -0.21428227, y: 0.09228123}
+  - {x: -0.19771746, y: 0.050604526}
+  - {x: -0.19649532, y: -0.12860674}
+  - {x: -0.03119921, y: -0.11638093}
+  - {x: -0.01888179, y: -0.123359784}
+  - {x: 0.06786085, y: -0.1600555}
+  - {x: 0.15854476, y: -0.07909435}
+  - {x: 0.16300933, y: -0.05804243}
+  - {x: 0.16757025, y: -0.027670719}
+  - {x: 0.16695592, y: 0.025145978}
+  - {x: -0.2040696, y: 0.050295256}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   Right: 1
   PlayerAnimator: {fileID: 8662855069053302667}
   PlayerSwordAttack: {fileID: 4581751648913312999}
---- !u!1 &3638120169454033169
+--- !u!1 &4571037901684383013
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,23 +105,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 399284027434865840}
-  - component: {fileID: 4647963101338344832}
-  - component: {fileID: 4714127635613709586}
+  - component: {fileID: 9075537264705600597}
+  - component: {fileID: 1982331573742160368}
+  - component: {fileID: 6061930556667816252}
   m_Layer: 0
-  m_Name: SwordAttackHitboxLeft
+  m_Name: SwordAttackHitbox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &399284027434865840
+--- !u!4 &9075537264705600597
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3638120169454033169}
+  m_GameObject: {fileID: 4571037901684383013}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.356, y: 0.014, z: 0}
@@ -130,13 +130,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1146054978729501956}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!68 &4647963101338344832
+--- !u!68 &1982331573742160368
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3638120169454033169}
+  m_GameObject: {fileID: 4571037901684383013}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -165,27 +165,27 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.2260864, y: 0.10053374}
-  - {x: -0.25323296, y: 0.045010913}
-  - {x: -0.22864665, y: 0.023194041}
-  - {x: -0.0665416, y: -0.11201225}
-  - {x: 0.06786085, y: -0.23154512}
-  - {x: 0.18123989, y: -0.07909435}
-  - {x: 0.17719913, y: 0.060391188}
-  - {x: 0.026822686, y: 0.19849953}
-  - {x: -0.2744641, y: 0.2021679}
-  - {x: -0.21428227, y: 0.09228123}
+  - {x: -0.19771746, y: 0.050604526}
+  - {x: -0.19649532, y: -0.12860674}
+  - {x: -0.03119921, y: -0.11638093}
+  - {x: -0.01888179, y: -0.123359784}
+  - {x: 0.06786085, y: -0.1600555}
+  - {x: 0.15854476, y: -0.07909435}
+  - {x: 0.16300933, y: -0.05804243}
+  - {x: 0.16757025, y: -0.027670719}
+  - {x: 0.16695592, y: 0.025145978}
+  - {x: -0.2040696, y: 0.050295256}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &4714127635613709586
+--- !u!114 &6061930556667816252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3638120169454033169}
+  m_GameObject: {fileID: 4571037901684383013}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67a240ed038dad64fbde291f74671374, type: 3}
@@ -230,7 +230,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 399284027434865840}
+  - {fileID: 9075537264705600597}
   - {fileID: 5082365357395681951}
   - {fileID: 8178505065438163917}
   m_Father: {fileID: 0}
