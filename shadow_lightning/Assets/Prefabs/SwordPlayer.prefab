@@ -323,6 +323,7 @@ MonoBehaviour:
   collider: {fileID: 0}
   maxSlopeAngle: 80
   playerInput: {x: 0, y: 0}
+  onPlatform: 0
 --- !u!114 &6563880579383939208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28250784f11efa4dbd46569c072f823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 1.5
   playerAnimator: {fileID: 8662855069053302667}
   cooldown: 1
   markerRight: {fileID: 0}
