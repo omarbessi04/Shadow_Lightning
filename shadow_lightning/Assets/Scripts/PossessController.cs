@@ -42,7 +42,7 @@ public class PossessController : MonoBehaviour
                 myCamEffects.StartZoom();
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetAxisRaw("Ability") == 1)
             {
                 GetComponent<PlayerController2D>().enabled = false;
                 GetComponent<PlayerMovement>().enabled = false;
