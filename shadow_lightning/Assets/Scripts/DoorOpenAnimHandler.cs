@@ -16,7 +16,6 @@ public class DoorOpenAnimHandler : MonoBehaviour
         player.SetActive(true);
     }
     public void DestroyDoorAfterAnim(){
-        Debug.Log("Destroyed " + gameObject);
         Destroy(gameObject);
     }
 }

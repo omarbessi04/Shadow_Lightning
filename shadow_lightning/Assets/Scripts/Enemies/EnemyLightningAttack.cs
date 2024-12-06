@@ -54,7 +54,6 @@ public class EnemyLightningAttack : MonoBehaviour
         if (enemyDetect.Detected && !isAttacking)
         {
             StartCoroutine(AttackRoutine());
-            audioManager.PlaySFX(audioManager.ElectricZap);
         }
     }
     
@@ -96,5 +95,6 @@ public class EnemyLightningAttack : MonoBehaviour
     {
         currentProjectile.transform.position = marker2D.position;
         currentProjectile.SetActive(true);
+        audioManager.PlaySFX(audioManager.ElectricZap);
     }
 }

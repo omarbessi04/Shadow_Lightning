@@ -32,7 +32,6 @@ public class PlayerMageAttack : MonoBehaviour
         {
             if (Animator.GetBool("Attacking") == false && timer < 0)
             {
-                audioManager.PlaySFX(audioManager.ElectricZap);
                 Animator.SetBool("Attacking", true);
             }
         }
@@ -56,5 +55,6 @@ public class PlayerMageAttack : MonoBehaviour
             mageAttack.GetComponent<PlayerProjectile>().direction = new Vector2(-1, 0);
             Instantiate(mageAttack, markerLeft.position, Quaternion.identity);
         }
+        audioManager.PlaySFX(audioManager.ElectricZap);
     }
 }

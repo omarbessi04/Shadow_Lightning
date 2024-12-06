@@ -39,7 +39,6 @@ public class PossessController : MonoBehaviour
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
             {
-                Debug.Log("I have decided to zoom in");
                 myCamEffects.StartZoom();
             }
 
@@ -56,7 +55,6 @@ public class PossessController : MonoBehaviour
                 {
                     turningRight = false;
                 }
-                print(turningRight);
                 GameManager.instance.alive_enemy_count -= 1;
                 enemyToPossess.GameObject().GetComponent<EnemyMovement>().speed = 0;
                 enemyToPossess.GameObject().GetComponent<EnemyMovement>().idle = false;
@@ -99,7 +97,6 @@ public class PossessController : MonoBehaviour
         }
         else if (enemyType == "Sword")
         {
-            print(turningRight);
             if (turningRight == false)
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = false;

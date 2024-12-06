@@ -31,7 +31,6 @@ public class PlayerSwordAttack : MonoBehaviour
         {
             if (Animator.GetBool("Attacking") == false && timer < 0)
             {
-                audioManager.PlaySFX(audioManager.SwordHit);
                 Animator.SetBool("Attacking", true);
             }
         }
@@ -56,6 +55,7 @@ public class PlayerSwordAttack : MonoBehaviour
                 enemy.GetComponent<EnemyHealth>().takeDamage(damage);
             }
         }
+        audioManager.PlaySFX(audioManager.SwordHit);
     }
 }
 
