@@ -92,7 +92,7 @@ public class EnemyMovement : MonoBehaviour
         if (idle)
         {
 
-            float distanceToWaypoint1 = Mathf.Abs(transform.position.x - wayPointPos1.x);
+            float distanceToWaypoint1 = (wayPointPos1.x - transform.position.x);
 
             if (goingRight)
             {
@@ -105,7 +105,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                float distanceToWaypoint2 = Mathf.Abs(transform.position.x - wayPointPos2.x);
+                float distanceToWaypoint2 = (transform.position.x - wayPointPos2.x);
 
                 if (distanceToWaypoint2 < 0.1f)
                 {
