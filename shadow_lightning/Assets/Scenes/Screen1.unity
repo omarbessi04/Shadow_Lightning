@@ -214,6 +214,8 @@ MonoBehaviour:
   SwordHit: {fileID: 8300000, guid: 0d2db8240a77c9f46b165feed8852776, type: 3}
   ElectricZap: {fileID: 8300000, guid: 3db1c3d411134e84c9e9600c658d7009, type: 3}
   Jump: {fileID: 8300000, guid: 92a750929f3c7bf438ede8cbd1a4a05e, type: 3}
+  MageOuch: {fileID: 8300000, guid: d279e9e228311584d935001cf66c472b, type: 3}
+  SwordUgh: {fileID: 8300000, guid: 6235b35b1dbe2504db10476c37584e80, type: 3}
 --- !u!4 &93529093
 Transform:
   m_ObjectHideFlags: 0
