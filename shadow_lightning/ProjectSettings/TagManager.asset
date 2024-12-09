@@ -9,6 +9,7 @@ TagManager:
   - PlayerEnemy
   - AudioMan
   - GameMan
+  - Boulder
   layers:
   - Default
   - TransparentFX
