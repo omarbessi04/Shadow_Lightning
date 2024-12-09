@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   mySprite: {fileID: 6955596979211215273}
+  EnemyType: Mage
 --- !u!114 &7071443362726475564
 MonoBehaviour:
   m_ObjectHideFlags: 0
