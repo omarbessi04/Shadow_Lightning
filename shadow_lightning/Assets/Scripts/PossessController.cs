@@ -19,6 +19,11 @@ public class PossessController : MonoBehaviour
     Camera myCam;
     CameraEffectScript myCamEffects;
 
+    public bool possessed = false;
+    public GameObject shadow;
+
+    private GameObject possessedEnemyObject; 
+
 	[Header("--- Omar Was Here ---")]
 	AudioManager audioManager;
 
@@ -30,12 +35,20 @@ public class PossessController : MonoBehaviour
 
     private void Start()
     {
+        shadow = gameObject;
         Animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (canPossess)
+        if (possessed == true)
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                unpossess();
+            }
+        }
+        if (canPossess && possessed == false)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
             {
@@ -55,8 +68,6 @@ public class PossessController : MonoBehaviour
                 {
                     turningRight = false;
                 }
-                GameManager.instance.alive_enemy_count -= 1;
-                enemyToPossess.GameObject().GetComponent<EnemyMovement>().speed = 0;
                 enemyToPossess.GameObject().GetComponent<EnemyMovement>().idle = false;
                 enemyToPossess.GameObject().GetComponent<EnemyMovement>().shouldMove = false;
 
@@ -78,6 +89,7 @@ public class PossessController : MonoBehaviour
     
     public void possess()
     {
+        GameManager.instance.alive_enemy_count -= 1;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
         enemyToPossess.GameObject().SetActive(false);
 
@@ -86,12 +98,12 @@ public class PossessController : MonoBehaviour
             if (turningRight == false)
             {
                 mage.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
-                Instantiate(mage, new Vector2(enemyToPossess.transform.position.x-0.184f, enemyToPossess.transform.position.y), Quaternion.identity);
+                possessedEnemyObject = Instantiate(mage, new Vector2(enemyToPossess.transform.position.x-0.184f, enemyToPossess.transform.position.y), Quaternion.identity);
             }
             else
             {
                 mage.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
-                Instantiate(mage, enemyToPossess.transform.position, Quaternion.identity);
+                possessedEnemyObject = Instantiate(mage, enemyToPossess.transform.position, Quaternion.identity);
             }
             
         }
@@ -100,19 +112,63 @@ public class PossessController : MonoBehaviour
             if (turningRight == false)
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
-                Instantiate(sword, new Vector2(enemyToPossess.transform.position.x + 0.85f, enemyToPossess.transform.position.y), Quaternion.identity);
+                possessedEnemyObject = Instantiate(sword, new Vector2(enemyToPossess.transform.position.x + 0.85f, enemyToPossess.transform.position.y), Quaternion.identity);
             }
             else
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
-                Instantiate(sword, enemyToPossess.transform.position, Quaternion.identity);
+                possessedEnemyObject = Instantiate(sword, enemyToPossess.transform.position, Quaternion.identity);
             }
         }
         audioManager.SwitchMusic(audioManager.BattleMusic);
-
-        gameObject.SetActive(false);
+        possessed = true;
+        shadow.GetComponent<SpriteRenderer>().enabled = false;
     }
 
+    void possessAnimationDone()
+    {
+        Animator.SetBool("Possessing", false);
+        
+    }
+    void unpossess()
+    {
+        GameObject currentEnemy = enemyToPossess.GameObject();
+        GameManager.instance.alive_enemy_count += 1;
+        GetComponent<PlayerController2D>().enabled = true;
+        GetComponent<PlayerMovement>().enabled = true;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().target =
+            GetComponent<PlayerController2D>();
+        currentEnemy.transform.position = possessedEnemyObject.transform.position;
+        
+
+        if (possessedEnemyObject.GetComponentInChildren<PlayerAnimator>().lookingRight)
+        {
+            currentEnemy.GetComponent<EnemyMovement>().flipX(false);
+            currentEnemy.GetComponent<EnemyMovement>().direction = Vector2.right;
+            currentEnemy.GetComponent<EnemyMovement>().goingRight = true;
+        }
+        else
+        {
+            currentEnemy.GetComponent<EnemyMovement>().flipX(true);
+            currentEnemy.GetComponent<EnemyMovement>().direction = Vector2.left;
+            currentEnemy.GetComponent<EnemyMovement>().goingRight = false;
+        }
+
+        currentEnemy.GetComponent<EnemyMovement>().shouldMove = true;
+        StartCoroutine(ReenableMovement(currentEnemy));
+        currentEnemy.GetComponent<EnemyMovement>().velocity = possessedEnemyObject.GetComponent<PlayerMovement>().velocity;
+        currentEnemy.SetActive(true);
+        shadow.transform.position = possessedEnemyObject.transform.position;
+        shadow.GetComponent<SpriteRenderer>().enabled = true;
+        Destroy(possessedEnemyObject);
+        possessed = false;
+    }
+
+    private IEnumerator ReenableMovement(GameObject enemy)
+    {
+        yield return new WaitForSeconds(0.1f); 
+        enemy.GetComponent<EnemyMovement>().idle = true;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!Animator.GetBool("Possessing"))

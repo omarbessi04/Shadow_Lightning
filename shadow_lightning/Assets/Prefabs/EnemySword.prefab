@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemySwordAttack: {fileID: 8183293944246908871}
+  EnemyMovement: {fileID: 901549325648605003}
   Left: 0
 --- !u!1 &8291037928888412727
 GameObject:
@@ -557,12 +558,13 @@ MonoBehaviour:
   sRen: {fileID: 1772488902647056316}
   offset: -0.12
   waiting: 0
-  Gravity: -20
+  Gravity: -52.49999
   velocity: {x: 0, y: 0}
   moveTowardsPlayer: 1
   shouldMove: 1
   Animator: {fileID: 5924888611328547464}
   flippedRight: 1
+  tryggvitest: 0
 --- !u!61 &6519429819013081810
 BoxCollider2D:
   m_ObjectHideFlags: 0

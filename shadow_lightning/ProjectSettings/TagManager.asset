@@ -10,6 +10,7 @@ TagManager:
   - AudioMan
   - GameMan
   - Boulder
+  - Spikes
   layers:
   - Default
   - TransparentFX

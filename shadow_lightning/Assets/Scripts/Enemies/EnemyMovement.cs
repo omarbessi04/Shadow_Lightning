@@ -40,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
     public Animator Animator = null;
 
     public bool flippedRight = true;
+    public bool tryggvitest = false;
     
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
         if (enemyDetection.Detected)
         {
             speed = base_speed + 1;
@@ -92,11 +94,18 @@ public class EnemyMovement : MonoBehaviour
         if (idle)
         {
 
-            float distanceToWaypoint1 = (wayPointPos1.x - transform.position.x);
+            float distanceToWaypoint1 = Mathf.Abs(transform.position.x - wayPointPos1.x);
 
             if (goingRight)
             {
-                if (distanceToWaypoint1 < 0.1f)
+                if (distanceToWaypoint1 < 0.1f && controller.collisions.below)
+                {
+                    goingRight = false;
+                    direction = new Vector2(direction.x * -1, direction.y);
+                    flipX(true);
+                }
+
+                if (controller.collisions.right)
                 {
                     goingRight = false;
                     direction = new Vector2(direction.x * -1, direction.y);
@@ -105,34 +114,52 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                float distanceToWaypoint2 = (transform.position.x - wayPointPos2.x);
+                float distanceToWaypoint2 = Mathf.Abs(transform.position.x - wayPointPos2.x);
 
-                if (distanceToWaypoint2 < 0.1f)
+                if (distanceToWaypoint2 < 0.1f && controller.collisions.below)
                 {
                     goingRight = true;
                     direction = new Vector2(direction.x * -1, direction.y);
                     flipX(false);
                 }
+
+                if (controller.collisions.left)
+                {
+                    goingRight = true;
+                    direction = new Vector2(direction.x * -1, direction.y);
+                    flipX(false); 
+                }
             }
             if (controller.collisions.above || controller.collisions.below) {
                 velocity.y = 0;
             }
-            velocity.y += Gravity * Time.deltaTime;
-            velocity.x = direction.x * speed;
-            controller.Move (velocity * Time.deltaTime);
+            if (controller.collisions.below && shouldMove)
+            {
+                velocity.x = direction.x * speed;
+            }
         }
 
-        if (moveTowardsPlayer && shouldMove && idle == false)
+        else if (moveTowardsPlayer && shouldMove && idle == false && Player != null)
         {
             Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
             velocity.y += Gravity * Time.deltaTime;
-            velocity.x = playerDirection.x * speed;
-            controller.Move (velocity * Time.deltaTime);
+            if (controller.collisions.below)
+            {
+                velocity.x = playerDirection.x * speed;
+            }
         }
-        else if ((!moveTowardsPlayer || !shouldMove) && idle == false)
+        else if (!shouldMove && !idle)
         {
             velocity.x = 0;
         }
+
+        if (!controller.collisions.below)
+        {
+            velocity.y += Gravity * Time.deltaTime;
+        }
+        controller.Move (velocity * Time.deltaTime);
+        
+            
     }
 
     IEnumerator idleWait()
@@ -181,4 +208,11 @@ public class EnemyMovement : MonoBehaviour
             
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Spikes")
+        {
+            GetComponent<EnemyHealth>().takeDamage(50000f);
+        }
+    }
 }

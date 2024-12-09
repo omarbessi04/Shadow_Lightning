@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1.5
   playerAnimator: {fileID: 8662855069053302667}
-  cooldown: 1
+  cooldown: 0.5
   markerRight: {fileID: 0}
   markerLeft: {fileID: 0}
   enemiesHit: []

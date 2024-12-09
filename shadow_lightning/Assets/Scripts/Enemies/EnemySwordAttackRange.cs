@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemySwordAttackRange : MonoBehaviour
 {
    public EnemySwordAttack EnemySwordAttack;
+   public EnemyMovement EnemyMovement;
    public bool Left;
 
    private void OnTriggerEnter2D(Collider2D other)
@@ -14,6 +15,7 @@ public class EnemySwordAttackRange : MonoBehaviour
       if (other.tag == "PlayerEnemy")
       {
          EnemySwordAttack.inRange = true;
+         EnemyMovement.shouldMove = false;
       }
    }
 
@@ -22,6 +24,7 @@ public class EnemySwordAttackRange : MonoBehaviour
       if (other.tag == "PlayerEnemy")
       {
          EnemySwordAttack.inRange = false;
+         EnemyMovement.shouldMove = true;
       }
    }
 }
