@@ -66,7 +66,6 @@ public class EnemySwordAttack : MonoBehaviour
 
         if (enemyDetect.Detected && !isAttacking && inRange)
         {
-            audioManager.PlaySFX(audioManager.SwordHit);
             StartCoroutine(AttackRoutine());
             
         }
@@ -90,6 +89,11 @@ public class EnemySwordAttack : MonoBehaviour
     {
         Animator.SetBool("Attacking", false);
         playerHit = false;
+    }
+
+    public void audioSFX()
+    {
+        audioManager.PlaySFX(audioManager.SwordHit);
     }
 
     public void Attack()

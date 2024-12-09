@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d165747904924c6428e764fa8c07c621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpHeight: 4
+  maxJumpHeight: 4.2
   minJumpHeight: 1
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mageAttack: {fileID: 4665979439306034115, guid: c79816b2bdb238c4e98986308eda540e, type: 3}
   playerAnimator: {fileID: 2878588973012181858}
-  cooldown: 0.1
+  cooldown: 0.5
   markerRight: {fileID: 7711596627094824972}
   markerLeft: {fileID: 8055984560371036225}
 --- !u!95 &5187365227967791879
@@ -338,7 +338,7 @@ MonoBehaviour:
   playerMovement: {fileID: 152319152971528673}
   sRen: {fileID: 1044568578138636225}
   offset: -0.08
-  lookingRight: 1
+  lookingRight: 0
 --- !u!1 &7047034125034458540
 GameObject:
   m_ObjectHideFlags: 0

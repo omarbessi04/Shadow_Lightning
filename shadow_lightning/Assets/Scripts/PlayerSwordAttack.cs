@@ -27,11 +27,10 @@ public class PlayerSwordAttack : MonoBehaviour
     private void Update()
     {
         timer -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetAxisRaw("Ability") == 1)
         {
             if (Animator.GetBool("Attacking") == false && timer < 0)
             {
-                audioManager.PlaySFX(audioManager.SwordHit);
                 Animator.SetBool("Attacking", true);
             }
         }
@@ -56,6 +55,7 @@ public class PlayerSwordAttack : MonoBehaviour
                 enemy.GetComponent<EnemyHealth>().takeDamage(damage);
             }
         }
+        audioManager.PlaySFX(audioManager.SwordHit);
     }
 }
 
