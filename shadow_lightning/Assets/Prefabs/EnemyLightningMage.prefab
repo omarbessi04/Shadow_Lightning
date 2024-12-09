@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 3
+  base_speed: 0
   speed: 5
   idle: 1
   wayPoint1: {fileID: 7809974542567793698}
@@ -68,12 +69,13 @@ MonoBehaviour:
   sRen: {fileID: 3446194569404830932}
   offset: -0.104
   waiting: 0
-  Gravity: -20
+  Gravity: -52.49999
   velocity: {x: 0, y: 0}
   moveTowardsPlayer: 0
-  shouldMove: 0
+  shouldMove: 1
   Animator: {fileID: 7401650925402644486}
   flippedRight: 1
+  tryggvitest: 0
 --- !u!61 &3592631883180825419
 BoxCollider2D:
   m_ObjectHideFlags: 0

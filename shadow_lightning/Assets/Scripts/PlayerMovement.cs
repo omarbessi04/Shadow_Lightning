@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 [RequireComponent (typeof (PlayerController2D))]
 public class PlayerMovement : MonoBehaviour {
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour {
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
+		print(gravity);
 	}
 
 	void Update() {
@@ -138,5 +140,15 @@ public class PlayerMovement : MonoBehaviour {
 		float targetVelocityX = directionalInput.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 		velocity.y += gravity * Time.deltaTime;
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Spikes")
+		{
+			if (gameObject.tag == "PlayerEnemy"){
+				GameManager.instance.heartSystem.TakeDamage(5000);
+			}
+		}
 	}
 }
