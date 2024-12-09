@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public HeartSystem heartSystem;
     public int alive_enemy_count;
+
+    public GameObject currentPlayer;
     
     void Awake()
     {

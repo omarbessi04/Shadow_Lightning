@@ -37,6 +37,7 @@ public class EnemyLightningAttack : MonoBehaviour
 
         if (enemyDetect.Detected)
         {
+            Movement.velocity.x = 0;
             float distanceToPlayer = (transform.position.x - Player.transform.position.x);
             if (Animator.GetBool("Attacking") == false)
             {

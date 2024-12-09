@@ -15,7 +15,7 @@ public class EnemySwordAttackRange : MonoBehaviour
       if (other.tag == "PlayerEnemy")
       {
          EnemySwordAttack.inRange = true;
-         EnemyMovement.shouldMove = false;
+         EnemyMovement.moveTowardsPlayer = false;
       }
    }
 
@@ -24,7 +24,7 @@ public class EnemySwordAttackRange : MonoBehaviour
       if (other.tag == "PlayerEnemy")
       {
          EnemySwordAttack.inRange = false;
-         EnemyMovement.shouldMove = true;
+         EnemyMovement.moveTowardsPlayer = true;
       }
    }
 }

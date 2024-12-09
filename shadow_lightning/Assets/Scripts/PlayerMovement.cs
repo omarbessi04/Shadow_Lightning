@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start()
 	{
+		GameManager.instance.currentPlayer = gameObject;
 		Animator = GetComponent<Animator>();
 		controller = GetComponent<PlayerController2D> ();
 
@@ -68,6 +69,10 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	public void knockBack(float distance)
+	{
+		velocity.x = distance;
+	}
 	public void SetDirectionalInput (Vector2 input) {
 		directionalInput = input;
 	}
