@@ -16,13 +16,55 @@ public class ShieldBash : MonoBehaviour
     public float Timer;
     public float BashCooldown = 3f;
     public bool bashingRight;
+    private GameObject Player;
+    public bool inRange = false;
+    private Animator Animator;
+    public float airResistince;
     
     public bool bashing = false;
+
+    private void Start()
+    {
+        Animator = GetComponent<Animator>();
+    }
     private void FixedUpdate()
     {
+        if (!EnemyMovement.idle)
+        {
+            if (!bashing)
+            {
+                EnemyMovement.velocity.x = 0;
+            }
+            EnemyMovement.noVelocityReset = true;
+        }
+        else
+        {
+            EnemyMovement.noVelocityReset = false;
+        }
+        if (Detection.Detected && Player == null)
+        {
+            Player = GameObject.FindWithTag("PlayerEnemy");
+        }
+
+        if (Detection.Detected)
+        {
+            float distanceToPlayer = (transform.position.x - Player.transform.position.x);
+            if (Animator.GetBool("Attacking") == false)
+            {
+                if (distanceToPlayer > 0)
+                {
+                    EnemyMovement.flipX(true);
+                }
+                else
+                {
+                    EnemyMovement.flipX(false);
+                }
+            }
+            
+        }
         Timer -= Time.deltaTime;
         RaycastHit2D hit;
-        if (Detection.Detected)
+        if (Detection.Detected && inRange)
         {
             if (EnemyMovement.flippedRight)
             {
@@ -41,25 +83,56 @@ public class ShieldBash : MonoBehaviour
                 }
             }
         }
+        
 
         if (bashing)
         {
+            print(EnemyMovement.velocity.x);
+            RaycastHit2D hit2;
+            if (EnemyMovement.flippedRight)
+            {
+                hit2 = Physics2D.Raycast(transform.position, Vector2.right, 0, mask);
+            }
+            else
+            {
+                hit2 = Physics2D.Raycast(transform.position, Vector2.left, 0, mask);
+            }
+
+            if (hit2)
+            {
+                print("playerhit");
+                EnemyMovement.velocity.x = 0;
+                bashing = false;
+                if (bashingRight)
+                {
+                    hit2.collider.GameObject().GetComponent<PlayerMovement>().knockBack(knockBack);
+                }
+                else
+                {
+                    hit2.collider.GameObject().GetComponent<PlayerMovement>().knockBack(-knockBack);
+                }
+                GameManager.instance.heartSystem.TakeDamage(0.5f);
+            }
             if (bashingRight)
             {
-                EnemyMovement.velocity.x -= 1;
+                EnemyMovement.velocity.x -= airResistince;
                 if (EnemyMovement.velocity.x < 0)
                 {
+                    print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
-                    EnemyMovement.noVelocityReset = false;
+                    EnemyMovement.velocity.x = 0;
+                    print("RESET1");
                 }
             }
             else
             {
-                EnemyMovement.velocity.x += 1;
+                EnemyMovement.velocity.x += airResistince;
                 if (EnemyMovement.velocity.x > 0)
                 {
+                    print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
-                    EnemyMovement.noVelocityReset = false;
+                    EnemyMovement.velocity.x = 0;
+                    print("RESET2");
                 }
                 
             }
@@ -74,7 +147,6 @@ public class ShieldBash : MonoBehaviour
         {
             Timer = BashCooldown;
             bashing = true;
-            EnemyMovement.noVelocityReset = true;
             print("BASHING");
             if (EnemyMovement.flippedRight)
             {
@@ -89,25 +161,5 @@ public class ShieldBash : MonoBehaviour
         }
 
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "PlayerEnemy")
-        {
-            if (bashing)
-            {
-                EnemyMovement.velocity.x = 0;
-                EnemyMovement.noVelocityReset = false;
-                bashing = false;
-                if (bashingRight)
-                {
-                    other.GameObject().GetComponent<PlayerMovement>().knockBack(knockBack);
-                }
-                else
-                {
-                    other.GameObject().GetComponent<PlayerMovement>().knockBack(-knockBack);
-                }
-            }
-        }
-    }
+    
 }
