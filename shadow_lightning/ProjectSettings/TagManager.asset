@@ -12,6 +12,7 @@ TagManager:
   - Boulder
   - Spikes
   - Pillar
+  - Projectile
   layers:
   - Default
   - TransparentFX

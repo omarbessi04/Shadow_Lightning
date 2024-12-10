@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ShieldBash : MonoBehaviour
 {
+    public float stunDuration = 3f;
     public float knockBack = 5f;
     public EnemyMovement EnemyMovement;
     public float bashRange = 5f;
@@ -20,6 +21,9 @@ public class ShieldBash : MonoBehaviour
     public bool inRange = false;
     private Animator Animator;
     public float airResistince;
+    private bool canFlip = true;
+    private Coroutine stunCoroutine;
+    public bool stunned = false;
     
     public bool bashing = false;
 
@@ -29,6 +33,11 @@ public class ShieldBash : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Animator.SetFloat("Xvelocity", Mathf.Abs(EnemyMovement.velocity.x));
+        if (stunned)
+        {
+            EnemyMovement.velocity.x = 0;
+        }
         if (!EnemyMovement.idle)
         {
             if (!bashing)
@@ -46,10 +55,10 @@ public class ShieldBash : MonoBehaviour
             Player = GameObject.FindWithTag("PlayerEnemy");
         }
 
-        if (Detection.Detected)
+        if (Detection.Detected && !stunned)
         {
             float distanceToPlayer = (transform.position.x - Player.transform.position.x);
-            if (Animator.GetBool("Bashing") == false)
+            if (Animator.GetBool("Bashing") == false && canFlip == true)
             {
                 if (distanceToPlayer > 0)
                 {
@@ -64,7 +73,7 @@ public class ShieldBash : MonoBehaviour
         }
         Timer -= Time.deltaTime;
         RaycastHit2D hit;
-        if (Detection.Detected && inRange)
+        if (Detection.Detected && inRange && !stunned)
         {
             if (EnemyMovement.flippedRight)
             {
@@ -79,7 +88,8 @@ public class ShieldBash : MonoBehaviour
             {
                 if (!bashing && Timer < 0)
                 {
-                    Bash();
+                    Animator.SetBool("Bashing", true);
+                    canFlip = false;
                 }
             }
         }
@@ -103,7 +113,7 @@ public class ShieldBash : MonoBehaviour
                 print("playerhit");
                 EnemyMovement.velocity.x = 0;
                 bashing = false;
-                Animator.SetBool("Bashing", false);
+                //Animator.SetBool("Bashing", false);
                 if (bashingRight)
                 {
                     hit2.collider.GameObject().GetComponent<PlayerMovement>().knockBack(knockBack);
@@ -121,7 +131,7 @@ public class ShieldBash : MonoBehaviour
                 {
                     print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
-                    Animator.SetBool("Bashing", false);
+                    //Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
                     print("RESET1");
                 }
@@ -133,7 +143,7 @@ public class ShieldBash : MonoBehaviour
                 {
                     print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
-                    Animator.SetBool("Bashing", false);
+                    //Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
                     print("RESET2");
                 }
@@ -144,11 +154,50 @@ public class ShieldBash : MonoBehaviour
 
     }
 
+    public void stunCheck()
+    {
+        if (!stunned && stunCoroutine == null)
+        {
+            stunCoroutine = StartCoroutine(Stun());
+        }
+        else if (stunned && stunCoroutine != null)
+        {
+            StopCoroutine(stunCoroutine);
+            stunCoroutine = StartCoroutine(Stun());
+        }
+    }
+    IEnumerator Stun()
+    {
+        stunned = true;
+        Animator.SetBool("Stunned", true);
+        Animator.SetBool("Bashing", false);
+        EnemyMovement.velocity.x = 0;
+        bashing = false;
+        yield return new WaitForSeconds(stunDuration);
+        Timer = BashCooldown;
+        stunned = false;
+        Animator.SetBool("Stunned", false);
+
+
+    }
+
+    IEnumerator flipTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canFlip = true;
+
+    }
+    
+    public void animationDone()
+    {
+        print("done");
+        Animator.SetBool("Bashing", false);
+        StartCoroutine(flipTime());
+    }
     public void Bash()
     {
         if (bashing == false)
         {
-            Animator.SetBool("Bashing", true);
             Timer = BashCooldown;
             bashing = true;
             print("BASHING");
