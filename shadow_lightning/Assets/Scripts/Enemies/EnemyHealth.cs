@@ -19,10 +19,14 @@ public class EnemyHealth : MonoBehaviour
         EnemyMovement = GetComponent<EnemyMovement>();
     }
 
-    public void takeDamage(float Damage)
+    public void takeDamage(float Damage, string type = "")
     {
         if (GetComponent<EnemyVariables>().typeEnemy == "Mage") audioManager.PlaySFX(audioManager.MageOuch);
         if (GetComponent<EnemyVariables>().typeEnemy == "Sword") audioManager.PlaySFX(audioManager.SwordUgh);
+        if (GetComponent<EnemyVariables>().typeEnemy == "Shield" && type == "Sword")
+        {
+            GetComponent<ShieldBash>().stunCheck();
+        }
         EnemyMovement.idle = false;
         Health -= Damage;
        StartCoroutine(ChangeColor());
