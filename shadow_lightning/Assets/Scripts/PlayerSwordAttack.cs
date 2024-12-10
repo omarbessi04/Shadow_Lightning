@@ -52,7 +52,7 @@ public class PlayerSwordAttack : MonoBehaviour
             GameObject enemy = currEnemiesHit[i];
             if (enemy != null)
             {
-                enemy.GetComponent<EnemyHealth>().takeDamage(damage);
+                enemy.GetComponent<EnemyHealth>().takeDamage(damage, "Sword");
             }
         }
         audioManager.PlaySFX(audioManager.SwordHit);
