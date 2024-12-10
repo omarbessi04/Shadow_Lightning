@@ -8,7 +8,6 @@ public class EnemyHealth : MonoBehaviour
     public float Health = 3f;
     public SpriteRenderer mySprite;
     private EnemyMovement EnemyMovement;
-    public string EnemyType;
     AudioManager audioManager;
 
 	private void Awake(){
@@ -22,8 +21,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void takeDamage(float Damage)
     {
-        if (EnemyType == "Mage") audioManager.PlaySFX(audioManager.MageOuch);
-        if (EnemyType == "Sword") audioManager.PlaySFX(audioManager.SwordUgh);
+        if (GetComponent<EnemyVariables>().typeEnemy == "Mage") audioManager.PlaySFX(audioManager.MageOuch);
+        if (GetComponent<EnemyVariables>().typeEnemy == "Sword") audioManager.PlaySFX(audioManager.SwordUgh);
         EnemyMovement.idle = false;
         Health -= Damage;
        StartCoroutine(ChangeColor());

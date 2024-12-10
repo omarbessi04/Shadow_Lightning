@@ -31,7 +31,6 @@ public class EnemySwordAttack : MonoBehaviour
         Movement = GetComponent<EnemyMovement>();
     }
     
-
     void FixedUpdate()
     {
         if (enemyDetect.Detected && Player == null)
