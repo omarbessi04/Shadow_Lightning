@@ -11,6 +11,7 @@ TagManager:
   - GameMan
   - Boulder
   - Spikes
+  - Pillar
   layers:
   - Default
   - TransparentFX
