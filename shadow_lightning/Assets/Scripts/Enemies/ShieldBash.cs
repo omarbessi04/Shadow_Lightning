@@ -49,7 +49,7 @@ public class ShieldBash : MonoBehaviour
         if (Detection.Detected)
         {
             float distanceToPlayer = (transform.position.x - Player.transform.position.x);
-            if (Animator.GetBool("Attacking") == false)
+            if (Animator.GetBool("Bashing") == false)
             {
                 if (distanceToPlayer > 0)
                 {
@@ -103,6 +103,7 @@ public class ShieldBash : MonoBehaviour
                 print("playerhit");
                 EnemyMovement.velocity.x = 0;
                 bashing = false;
+                Animator.SetBool("Bashing", false);
                 if (bashingRight)
                 {
                     hit2.collider.GameObject().GetComponent<PlayerMovement>().knockBack(knockBack);
@@ -120,6 +121,7 @@ public class ShieldBash : MonoBehaviour
                 {
                     print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
+                    Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
                     print("RESET1");
                 }
@@ -131,6 +133,7 @@ public class ShieldBash : MonoBehaviour
                 {
                     print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
+                    Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
                     print("RESET2");
                 }
@@ -145,6 +148,7 @@ public class ShieldBash : MonoBehaviour
     {
         if (bashing == false)
         {
+            Animator.SetBool("Bashing", true);
             Timer = BashCooldown;
             bashing = true;
             print("BASHING");

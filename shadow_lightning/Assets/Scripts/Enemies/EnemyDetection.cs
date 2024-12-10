@@ -21,12 +21,12 @@ public class EnemyDetection : MonoBehaviour
       RaycastHit2D hitJump = Physics2D.Raycast(jumpTransform.position, enemyMovement.direction, detectionRange, mask);
       RaycastHit2D hitOther = Physics2D.Raycast(transform.position, new Vector2(enemyMovement.direction.x*-1, enemyMovement.direction.y), detectionRange, mask);
       RaycastHit2D hitOtherJump = Physics2D.Raycast(jumpTransform.position, new Vector2(enemyMovement.direction.x*-1, enemyMovement.direction.y), detectionRange, mask);
-      if (hit.collider != null || hitJump.collider != null)
+      if (hit.collider != null || (hitJump.collider != null && !GameManager.instance.currentPlayer.GetComponent<PlayerController2D>().collisions.below))
       {
          Detected = true;
       }
 
-      else if (enemyMovement.idle == false && (hitOther.collider != null || hitOtherJump.collider != null))
+      else if (enemyMovement.idle == false && (hitOther.collider != null || (hitOtherJump.collider != null && !GameManager.instance.currentPlayer.GetComponent<PlayerController2D>().collisions.below)))
       {
          Detected = true;
       }
