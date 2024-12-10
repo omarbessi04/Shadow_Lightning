@@ -33,6 +33,7 @@ public class ShieldBash : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Animator.SetFloat("Xvelocity", Mathf.Abs(EnemyMovement.velocity.x));
         if (stunned)
         {
             EnemyMovement.velocity.x = 0;

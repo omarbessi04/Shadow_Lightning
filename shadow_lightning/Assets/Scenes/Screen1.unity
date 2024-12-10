@@ -20451,8 +20451,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tutorial
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
-  m_sharedMaterial: {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20541,7 +20541,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21632,7 +21632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunDuration: 3
-  knockBack: 40
+  knockBack: 30
   EnemyMovement: {fileID: 5668943803483635165}
   bashRange: 7
   minBashRange: 0
@@ -21640,12 +21640,12 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
-  bashSpeed: 35
+  bashSpeed: 30
   Timer: 0
   BashCooldown: 2
   bashingRight: 0
   inRange: 0
-  airResistince: 1.5
+  airResistince: 1
   stunned: 0
   bashing: 0
 --- !u!1660057539 &9223372036854775807
