@@ -155,6 +155,7 @@ public class PossessController : MonoBehaviour
         }
 
         currentEnemy.GetComponent<EnemyMovement>().shouldMove = true;
+        currentEnemy.GetComponent<EnemyMovement>().noVelocityReset = true;
         StartCoroutine(ReenableMovement(currentEnemy));
         currentEnemy.GetComponent<EnemyMovement>().velocity = possessedEnemyObject.GetComponent<PlayerMovement>().velocity;
         currentEnemy.SetActive(true);
@@ -167,6 +168,7 @@ public class PossessController : MonoBehaviour
     private IEnumerator ReenableMovement(GameObject enemy)
     {
         yield return new WaitForSeconds(0.1f); 
+        enemy.GetComponent<EnemyMovement>().noVelocityReset = false;
         enemy.GetComponent<EnemyMovement>().idle = true;
     }
     private void OnTriggerEnter2D(Collider2D other)

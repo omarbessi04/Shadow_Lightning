@@ -14,6 +14,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip SwordHit;
     public AudioClip ElectricZap; 
     public AudioClip Jump;
+    public AudioClip MageOuch;
+    public AudioClip SwordUgh;
+    public AudioClip Boom;
 
     private void Start(){
         musicSource.clip = SneakMusic;

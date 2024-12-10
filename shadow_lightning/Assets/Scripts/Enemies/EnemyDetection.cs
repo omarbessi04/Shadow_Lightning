@@ -16,10 +16,7 @@ public class EnemyDetection : MonoBehaviour
 
    private void Update()
    {
-      if (Detected)
-      {
-         
-      }
+      
       RaycastHit2D hit = Physics2D.Raycast(transform.position, enemyMovement.direction, detectionRange, mask);
       RaycastHit2D hitJump = Physics2D.Raycast(jumpTransform.position, enemyMovement.direction, detectionRange, mask);
       RaycastHit2D hitOther = Physics2D.Raycast(transform.position, new Vector2(enemyMovement.direction.x*-1, enemyMovement.direction.y), detectionRange, mask);

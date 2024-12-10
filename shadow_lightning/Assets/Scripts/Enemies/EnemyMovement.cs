@@ -41,6 +41,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool flippedRight = true;
     public bool tryggvitest = false;
+
+    public bool noVelocityReset = false;
     
     // Start is called before the first frame update
     void Start()
@@ -133,7 +135,7 @@ public class EnemyMovement : MonoBehaviour
             if (controller.collisions.above || controller.collisions.below) {
                 velocity.y = 0;
             }
-            if (controller.collisions.below && shouldMove)
+            if (controller.collisions.below && shouldMove && !noVelocityReset)
             {
                 velocity.x = direction.x * speed;
             }
@@ -142,13 +144,13 @@ public class EnemyMovement : MonoBehaviour
         else if (moveTowardsPlayer && shouldMove && idle == false && Player != null)
         {
             Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
-            velocity.y += Gravity * Time.deltaTime;
-            if (controller.collisions.below)
+            if (controller.collisions.below && !noVelocityReset)
             {
                 velocity.x = playerDirection.x * speed;
             }
         }
-        else if (!shouldMove && !idle)
+        
+        else if (!shouldMove && !idle && !noVelocityReset || !moveTowardsPlayer && !idle && !noVelocityReset)
         {
             velocity.x = 0;
         }
