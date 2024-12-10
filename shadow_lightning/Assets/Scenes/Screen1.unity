@@ -10070,7 +10070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a91314466cd8446884e24062bda1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trantitionTo: MainMenu
+  trantitionTo: Screen2
   exitTime: 0
   startPoint: {fileID: 1388657204}
   exitDirection: {x: 0, y: 0}
@@ -20964,7 +20964,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   mySprite: {fileID: 2975407811620686221}
-  EnemyType: 
 --- !u!1 &3540250552508299425
 GameObject:
   m_ObjectHideFlags: 0

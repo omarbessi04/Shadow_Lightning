@@ -70,32 +70,52 @@ public class PlayerController2D : RaycastController {
 					continue;
 				}
 
-				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-
-				if (i == 0 && slopeAngle <= maxSlopeAngle) {
-					if (collisions.descendingSlope) {
-						collisions.descendingSlope = false;
-						moveAmount = collisions.moveAmountOld;
+				if (hit.collider.tag == "Through")
+				{
+					if (directionX == -1)
+					{
+						onPlatform = true;
 					}
-					float distanceToSlopeStart = 0;
-					if (slopeAngle != collisions.slopeAngleOld) {
-						distanceToSlopeStart = hit.distance-skinWidth;
-						moveAmount.x -= distanceToSlopeStart * directionX;
+					if (directionX == 1 || hit.distance == 0) {
+						continue;
 					}
-					ClimbSlope(ref moveAmount, slopeAngle, hit.normal);
-					moveAmount.x += distanceToSlopeStart * directionX;
+					if (collisions.fallingThroughPlatform == hit.collider) {
+						continue;
+					}
+					if (playerInput.x == -1)
+					{
+						collisions.fallingThroughPlatform = hit.collider;
+						continue;
+					}
 				}
+				else{
+					float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
-				if (!collisions.climbingSlope || slopeAngle > maxSlopeAngle) {
-					moveAmount.x = (hit.distance - skinWidth) * directionX;
-					rayLength = hit.distance;
-
-					if (collisions.climbingSlope) {
-						moveAmount.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(moveAmount.x);
+					if (i == 0 && slopeAngle <= maxSlopeAngle) {
+						if (collisions.descendingSlope) {
+							collisions.descendingSlope = false;
+							moveAmount = collisions.moveAmountOld;
+						}
+						float distanceToSlopeStart = 0;
+						if (slopeAngle != collisions.slopeAngleOld) {
+							distanceToSlopeStart = hit.distance-skinWidth;
+							moveAmount.x -= distanceToSlopeStart * directionX;
+						}
+						ClimbSlope(ref moveAmount, slopeAngle, hit.normal);
+						moveAmount.x += distanceToSlopeStart * directionX;
 					}
 
-					collisions.left = directionX == -1;
-					collisions.right = directionX == 1;
+					if (!collisions.climbingSlope || slopeAngle > maxSlopeAngle) {
+						moveAmount.x = (hit.distance - skinWidth) * directionX;
+						rayLength = hit.distance;
+
+						if (collisions.climbingSlope) {
+							moveAmount.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(moveAmount.x);
+						}
+
+						collisions.left = directionX == -1;
+						collisions.right = directionX == 1;
+					}
 				}
 			}
 		}
