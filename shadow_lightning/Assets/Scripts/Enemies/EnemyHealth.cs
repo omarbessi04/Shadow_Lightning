@@ -25,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
         if (GetComponent<EnemyVariables>().typeEnemy == "Sword") audioManager.PlaySFX(audioManager.SwordUgh);
         if (GetComponent<EnemyVariables>().typeEnemy == "Shield" && type == "Sword")
         {
+            GetComponent<EnemyMovement>().velocity.x = 0;
             GetComponent<ShieldBash>().stunCheck();
         }
         EnemyMovement.idle = false;
