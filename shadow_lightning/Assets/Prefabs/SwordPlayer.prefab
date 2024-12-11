@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28250784f11efa4dbd46569c072f823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1.5
+  damage: 1
   playerAnimator: {fileID: 8662855069053302667}
   cooldown: 0.5
   markerRight: {fileID: 0}

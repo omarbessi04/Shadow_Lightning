@@ -21,7 +21,7 @@ public class ShieldBash : MonoBehaviour
     public bool inRange = false;
     private Animator Animator;
     public float airResistince;
-    private bool canFlip = true;
+    public bool canFlip = true;
     private Coroutine stunCoroutine;
     public bool stunned = false;
     
@@ -73,7 +73,7 @@ public class ShieldBash : MonoBehaviour
         }
         Timer -= Time.deltaTime;
         RaycastHit2D hit;
-        if (Detection.Detected && inRange && !stunned)
+        if (Detection.Detected && !stunned)
         {
             if (EnemyMovement.flippedRight)
             {
@@ -113,6 +113,7 @@ public class ShieldBash : MonoBehaviour
                 print("playerhit");
                 EnemyMovement.velocity.x = 0;
                 bashing = false;
+                StartCoroutine(flipTime());
                 //Animator.SetBool("Bashing", false);
                 if (bashingRight)
                 {
@@ -131,6 +132,7 @@ public class ShieldBash : MonoBehaviour
                 {
                     print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
+                    StartCoroutine(flipTime());
                     //Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
                     print("RESET1");
@@ -143,6 +145,7 @@ public class ShieldBash : MonoBehaviour
                 {
                     print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
+                    StartCoroutine(flipTime());
                     //Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
                     print("RESET2");
@@ -156,24 +159,25 @@ public class ShieldBash : MonoBehaviour
 
     public void stunCheck()
     {
-        if (!stunned && stunCoroutine == null)
+        if (!stunned)
         {
-            stunCoroutine = StartCoroutine(Stun());
-        }
-        else if (stunned && stunCoroutine != null)
-        {
-            StopCoroutine(stunCoroutine);
+            Animator.SetBool("Stunned", true);
+            Animator.SetBool("Bashing", false);
+            bashing = false;
+            EnemyMovement.velocity.x = 0;
+            if (stunCoroutine != null)
+            {
+                StopCoroutine(stunCoroutine);
+            }
             stunCoroutine = StartCoroutine(Stun());
         }
     }
+
     IEnumerator Stun()
     {
         stunned = true;
-        Animator.SetBool("Stunned", true);
-        Animator.SetBool("Bashing", false);
-        EnemyMovement.velocity.x = 0;
-        bashing = false;
         yield return new WaitForSeconds(stunDuration);
+        canFlip = true;
         Timer = BashCooldown;
         stunned = false;
         Animator.SetBool("Stunned", false);
@@ -183,16 +187,16 @@ public class ShieldBash : MonoBehaviour
 
     IEnumerator flipTime()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         canFlip = true;
 
     }
     
     public void animationDone()
     {
+        StartCoroutine(flipTime());
         print("done");
         Animator.SetBool("Bashing", false);
-        StartCoroutine(flipTime());
     }
     public void Bash()
     {

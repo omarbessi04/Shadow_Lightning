@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class PossessController : MonoBehaviour
 {
+    public float unpossessCooldown = 30f;
+    public float Timer;
     public bool canPossess = false;
     public Collider2D enemyToPossess = null;
     public Transform Spawner;
@@ -41,11 +43,17 @@ public class PossessController : MonoBehaviour
 
     private void Update()
     {
+        GameManager.instance.unpossessTimer = Timer;
+        if (Timer >= 0)
+        {
+            Timer -= Time.deltaTime;
+        }
         if (possessed == true)
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G) && Timer <= 0)
             {
                 unpossess();
+                
             }
         }
         if (canPossess && possessed == false)
@@ -89,6 +97,7 @@ public class PossessController : MonoBehaviour
     
     public void possess()
     {
+        Timer = unpossessCooldown;
         GameManager.instance.alive_enemy_count -= 1;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
         enemyToPossess.GameObject().SetActive(false);

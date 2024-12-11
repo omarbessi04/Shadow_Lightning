@@ -76,6 +76,7 @@ MonoBehaviour:
   Animator: {fileID: 7401650925402644486}
   flippedRight: 1
   tryggvitest: 0
+  noVelocityReset: 0
 --- !u!61 &3592631883180825419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190,9 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9643ade6bb5472e4095b1808642bcef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 3
+  Health: 2
   mySprite: {fileID: 6955596979211215273}
-  EnemyType: Mage
 --- !u!114 &7071443362726475564
 MonoBehaviour:
   m_ObjectHideFlags: 0

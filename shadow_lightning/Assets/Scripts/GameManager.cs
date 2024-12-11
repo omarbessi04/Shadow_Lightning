@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public HeartSystem heartSystem;
     public int alive_enemy_count;
 
+    public float unpossessTimer;
     public GameObject currentPlayer;
     
     void Awake()
