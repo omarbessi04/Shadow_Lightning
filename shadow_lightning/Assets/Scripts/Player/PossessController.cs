@@ -43,19 +43,24 @@ public class PossessController : MonoBehaviour
 
     private void Update()
     {
-        GameManager.instance.unpossessTimer = Timer;
-        if (Timer >= 0)
-        {
-            Timer -= Time.deltaTime;
-        }
-        if (possessed == true)
-        {
-            if (Input.GetKeyDown(KeyCode.G) && Timer <= 0)
+        if (Input.GetKeyDown(KeyCode.G))// && Timer <= 0)
             {
                 unpossess();
                 
             }
-        }
+        // GameManager.instance.unpossessTimer = Timer;
+        // if (Timer >= 0)
+        // {
+        //     Timer -= Time.deltaTime;
+        // }
+        // if (possessed == true)
+        // {
+        //     if (Input.GetKeyDown(KeyCode.G) && Timer <= 0)
+        //     {
+        //         unpossess();
+                
+        //     }
+        // }
         if (canPossess && possessed == false)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)

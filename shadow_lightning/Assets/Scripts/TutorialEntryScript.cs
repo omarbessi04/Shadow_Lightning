@@ -5,11 +5,15 @@ using UnityEngine;
 public class TutorialEntryScript : MonoBehaviour
 {
     public string sceneTo;
-    private void OnTriggerStay2D(Collider2D other) {
+     void OnTriggerStay2D(Collider2D other) {
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+        if(other.CompareTag("Player") || other.CompareTag("PlayerEnemy")){
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+                Debug.Log("Button Pressed");
 
-            SceneTransitionScript.instance.TeleportTo(sceneTo);
+                SceneTransitionScript.instance.TeleportTo(sceneTo);
+            }
         }
+
     }
 }

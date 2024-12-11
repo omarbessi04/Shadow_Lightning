@@ -97,7 +97,7 @@ public class ShieldBash : MonoBehaviour
 
         if (bashing)
         {
-            print(EnemyMovement.velocity.x);
+            //print(EnemyMovement.velocity.x);
             RaycastHit2D hit2;
             if (EnemyMovement.flippedRight)
             {
@@ -110,7 +110,7 @@ public class ShieldBash : MonoBehaviour
 
             if (hit2)
             {
-                print("playerhit");
+                //print("playerhit");
                 EnemyMovement.velocity.x = 0;
                 bashing = false;
                 StartCoroutine(flipTime());
@@ -130,12 +130,12 @@ public class ShieldBash : MonoBehaviour
                 EnemyMovement.velocity.x -= airResistince;
                 if (EnemyMovement.velocity.x < 0)
                 {
-                    print("CURRENT VEL: " + EnemyMovement.velocity.x);
+                    //print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
                     StartCoroutine(flipTime());
                     //Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
-                    print("RESET1");
+                    //print("RESET1");
                 }
             }
             else
@@ -143,12 +143,12 @@ public class ShieldBash : MonoBehaviour
                 EnemyMovement.velocity.x += airResistince;
                 if (EnemyMovement.velocity.x > 0)
                 {
-                    print("CURRENT VEL: " + EnemyMovement.velocity.x);
+                    //print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
                     StartCoroutine(flipTime());
                     //Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
-                    print("RESET2");
+                    //print("RESET2");
                 }
                 
             }
@@ -195,7 +195,7 @@ public class ShieldBash : MonoBehaviour
     public void animationDone()
     {
         StartCoroutine(flipTime());
-        print("done");
+        //print("done");
         Animator.SetBool("Bashing", false);
     }
     public void Bash()
@@ -204,7 +204,7 @@ public class ShieldBash : MonoBehaviour
         {
             Timer = BashCooldown;
             bashing = true;
-            print("BASHING");
+            //print("BASHING");
             if (EnemyMovement.flippedRight)
             {
                 EnemyMovement.velocity.x = +bashSpeed;

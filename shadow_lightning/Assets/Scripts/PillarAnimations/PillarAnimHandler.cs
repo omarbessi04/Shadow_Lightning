@@ -15,7 +15,7 @@ public class PillarAnimHandler : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.alive_enemy_count == 0)
+        if (GameManager.instance.alive_enemy_count == 1)
         {
             my_animator.SetBool("RoomCleared", true);
             MoveUp();

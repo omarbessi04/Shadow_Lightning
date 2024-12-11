@@ -27,9 +27,6 @@ public class SceneTransitionScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (!other.CompareTag("Player") && !other.CompareTag("PlayerEnemy")) return;
-
-        if (GameManager.instance.alive_enemy_count > 1) return;
-
         GameManager.instance.transitionedFromScene = SceneManager.GetActiveScene().name;
         TeleportTo(trantitionTo);
 
@@ -37,5 +34,6 @@ public class SceneTransitionScript : MonoBehaviour
 
     public void TeleportTo(string goTo){
         SceneManager.LoadScene(goTo);
+        GameManager.instance.alive_enemy_count = 0;
     }
 }
