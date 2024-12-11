@@ -13,6 +13,7 @@ TagManager:
   - Spikes
   - Pillar
   - Projectile
+  - CameraAnchor
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ public class PlayerController2D : RaycastController {
 
 	public override void Start() {
 		base.Start ();
-		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().target = this;
+		GameObject.FindGameObjectWithTag("CameraAnchor").GetComponent<CameraFollow>().target = this;
 		collisions.faceDir = 1;
 
 	}

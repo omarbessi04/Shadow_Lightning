@@ -12,6 +12,7 @@ public class HeartSystem : MonoBehaviour
     public Material heartMaterial;
     public float heartAnimationSpeed;
     private bool isColorChanging = false;
+    CameraEffectScript myCamEffects;
     private void Start()
     {
         UpdateHealthBar();
@@ -19,19 +20,24 @@ public class HeartSystem : MonoBehaviour
         heartMaterial.color = Color.white;
     }
 
+    private void Awake() {
+        myCamEffects = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraEffectScript>();
+    }
+
 
     public void TakeDamage(float damage)
     {
         Health -= damage;
         UpdateHealthBar();
-        if (!isColorChanging)
-        {
-            StartCoroutine(AnimateHealthbar());
-        }
-        if (Health <= 0)
-        {
-            StartCoroutine(PlayerDeath());
-        }
+
+        //Still alive, screenshake
+        if (Health > 0) myCamEffects.TriggerShake(0.2f,damage);
+
+        //Change heart color
+        if (!isColorChanging) StartCoroutine(AnimateHealthbar());
+
+        //Dead, die
+        if (Health <= 0) StartCoroutine(PlayerDeath());
     }
 
     private IEnumerator PlayerDeath()

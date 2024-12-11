@@ -682,6 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   mySprite: {fileID: 7738333891246611227}
+  DamageParticles: {fileID: 8392015301752234393, guid: 5cd6972fb7bf7dd4586119ff5c4f25d4, type: 3}
 --- !u!114 &431513362797695051
 MonoBehaviour:
   m_ObjectHideFlags: 0

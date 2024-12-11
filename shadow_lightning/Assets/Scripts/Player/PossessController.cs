@@ -150,7 +150,7 @@ public class PossessController : MonoBehaviour
         GameManager.instance.alive_enemy_count += 1;
         GetComponent<PlayerController2D>().enabled = true;
         GetComponent<PlayerMovement>().enabled = true;
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().target =
+        GameObject.FindGameObjectWithTag("CameraAnchor").GetComponent<CameraFollow>().target =
             GetComponent<PlayerController2D>();
         currentEnemy.transform.position = possessedEnemyObject.transform.position;
         

@@ -365,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   mySprite: {fileID: 2987247650058690545}
+  DamageParticles: {fileID: 8392015301752234393, guid: 5cd6972fb7bf7dd4586119ff5c4f25d4, type: 3}
 --- !u!114 &9216613028225574657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af9cf1559559ab479774fbda24b4799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunDuration: 3
   knockBack: 40
   EnemyMovement: {fileID: 5642685275744215862}
   bashRange: 6
@@ -449,6 +451,10 @@ MonoBehaviour:
   Timer: 0
   BashCooldown: 3
   bashingRight: 0
+  inRange: 0
+  airResistince: 0
+  canFlip: 1
+  stunned: 0
   bashing: 0
 --- !u!1 &4137966047105165325
 GameObject:

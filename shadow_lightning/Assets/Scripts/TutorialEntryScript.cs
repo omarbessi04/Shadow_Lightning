@@ -9,7 +9,6 @@ public class TutorialEntryScript : MonoBehaviour
 
         if(other.CompareTag("Player") || other.CompareTag("PlayerEnemy")){
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-                Debug.Log("Button Pressed");
 
                 SceneTransitionScript.instance.TeleportTo(sceneTo);
             }
