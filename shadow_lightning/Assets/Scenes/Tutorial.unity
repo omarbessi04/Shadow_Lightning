@@ -440,8 +440,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press K to use enemy abilities
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
-  m_sharedMaterial: {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -530,7 +530,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -611,8 +611,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press G to unpossess enemies
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
-  m_sharedMaterial: {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -701,7 +701,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -810,54 +810,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &554405012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 554405014}
-  - component: {fileID: 554405013}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &554405013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554405012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 571acfc1f1bff104c977d9a4bbbe4dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transitionedFromScene: 
-  heartSystem: {fileID: 0}
-  alive_enemy_count: 0
-  currentPlayer: {fileID: 0}
---- !u!4 &554405014
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554405012}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1286063, y: 1.7310643, z: 0.7538749}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &565151662
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +866,8 @@ MonoBehaviour:
   - {fileID: 1214346114}
   - {fileID: 1185244209}
   Health: 3
+  heartMaterial: {fileID: 0}
+  heartAnimationSpeed: 0
 --- !u!1 &614059796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,7 +2636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171e6947764802c418262c3f77588c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1539783721}
+  target: {fileID: 0}
   verticalOffsetGround: 2
   verticalOffsetOnPlatform: 1
   lookAheadDstX: 2
@@ -2865,74 +2819,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1539783720
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5001867423574130767, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -20.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
---- !u!114 &1539783721 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7461788913411261527, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
-  m_PrefabInstance: {fileID: 1539783720}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18bbfb0972319d4ba89eca0ee7f473e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1590903068
 GameObject:
   m_ObjectHideFlags: 0
@@ -8538,8 +8424,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press K to possess an enemy when behind them
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
-  m_sharedMaterial: {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8628,7 +8514,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8803,8 +8689,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Go Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
-  m_sharedMaterial: {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8893,7 +8779,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 155653282457200974, guid: 1f8eba0327d70db428c3a29fbc33ce58, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9708,10 +9594,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1260727798}
-  - {fileID: 1539783720}
   - {fileID: 166380203}
   - {fileID: 1266681554}
-  - {fileID: 554405014}
   - {fileID: 1680818276}
   - {fileID: 2052047464}
   - {fileID: 1075920262}

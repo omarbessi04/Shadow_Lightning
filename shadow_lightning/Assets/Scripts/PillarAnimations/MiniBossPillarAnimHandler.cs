@@ -19,8 +19,6 @@ public class MiniBossPillarAnimHandeler : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"Up: {isMovingUp}, Down: {isMovingUp}");
-        
         if (isMovingUp)
         {
             float newY = Mathf.MoveTowards(transform.position.y, initialY + targetHeight, moveSpeed * Time.deltaTime);
@@ -33,7 +31,7 @@ public class MiniBossPillarAnimHandeler : MonoBehaviour
 
         } else if(isMovingDown){
 
-            float newY = Mathf.MoveTowards(transform.position.y, initialY, moveSpeed * Time.deltaTime);
+            float newY = Mathf.MoveTowards(transform.position.y, initialY, 2 * moveSpeed * Time.deltaTime);
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
 
             if (Mathf.Approximately(transform.position.y, initialY))
