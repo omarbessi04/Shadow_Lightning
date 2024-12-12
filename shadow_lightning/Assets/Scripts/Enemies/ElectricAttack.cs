@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ElectricAttack : MonoBehaviour
@@ -26,8 +27,27 @@ public class ElectricAttack : MonoBehaviour
     {
         if (other.tag == "PlayerEnemy")
         {
-            GameManager.instance.heartSystem.TakeDamage(Damage);
-            Destroy(gameObject);
+            if (other.GameObject().GetComponent<PlayerMovement>().type == "Shield")
+            {
+                if (direction == Vector2.right && !other.GameObject().GetComponentInChildren<PlayerAnimator>().lookingRight)
+                {
+                    Destroy(gameObject);
+                }
+                else if (direction == Vector2.left && other.GameObject().GetComponentInChildren<PlayerAnimator>().lookingRight)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    GameManager.instance.heartSystem.TakeDamage(Damage);
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                GameManager.instance.heartSystem.TakeDamage(Damage);
+                Destroy(gameObject);
+            }
         }
     }
 }

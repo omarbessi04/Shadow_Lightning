@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
-public class PlayerController2D : RaycastController {
-
+public class PlayerController2D : RaycastController
+{
+	public ShieldBashPlayer ShieldBashPlayer;
+	public LayerMask enemyMask;
 	public float maxSlopeAngle = 80;
 	PlayerController2D instance;
 
@@ -62,8 +65,18 @@ public class PlayerController2D : RaycastController {
 			Vector2 rayOrigin = (directionX == -1)?raycastOrigins.bottomLeft:raycastOrigins.bottomRight;
 			rayOrigin += Vector2.up * (horizontalRaySpacing * i);
 			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
+			RaycastHit2D shieldHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength,enemyMask);
 
 			Debug.DrawRay(rayOrigin, Vector2.right * directionX,Color.red);
+			if (ShieldBashPlayer != null)
+			{
+				print("gothere");
+				if (shieldHit.collider != null && ShieldBashPlayer.bashing)
+				{
+					print("GOT HERE");
+					ShieldBashPlayer.enemyHit(shieldHit.collider.GameObject());
+				}
+			}
 
 			if (hit) {
 
@@ -131,6 +144,16 @@ public class PlayerController2D : RaycastController {
 			Vector2 rayOrigin = (directionY == -1)?raycastOrigins.bottomLeft:raycastOrigins.topLeft;
 			rayOrigin += Vector2.right * (verticalRaySpacing * i + moveAmount.x);
 			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
+			RaycastHit2D shieldHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionY, rayLength, enemyMask);
+			if (ShieldBashPlayer != null)
+			{
+				print("gothere");
+				if (shieldHit.collider != null && ShieldBashPlayer.bashing)
+				{
+					print("GOT HERE");
+					ShieldBashPlayer.enemyHit(shieldHit.collider.GameObject());
+				}
+			}
 
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY,Color.red);
 

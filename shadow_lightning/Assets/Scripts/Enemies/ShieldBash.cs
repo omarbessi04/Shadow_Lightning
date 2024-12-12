@@ -187,7 +187,7 @@ public class ShieldBash : MonoBehaviour
 
     IEnumerator flipTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.7f);
         canFlip = true;
 
     }

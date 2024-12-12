@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7071443362726475564}
   - component: {fileID: 7401650925402644486}
   - component: {fileID: 2819169613097531913}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyLightningMage
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4037722846881682782}
   - component: {fileID: 6955596979211215273}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spriteRen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9118082366932578054}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: waypointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7142232254713909591}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: jumpRaycast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6454602890708833994}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: marker2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7809974542567793698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: waypointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

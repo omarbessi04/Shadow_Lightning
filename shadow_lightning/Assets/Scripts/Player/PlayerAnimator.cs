@@ -24,7 +24,7 @@ public class PlayerAnimator : MonoBehaviour
 
    void Update()
    {
-      if (lookingRight && playerMovement.velocity.normalized.x < 0)
+      if (lookingRight && playerMovement.velocity.normalized.x < 0 && playerMovement.canMove)
       {
          sRen.flipX = true;
          lookingRight = false;
@@ -33,7 +33,7 @@ public class PlayerAnimator : MonoBehaviour
             transform.localPosition = new Vector3(offset, transform.localPosition.y, transform.localPosition.z);
          }
       }
-      else if (lookingRight == false && playerMovement.velocity.normalized.x > 0)
+      else if (lookingRight == false && playerMovement.velocity.normalized.x > 0 && playerMovement.canMove)
       {
          sRen.flipX = false;
          lookingRight = true;

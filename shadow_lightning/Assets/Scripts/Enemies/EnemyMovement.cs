@@ -164,6 +164,10 @@ public class EnemyMovement : MonoBehaviour
             
     }
 
+    public void knockBack(float knockBack)
+    {
+        velocity.x = knockBack;
+    }
     IEnumerator idleWait()
     {
         waiting = true;
