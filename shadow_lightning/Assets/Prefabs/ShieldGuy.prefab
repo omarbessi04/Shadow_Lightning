@@ -319,7 +319,7 @@ MonoBehaviour:
     m_Bits: 256
   bashSpeed: 25
   Timer: 0
-  BashCooldown: 2
+  BashCooldown: 2.5
   bashingRight: 0
   inRange: 0
   airResistince: 0.6
