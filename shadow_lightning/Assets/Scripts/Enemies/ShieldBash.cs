@@ -24,8 +24,11 @@ public class ShieldBash : MonoBehaviour
     public bool canFlip = true;
     private Coroutine stunCoroutine;
     public bool stunned = false;
-    
     public bool bashing = false;
+
+    [SerializeField] private ParticleSystem LightningParticles;
+
+    private ParticleSystem LightningParticlesinstance;
 
     private void Start()
     {
@@ -203,7 +206,7 @@ public class ShieldBash : MonoBehaviour
         if (bashing == false)
         {
             Timer = BashCooldown;
-            LightningParticles();
+            SpawnLightningParticles(transform.position.x, transform.position.y);
             bashing = true;
 
             //print("BASHING");
@@ -218,11 +221,10 @@ public class ShieldBash : MonoBehaviour
                 bashingRight = false;
             }
         }
-
     }
 
-    public void LightningParticles(){
-        
+    public void SpawnLightningParticles(float a, float b){
+        LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.identity);
     }
     
 }
