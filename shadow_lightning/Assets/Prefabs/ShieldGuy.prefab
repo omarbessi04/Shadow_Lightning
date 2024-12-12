@@ -326,6 +326,7 @@ MonoBehaviour:
   canFlip: 1
   stunned: 0
   bashing: 0
+  LightningParticles: {fileID: 5848480600364867627, guid: 438c9879becede242b128b45e6c57558, type: 3}
 --- !u!1 &5310751737798472368
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,8 +5,9 @@ public class PillarAnimHandler : MonoBehaviour
     public Animator my_animator;
     public float moveSpeed = 1f;
     public float targetHeight = 5f;
-    private bool isMovingUp = false;
+    public bool isMovingUp = false;
     private float initialY;
+    public bool hasMovedUp = false;
 
     private void Start()
     {
@@ -15,9 +16,8 @@ public class PillarAnimHandler : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.alive_enemy_count == 1)
+        if (GameManager.instance.alive_enemy_count == 0)
         {
-            my_animator.SetBool("RoomCleared", true);
             MoveUp();
         }
 
@@ -29,12 +29,14 @@ public class PillarAnimHandler : MonoBehaviour
             if (Mathf.Approximately(transform.position.y, initialY + targetHeight))
             {
                 isMovingUp = false;
+                hasMovedUp = true;
             }
         }
     }
 
     public void MoveUp()
     {
+        my_animator.SetBool("RoomCleared", true);
         isMovingUp = true;
     }
 }

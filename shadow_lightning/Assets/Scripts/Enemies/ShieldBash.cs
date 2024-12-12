@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class ShieldBash : MonoBehaviour
@@ -25,6 +26,7 @@ public class ShieldBash : MonoBehaviour
     private Coroutine stunCoroutine;
     public bool stunned = false;
     public bool bashing = false;
+    bool particleHandler = true;
 
     [SerializeField] private ParticleSystem LightningParticles;
 
@@ -74,6 +76,16 @@ public class ShieldBash : MonoBehaviour
             }
             
         }
+
+        if(bashing){
+            if (particleHandler) {
+                SpawnLightningParticles(transform.position.x, transform.position.y); 
+                particleHandler = false;}
+            else{
+                particleHandler = true;
+            }
+        }
+
         Timer -= Time.deltaTime;
         RaycastHit2D hit;
         if (Detection.Detected && !stunned)
@@ -159,7 +171,7 @@ public class ShieldBash : MonoBehaviour
 
 
     }
-
+    
     public void stunCheck()
     {
         if (!stunned)
@@ -184,8 +196,6 @@ public class ShieldBash : MonoBehaviour
         Timer = BashCooldown;
         stunned = false;
         Animator.SetBool("Stunned", false);
-
-
     }
 
     IEnumerator flipTime()
@@ -206,7 +216,6 @@ public class ShieldBash : MonoBehaviour
         if (bashing == false)
         {
             Timer = BashCooldown;
-            SpawnLightningParticles(transform.position.x, transform.position.y);
             bashing = true;
 
             //print("BASHING");
@@ -224,7 +233,11 @@ public class ShieldBash : MonoBehaviour
     }
 
     public void SpawnLightningParticles(float a, float b){
-        LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.identity);
+        if (bashingRight){
+            LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.Euler(new Vector3(0, 0, 90)));
+        }else{
+            LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0),  Quaternion.Euler(new Vector3(0, 0, -90)));
+        }
     }
     
 }

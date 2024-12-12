@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6598079845952374378}
   - component: {fileID: 4175079177701359550}
   - component: {fileID: 1437648054024969675}
+  - component: {fileID: 2299907810170850680}
   m_Layer: 0
   m_Name: BoulderParticles
   m_TagString: Untagged
@@ -4889,3 +4890,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2299907810170850680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063403615910084941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c232b83b3a51c4c830af200de3110b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoomTimer: 5
