@@ -35,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (enemyType == "Shield" && type == "Sword")
         {
-            if (GetComponent<ShieldBash>().bashing)
+            if (GetComponent<ShieldBash>().Animator.GetBool("Bashing"))
             {
                 GetComponent<EnemyMovement>().velocity.x = 0;
                 GetComponent<ShieldBash>().stunCheck();

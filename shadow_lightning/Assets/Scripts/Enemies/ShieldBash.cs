@@ -20,7 +20,7 @@ public class ShieldBash : MonoBehaviour
     public bool bashingRight;
     private GameObject Player;
     public bool inRange = false;
-    private Animator Animator;
+    public Animator Animator;
     public float airResistince;
     public bool canFlip = true;
     private Coroutine stunCoroutine;
