@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 3
   base_speed: 0
-  speed: 5
+  speed: 4
   idle: 1
   wayPoint1: {fileID: 3789051901838696933}
   wayPoint2: {fileID: 7847448673523092867}
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   mySprite: {fileID: 8028295196516921742}
-  DamageParticles: {fileID: 8392015301752234393, guid: 5cd6972fb7bf7dd4586119ff5c4f25d4, type: 3}
+  DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
 --- !u!114 &1064678573442664854
 MonoBehaviour:
   m_ObjectHideFlags: 0

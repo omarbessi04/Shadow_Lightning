@@ -402,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Shield
   canMove: 1
-  maxJumpHeight: 4
+  maxJumpHeight: 4.2
   minJumpHeight: 1
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
