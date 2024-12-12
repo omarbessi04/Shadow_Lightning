@@ -203,7 +203,9 @@ public class ShieldBash : MonoBehaviour
         if (bashing == false)
         {
             Timer = BashCooldown;
+            LightningParticles();
             bashing = true;
+
             //print("BASHING");
             if (EnemyMovement.flippedRight)
             {
@@ -217,6 +219,10 @@ public class ShieldBash : MonoBehaviour
             }
         }
 
+    }
+
+    public void LightningParticles(){
+        
     }
     
 }
