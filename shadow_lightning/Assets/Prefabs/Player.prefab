@@ -107,9 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 
   canMove: 1
-  maxJumpHeight: 5
+  maxJumpHeight: 4.2
   minJumpHeight: 1
-  timeToJumpApex: 0.7
+  timeToJumpApex: 0.5
   wallJumpClimb: {x: 0, y: 0}
   wallJumpOff: {x: 0, y: 1}
   wallLeap: {x: 0, y: 0}
