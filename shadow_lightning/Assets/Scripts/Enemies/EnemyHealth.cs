@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -14,11 +15,11 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private ParticleSystem DamageParticles;
 
     private ParticleSystem DamageParticlesinstance;
+    GameObject player_for_pos;
     Transform playerPos;
 
 	private void Awake(){
 		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
-        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
 
     private void Start()
@@ -60,23 +61,25 @@ public class EnemyHealth : MonoBehaviour
     public void SpawnDamageParticles(float a, float b, float c){
         audioManager.PlaySFX(audioManager.Boom);
 
-        float enemyXpos = GetComponent<Transform>().position.x;
-        float playerXpos = playerPos.position.x;
+        player_for_pos = GameObject.FindGameObjectWithTag("PlayerEnemy");
+        if (!playerPos) player_for_pos = GameObject.FindGameObjectWithTag("Player");
 
-        Debug.Log($"PlayerX: {playerXpos}, EnemyX: {enemyXpos}");
+        // If the player unpossesses on the frame that damage is dealt, player_for_pos will be null
+        if(player_for_pos){
+            playerPos = player_for_pos.GetComponent<Transform>();
 
-        if(playerXpos > enemyXpos){
-            Debug.Log("Flipping Particles");
-            DamageParticlesinstance = Instantiate(DamageParticles, new Vector3(a, b, c), new Quaternion(0, 180, 0, 0));
+            float enemyXpos = GetComponent<Transform>().position.x;
+            float playerXpos = playerPos.position.x;
+
+            // Make sure particles spawn facing the right direction.
+            if(playerXpos > enemyXpos){
+                DamageParticlesinstance = Instantiate(DamageParticles, new Vector3(a, b, c), new Quaternion(0, 180, 0, 0));
+            }else{
+                DamageParticlesinstance = Instantiate(DamageParticles, new Vector3(a, b, c), Quaternion.identity);
+            }
         }else{
-            Debug.Log("Normal Particles");
+            // Just spawn them if there is no player
             DamageParticlesinstance = Instantiate(DamageParticles, new Vector3(a, b, c), Quaternion.identity);
         }
-        StartCoroutine(deleteParticles());
-    }
-
-    public IEnumerator deleteParticles(){
-        yield return new WaitForSeconds(0.1f);
-        Destroy(DamageParticles);
     }
 }
