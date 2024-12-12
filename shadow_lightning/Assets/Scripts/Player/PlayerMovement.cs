@@ -203,6 +203,9 @@ public class PlayerMovement : MonoBehaviour
 			if (gameObject.tag == "PlayerEnemy"){
 				GameManager.instance.heartSystem.TakeDamage(5000);
 			}
+			
+		}else if (other.CompareTag("ShadowSpike")){
+			GameManager.instance.heartSystem.TakeDamage(5000);
 		}
 	}
 }
