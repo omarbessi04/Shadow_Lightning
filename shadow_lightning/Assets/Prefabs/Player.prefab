@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d165747904924c6428e764fa8c07c621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 
+  canMove: 1
   maxJumpHeight: 5
   minJumpHeight: 1
   timeToJumpApex: 0.7
@@ -179,6 +181,10 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
+  ShieldBashPlayer: {fileID: 0}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   maxSlopeAngle: 80
   playerInput: {x: 0, y: 0}
   onPlatform: 0
@@ -206,12 +212,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56318a1ce0535fe439228a9e912aaae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unpossessCooldown: 30
+  Timer: 0
   canPossess: 0
   enemyToPossess: {fileID: 0}
   Spawner: {fileID: 7049170388074327220}
   turningRight: 0
   mage: {fileID: 231906290867126495, guid: 2a53fdb320301554897423b92ecf4e82, type: 3}
   sword: {fileID: 4743216774564825184, guid: 470b63f83f9567f4b888e0d7f2a62fc1, type: 3}
+  shield: {fileID: 7396385534021377977, guid: a4bac514889c89540a3e74ff44b203e4, type: 3}
+  possessed: 0
+  shadow: {fileID: 0}
 --- !u!50 &6704939184139227549
 Rigidbody2D:
   serializedVersion: 4

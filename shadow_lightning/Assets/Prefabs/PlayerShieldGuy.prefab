@@ -168,7 +168,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e2c88fa7b9eece041a453012f7248c8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e56e2366d37757e459759314a85ef1a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -304,8 +304,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65, y: 0.44}
-    newSize: {x: 0.65, y: 0.44}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -350,7 +350,7 @@ Animator:
   m_GameObject: {fileID: 7396385534021377977}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4b538eae58baa054988955389801cf5c, type: 2}
+  m_Controller: {fileID: 22100000, guid: a6d5b022a37290049be223db0a3228fd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   knockBack: 5
   Movement: {fileID: 6734831337174784435}
   PlayerAnimator: {fileID: 4863580315992951008}
-  bashSpeed: 35
+  bashSpeed: 30
   Timer: 0
   BashCooldown: 1
   bashingRight: 0
