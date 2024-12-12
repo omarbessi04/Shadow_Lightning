@@ -18,6 +18,7 @@ public class PossessController : MonoBehaviour
 
     public GameObject mage;
     public GameObject sword;
+    public GameObject shield;
     Camera myCam;
     CameraEffectScript myCamEffects;
 
@@ -132,6 +133,19 @@ public class PossessController : MonoBehaviour
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
                 possessedEnemyObject = Instantiate(sword, enemyToPossess.transform.position, Quaternion.identity);
+            }
+        }
+        else if (enemyType == "Shield")
+        {
+            if (turningRight == false)
+            {
+                shield.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
+                possessedEnemyObject = Instantiate(shield, enemyToPossess.transform.position, Quaternion.identity);
+            }
+            else
+            {
+                shield.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
+                possessedEnemyObject = Instantiate(shield, enemyToPossess.transform.position, Quaternion.identity);
             }
         }
         audioManager.SwitchMusic(audioManager.BattleMusic);

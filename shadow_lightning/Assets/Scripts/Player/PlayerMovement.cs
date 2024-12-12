@@ -3,8 +3,11 @@ using System.Collections;
 using Unity.VisualScripting;
 
 [RequireComponent (typeof (PlayerController2D))]
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
+	public string type;
 
+	public bool canMove = true;
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
@@ -78,29 +81,43 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void OnJumpInputDown() {
-		audioManager.PlaySFX(audioManager.Jump);
-		if (wallSliding) {
-			if (wallDirX == directionalInput.x) {
-				velocity.x = -wallDirX * wallJumpClimb.x;
-				velocity.y = wallJumpClimb.y;
-			}
-			else if (directionalInput.x == 0) {
-				velocity.x = -wallDirX * wallJumpOff.x;
-				velocity.y = wallJumpOff.y;
-			}
-			else {
-				velocity.x = -wallDirX * wallLeap.x;
-				velocity.y = wallLeap.y;
-			}
-		}
-		if (controller.collisions.below) {
-			if (controller.collisions.slidingDownMaxSlope) {
-				if (directionalInput.x != -Mathf.Sign (controller.collisions.slopeNormal.x)) { // not jumping against max slope
-					velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
-					velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
+		if (canMove)
+		{
+			audioManager.PlaySFX(audioManager.Jump);
+			if (wallSliding)
+			{
+				if (wallDirX == directionalInput.x)
+				{
+					velocity.x = -wallDirX * wallJumpClimb.x;
+					velocity.y = wallJumpClimb.y;
 				}
-			} else {
-				velocity.y = maxJumpVelocity;
+				else if (directionalInput.x == 0)
+				{
+					velocity.x = -wallDirX * wallJumpOff.x;
+					velocity.y = wallJumpOff.y;
+				}
+				else
+				{
+					velocity.x = -wallDirX * wallLeap.x;
+					velocity.y = wallLeap.y;
+				}
+			}
+
+			if (controller.collisions.below)
+			{
+				if (controller.collisions.slidingDownMaxSlope)
+				{
+					if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
+					{
+						// not jumping against max slope
+						velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
+						velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
+					}
+				}
+				else
+				{
+					velocity.y = maxJumpVelocity;
+				}
 			}
 		}
 	}
@@ -141,10 +158,27 @@ public class PlayerMovement : MonoBehaviour {
 
 	}
 
-	void CalculateVelocity() {
-		float targetVelocityX = directionalInput.x * moveSpeed;
+	void CalculateVelocity()
+	{
+		float targetVelocityX;
+		if (canMove)
+		{
+			targetVelocityX = directionalInput.x * moveSpeed;
+		}
+		else
+		{
+			targetVelocityX = velocity.x;
+		}
+
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
-		velocity.y += gravity * Time.deltaTime;
+		if (canMove)
+		{
+			velocity.y += gravity * Time.deltaTime;
+		}
+		else
+		{
+			velocity.y += (gravity) * Time.deltaTime;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
@@ -26,8 +27,27 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            other.GetComponent<EnemyHealth>().takeDamage(Damage);
-            Destroy(gameObject);
+            if (other.GameObject().GetComponent<EnemyVariables>().typeEnemy == "Shield")
+            {
+                if (direction == Vector2.right && !other.GameObject().GetComponent<EnemyMovement>().flippedRight)
+                {
+                    Destroy(gameObject);
+                }
+                else if (direction == Vector2.left && other.GameObject().GetComponent<EnemyMovement>().flippedRight)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    other.GetComponent<EnemyHealth>().takeDamage(Damage);
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                other.GetComponent<EnemyHealth>().takeDamage(Damage);
+                Destroy(gameObject);
+            }
         }
     }
 }
