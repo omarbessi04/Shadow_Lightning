@@ -86,7 +86,15 @@ public class ShieldBash : MonoBehaviour
             }
         }
 
-        Timer -= Time.deltaTime;
+        if (Detection.Detected)
+        {
+            Timer -= Time.deltaTime;
+        }
+        else
+        {
+            Timer = BashCooldown;
+        }
+
         RaycastHit2D hit;
         if (Detection.Detected && !stunned)
         {

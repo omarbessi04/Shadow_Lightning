@@ -35,8 +35,11 @@ public class EnemyHealth : MonoBehaviour
 
         if (enemyType == "Shield" && type == "Sword")
         {
-            GetComponent<EnemyMovement>().velocity.x = 0;
-            GetComponent<ShieldBash>().stunCheck();
+            if (GetComponent<ShieldBash>().bashing)
+            {
+                GetComponent<EnemyMovement>().velocity.x = 0;
+                GetComponent<ShieldBash>().stunCheck();
+            }
         }
 
         SpawnDamageParticles(GetComponent<Transform>().position.x, GetComponent<Transform>().position.y, 0);
