@@ -428,7 +428,7 @@ MonoBehaviour:
   knockBack: 5
   Movement: {fileID: 6734831337174784435}
   PlayerAnimator: {fileID: 4863580315992951008}
-  bashSpeed: 35
+  bashSpeed: 30
   Timer: 0
   BashCooldown: 1
   bashingRight: 0

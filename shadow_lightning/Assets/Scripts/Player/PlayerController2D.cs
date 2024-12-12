@@ -70,10 +70,39 @@ public class PlayerController2D : RaycastController
 			Debug.DrawRay(rayOrigin, Vector2.right * directionX,Color.red);
 			if (ShieldBashPlayer != null)
 			{
-				print("gothere");
 				if (shieldHit.collider != null && ShieldBashPlayer.bashing)
 				{
-					print("GOT HERE");
+					if (shieldHit.collider.GameObject().GetComponent<EnemyVariables>().typeEnemy == "Sword")
+					{
+						ShieldBashPlayer.animationDone();
+						float slopeAngle = Vector2.Angle(shieldHit.normal, Vector2.up);
+
+						if (i == 0 && slopeAngle <= maxSlopeAngle) {
+							if (collisions.descendingSlope) {
+								collisions.descendingSlope = false;
+								moveAmount = collisions.moveAmountOld;
+							}
+							float distanceToSlopeStart = 0;
+							if (slopeAngle != collisions.slopeAngleOld) {
+								distanceToSlopeStart = shieldHit.distance-skinWidth;
+								moveAmount.x -= distanceToSlopeStart * directionX;
+							}
+							ClimbSlope(ref moveAmount, slopeAngle, shieldHit.normal);
+							moveAmount.x += distanceToSlopeStart * directionX;
+						}
+
+						if (!collisions.climbingSlope || slopeAngle > maxSlopeAngle) {
+							moveAmount.x = (shieldHit.distance - skinWidth) * directionX;
+							rayLength = shieldHit.distance;
+
+							if (collisions.climbingSlope) {
+								moveAmount.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(moveAmount.x);
+							}
+
+							collisions.left = directionX == -1;
+							collisions.right = directionX == 1;
+						}
+					}
 					ShieldBashPlayer.enemyHit(shieldHit.collider.GameObject());
 				}
 			}
@@ -147,10 +176,8 @@ public class PlayerController2D : RaycastController
 			RaycastHit2D shieldHit = Physics2D.Raycast(rayOrigin, Vector2.right * directionY, rayLength, enemyMask);
 			if (ShieldBashPlayer != null)
 			{
-				print("gothere");
 				if (shieldHit.collider != null && ShieldBashPlayer.bashing)
 				{
-					print("GOT HERE");
 					ShieldBashPlayer.enemyHit(shieldHit.collider.GameObject());
 				}
 			}

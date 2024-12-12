@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 304711790549222543}
   - component: {fileID: 8348908627604372117}
   - component: {fileID: 4794540969331142265}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 406950697111083179}
   - component: {fileID: 3467243197000017399}
   - component: {fileID: 7539364232199380077}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SwordAttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 1096355691294207944}
   - component: {fileID: 5742751733979469134}
   - component: {fileID: 2762743268372555952}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SwordAttackHitbox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
