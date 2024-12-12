@@ -614,8 +614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1043023330}
-  animationSpeed: 3
-  changeColor: {r: 0, g: 0, b: 0, a: 0}
+  animationSpeed: 6
+  changeColor: {r: 1, g: 0, b: 0, a: 1}
+  changeSize: {x: 1.1, y: 1.1, z: 1}
 --- !u!1 &1287863154
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,13 +831,14 @@ GameObject:
   - component: {fileID: 1708538880}
   - component: {fileID: 1708538879}
   - component: {fileID: 1708538878}
+  - component: {fileID: 1708538881}
   m_Layer: 5
   m_Name: QuitBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1708538877
 RectTransform:
   m_ObjectHideFlags: 0
@@ -879,7 +881,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.38039216, g: 0.09019608, b: 0.31764707, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -951,6 +953,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708538876}
   m_CullTransparentMesh: 1
+--- !u!114 &1708538881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708538876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70367f5fb01190345a6e7162ebb09cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1708538876}
+  animationSpeed: 6
+  changeColor: {r: 1, g: 0.4241205, b: 0, a: 1}
+  changeSize: {x: 1.1, y: 1.1, z: 1}
 --- !u!1 &1810299719
 GameObject:
   m_ObjectHideFlags: 0
