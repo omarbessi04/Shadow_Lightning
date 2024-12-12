@@ -99,8 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0d3a331880d85489b9ea0c935a4fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0.9997563, y: 0}
+  direction: {x: -1, y: 0}
   Damage: 0.5
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
   speed: 10
 --- !u!61 &3177061310301722492
 BoxCollider2D:

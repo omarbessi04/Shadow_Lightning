@@ -20,7 +20,7 @@ public class ShieldBash : MonoBehaviour
     public bool bashingRight;
     private GameObject Player;
     public bool inRange = false;
-    private Animator Animator;
+    public Animator Animator;
     public float airResistince;
     public bool canFlip = true;
     private Coroutine stunCoroutine;
@@ -86,7 +86,15 @@ public class ShieldBash : MonoBehaviour
             }
         }
 
-        Timer -= Time.deltaTime;
+        if (Detection.Detected)
+        {
+            Timer -= Time.deltaTime;
+        }
+        else
+        {
+            Timer = BashCooldown;
+        }
+
         RaycastHit2D hit;
         if (Detection.Detected && !stunned)
         {

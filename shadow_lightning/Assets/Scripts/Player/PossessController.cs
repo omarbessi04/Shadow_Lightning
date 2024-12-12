@@ -44,7 +44,7 @@ public class PossessController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))// && Timer <= 0)
+        if (Input.GetAxisRaw("Unpossess") == 1)// && Timer <= 0)
             {
                 unpossess();
                 

@@ -438,7 +438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press K to use enemy abilities
+  m_text: Press K or E to use enemy abilities
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press G to unpossess enemies
+  m_text: Press J or R to unpossess enemies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -856,10 +856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd60b5a243631274797e3f6fe19bc14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minZoom: 4
-  maxZoom: 8
   WorkingOnIt: 0
   cam: {fileID: 212504812}
+  minZoom: 4
+  maxZoom: 8
 --- !u!81 &212504811
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8478,7 +8478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press K to possess an enemy when behind them
+  m_text: Press K or E to possess an enemy when behind them
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

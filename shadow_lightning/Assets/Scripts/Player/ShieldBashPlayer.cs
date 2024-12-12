@@ -132,5 +132,12 @@ public class ShieldBashPlayer : MonoBehaviour
         }
 
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Boulder" && bashing)
+        {
+            other.GameObject().GetComponent<BoulderShake>().Begin();
+        }
+    }
 }
