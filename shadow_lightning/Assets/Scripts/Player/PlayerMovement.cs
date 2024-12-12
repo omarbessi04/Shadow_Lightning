@@ -127,35 +127,50 @@ public class PlayerMovement : MonoBehaviour
 			velocity.y = minJumpVelocity;
 		}
 	}
-		
 
-	void HandleWallSliding() {
-		wallDirX = (controller.collisions.left) ? -1 : 1;
-		wallSliding = false;
-		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
-			wallSliding = true;
 
-			if (velocity.y < -wallSlideSpeedMax) {
-				velocity.y = -wallSlideSpeedMax;
-			}
+	void HandleWallSliding()
+	{
+		if (controller.ShieldBashPlayer != null && controller.ShieldBashPlayer.bashing)
+		{
+			return;
+		}
+		else
+		{
+			wallDirX = (controller.collisions.left) ? -1 : 1;
+			wallSliding = false;
+			if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below &&
+			    velocity.y < 0)
+			{
+				wallSliding = true;
 
-			if (timeToWallUnstick > 0) {
-				velocityXSmoothing = 0;
-				velocity.x = 0;
-
-				if (directionalInput.x != wallDirX && directionalInput.x != 0) {
-					timeToWallUnstick -= Time.deltaTime;
+				if (velocity.y < -wallSlideSpeedMax)
+				{
+					velocity.y = -wallSlideSpeedMax;
 				}
-				else {
+
+				if (timeToWallUnstick > 0)
+				{
+					velocityXSmoothing = 0;
+					velocity.x = 0;
+
+					if (directionalInput.x != wallDirX && directionalInput.x != 0)
+					{
+						timeToWallUnstick -= Time.deltaTime;
+					}
+					else
+					{
+						timeToWallUnstick = wallStickTime;
+					}
+				}
+				else
+				{
 					timeToWallUnstick = wallStickTime;
 				}
-			}
-			else {
-				timeToWallUnstick = wallStickTime;
+
 			}
 
 		}
-
 	}
 
 	void CalculateVelocity()
