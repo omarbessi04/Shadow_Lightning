@@ -31,6 +31,11 @@ public class ShieldBash : MonoBehaviour
     [SerializeField] private ParticleSystem LightningParticles;
 
     private ParticleSystem LightningParticlesinstance;
+    AudioManager audioManager;
+
+	private void Awake(){
+		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+	}
 
     private void Start()
     {
@@ -225,6 +230,7 @@ public class ShieldBash : MonoBehaviour
         {
             Timer = BashCooldown;
             bashing = true;
+            particleHandler = true;
 
             //print("BASHING");
             if (EnemyMovement.flippedRight)
@@ -246,6 +252,10 @@ public class ShieldBash : MonoBehaviour
         }else{
             LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0),  Quaternion.Euler(new Vector3(0, 0, -90)));
         }
+    }
+
+    public void playDash(){
+        audioManager.PlaySFX(audioManager.ShieldDash);
     }
     
 }
