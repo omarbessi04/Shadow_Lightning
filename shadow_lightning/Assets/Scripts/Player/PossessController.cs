@@ -56,12 +56,12 @@ public class PossessController : MonoBehaviour
         // }
         // if (possessed == true)
         // {
-        //     if (Input.GetKeyDown(KeyCode.G) && Timer <= 0)
+        //     if Input.GetAxisRaw("Unpossess") == 1) && Timer <= 0)
         //     {
         //         unpossess();
                 
-        //     }
-        // }
+            }
+        }
         if (canPossess && possessed == false)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
