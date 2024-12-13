@@ -882,6 +882,10 @@ PrefabInstance:
       propertyPath: wantedPosition.y
       value: 1.52
       objectReference: {fileID: 0}
+    - target: {fileID: 1427757376976595934, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.93
+      objectReference: {fileID: 0}
     - target: {fileID: 1508654654486170390, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
       propertyPath: m_Size.x
       value: 5.185115
@@ -930,6 +934,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2002243238921645651, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: TrailModule.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002243238921645651, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: TrailModule.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002243238921645651, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002243238921645651, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002243238921645651, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: TrailModule.sizeAffectsLifetime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2115922542773746703, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
       propertyPath: m_Name
       value: ShadowSpikes (1)
@@ -941,6 +965,7 @@ PrefabInstance:
     - {fileID: 1157115258142470915, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
     - {fileID: 8631676042534713211, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
     - {fileID: 2328833611322315694, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+    - {fileID: 1153885123902597493, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
@@ -22673,6 +22698,14 @@ PrefabInstance:
       propertyPath: wantedPosition.y
       value: 1.52
       objectReference: {fileID: 0}
+    - target: {fileID: 1427757376976595934, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427757376976595934, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508654654486170390, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
       propertyPath: m_Size.x
       value: 5.185115
@@ -22721,6 +22754,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2002243238921645651, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002243238921645651, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002243238921645651, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2115922542773746703, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
       propertyPath: m_Name
       value: ShadowSpikes
@@ -22732,6 +22777,7 @@ PrefabInstance:
     - {fileID: 1157115258142470915, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
     - {fileID: 8631676042534713211, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
     - {fileID: 2328833611322315694, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
+    - {fileID: 1153885123902597493, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65aa35474972ecb4e9000b6c514104e0, type: 3}
