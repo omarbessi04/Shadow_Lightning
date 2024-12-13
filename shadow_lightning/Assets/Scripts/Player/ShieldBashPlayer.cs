@@ -56,7 +56,7 @@ public class ShieldBashPlayer : MonoBehaviour
                 {
                     animationDone();
                 }
-                
+
             }
         }
 
@@ -99,8 +99,8 @@ public class ShieldBashPlayer : MonoBehaviour
 
 
     }
-    
-    
+
+
     public void animationDone()
     {
         //print("done");
@@ -117,8 +117,6 @@ public class ShieldBashPlayer : MonoBehaviour
             Movement.canMove = false;
             Timer = BashCooldown;
             bashing = true;
-            //print("BASHING");
-            print(PlayerAnimator.lookingRight);
             if (PlayerAnimator.lookingRight)
             {
                 Movement.velocity.x = +bashSpeed;
@@ -138,7 +136,7 @@ public class ShieldBashPlayer : MonoBehaviour
         if (other.tag == "Boulder" && bashing)
         {
             BoulderShake boulderShake = other.GameObject().GetComponent<BoulderShake>();
-           
+
             boulderShake.Begin();
         }
     }
