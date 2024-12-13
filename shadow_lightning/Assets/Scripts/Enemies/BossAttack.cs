@@ -43,14 +43,17 @@ public class BossAttack : MonoBehaviour
         {
             if (Animator.GetBool("Attacking") == false)
             {
-                float distanceToPlayer = (transform.position.x - Player.transform.position.x);
-                if (distanceToPlayer > 0)
+                if (Player)
                 {
-                    Movement.flipX(true);
-                }
-                else
-                {
-                    Movement.flipX(false);
+                    float distanceToPlayer = (transform.position.x - Player.transform.position.x);
+                    if (distanceToPlayer > 0)
+                    {
+                        Movement.flipX(true);
+                    }
+                    else
+                    {
+                        Movement.flipX(false);
+                    }
                 }
             }
         }
@@ -64,7 +67,7 @@ public class BossAttack : MonoBehaviour
             Movement.moveTowardsPlayer = true;
         }
 
-        if (BossDetection.Detected && !isAttacking && inRange)
+        if (BossDetection.Detected && !isAttacking)
         {
             StartCoroutine(AttackRoutine());
             

@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d165747904924c6428e764fa8c07c621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 
+  canMove: 1
   maxJumpHeight: 4.2
   minJumpHeight: 1
   timeToJumpApex: 0.4
@@ -321,6 +323,10 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
+  ShieldBashPlayer: {fileID: 0}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   maxSlopeAngle: 80
   playerInput: {x: 0, y: 0}
   onPlatform: 0
@@ -503,4 +509,4 @@ MonoBehaviour:
   playerMovement: {fileID: 567897203729761451}
   sRen: {fileID: 7254446111517407658}
   offset: -0.24
-  lookingRight: 1
+  lookingRight: 0

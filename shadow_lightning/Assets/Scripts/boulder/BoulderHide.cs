@@ -7,6 +7,6 @@ public class boulderHide : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         GameObject boulder = GameObject.FindGameObjectWithTag("Boulder");
 
-        if(boulder) boulder.SetActive(false);
+        if(boulder) boulder.transform.parent.gameObject.SetActive(false);
     }
 }

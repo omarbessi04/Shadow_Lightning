@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9643ade6bb5472e4095b1808642bcef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: 0
   Health: 3
   mySprite: {fileID: 8028295196516921742}
   DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
@@ -322,6 +323,7 @@ MonoBehaviour:
   BashCooldown: 2.5
   bashingRight: 0
   inRange: 0
+  Animator: {fileID: 0}
   airResistince: 0.6
   canFlip: 1
   stunned: 0
