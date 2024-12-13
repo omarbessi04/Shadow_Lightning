@@ -203,7 +203,21 @@ public class PossessController : MonoBehaviour
     {
         if (!Animator.GetBool("Possessing"))
         {
-            if (other.tag == "Enemy")
+            if (other.tag == "Enemy" && !other.GameObject().GetComponent<EnemyVariables>().boss)
+            {
+                canPossess = true;
+                if (enemyToPossess == null)
+                {
+                    enemyToPossess = other;
+                }
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!Animator.GetBool("Possessing"))
+        {
+            if (other.tag == "Enemy" && !other.GameObject().GetComponent<EnemyVariables>().boss)
             {
                 canPossess = true;
                 if (enemyToPossess == null)
@@ -217,7 +231,7 @@ public class PossessController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!Animator.GetBool("Possessing")){
-            if (other.tag == "Enemy")
+            if (other.tag == "Enemy" && !other.GameObject().GetComponent<EnemyVariables>().boss)
             {
                 if (enemyToPossess != null)
                 {
