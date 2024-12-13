@@ -197,6 +197,12 @@ public class PossessController : MonoBehaviour
         yield return new WaitForSeconds(0.1f); 
         enemy.GetComponent<EnemyMovement>().noVelocityReset = false;
         enemy.GetComponent<EnemyMovement>().idle = true;
+        if (!GetComponent<PlayerController2D>().collisions.below)
+        {
+            print("wahhhhh");
+            GetComponent<PlayerMovement>().velocity.y += 5f;
+            GetComponent<PlayerMovement>().velocity.x += 20f;
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
