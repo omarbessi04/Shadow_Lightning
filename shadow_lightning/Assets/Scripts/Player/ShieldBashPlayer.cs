@@ -28,7 +28,7 @@ public class ShieldBashPlayer : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Animator.SetFloat("Xvelocity", Mathf.Abs(Movement.velocity.x));
+        Animator.SetFloat("xVelocity", Mathf.Abs(Movement.velocity.x));
         if (stunned)
         {
             Movement.velocity.x = 0;
