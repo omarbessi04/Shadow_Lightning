@@ -25,16 +25,17 @@ public class PossessController : MonoBehaviour
     public bool possessed = false;
     public GameObject shadow;
 
-    private GameObject possessedEnemyObject; 
+    private GameObject possessedEnemyObject;
 
-	[Header("--- Omar Was Here ---")]
-	AudioManager audioManager;
+    [Header("--- Omar Was Here ---")]
+    AudioManager audioManager;
 
-	private void Awake(){
-		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
         myCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         myCamEffects = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraEffectScript>();
-	}
+    }
 
     private void Start()
     {
@@ -45,18 +46,18 @@ public class PossessController : MonoBehaviour
     private void Update()
     {
         GameManager.instance.unpossessTimer = Timer;
-         if (Timer >= 0)
-         {
-             Timer -= Time.deltaTime;
-         }
-         if (possessed == true)
-         {
-             if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
-             {
-                 unpossess();
-                
-             }
-         }
+        if (Timer >= 0)
+        {
+            Timer -= Time.deltaTime;
+        }
+        if (possessed == true)
+        {
+            if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
+            {
+                unpossess();
+
+            }
+        }
         if (canPossess && possessed == false)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
@@ -81,21 +82,23 @@ public class PossessController : MonoBehaviour
                 enemyToPossess.GameObject().GetComponent<EnemyMovement>().shouldMove = false;
 
                 Animator.SetBool("Possessing", true);
-                
+
             }
         }
         else
         {
-            if(!myCamEffects.WorkingOnIt) checkCamera();
+            if (!myCamEffects.WorkingOnIt) checkCamera();
         }
     }
 
-    private void checkCamera(){
-        if (myCam.orthographicSize != myCamEffects.maxZoom){
+    private void checkCamera()
+    {
+        if (myCam.orthographicSize != myCamEffects.maxZoom)
+        {
             myCamEffects.StopZoom();
         }
     }
-    
+
     public void possess()
     {
         Timer = unpossessCooldown;
@@ -108,14 +111,14 @@ public class PossessController : MonoBehaviour
             if (turningRight == false)
             {
                 mage.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
-                possessedEnemyObject = Instantiate(mage, new Vector2(enemyToPossess.transform.position.x-0.184f, enemyToPossess.transform.position.y), Quaternion.identity);
+                possessedEnemyObject = Instantiate(mage, new Vector2(enemyToPossess.transform.position.x - 0.184f, enemyToPossess.transform.position.y), Quaternion.identity);
             }
             else
             {
                 mage.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
                 possessedEnemyObject = Instantiate(mage, enemyToPossess.transform.position, Quaternion.identity);
             }
-            
+
         }
         else if (enemyType == "Sword")
         {
@@ -151,7 +154,7 @@ public class PossessController : MonoBehaviour
     void possessAnimationDone()
     {
         Animator.SetBool("Possessing", false);
-        
+
     }
     void unpossess()
     {
@@ -160,14 +163,9 @@ public class PossessController : MonoBehaviour
         GetComponent<PlayerController2D>().enabled = true;
         GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("CameraAnchor").GetComponent<CameraFollow>().target = GetComponent<PlayerController2D>();
-        Debug.Log(currentEnemy.transform.position);
-
-        Debug.Log(possessedEnemyObject);
-        Debug.Log(possessedEnemyObject.transform);
-        Debug.Log(possessedEnemyObject.transform.position);
 
         currentEnemy.transform.position = possessedEnemyObject.transform.position;
-        
+
 
         if (possessedEnemyObject.GetComponentInChildren<PlayerAnimator>().lookingRight)
         {
@@ -195,7 +193,7 @@ public class PossessController : MonoBehaviour
 
     private IEnumerator ReenableMovement(GameObject enemy)
     {
-        yield return new WaitForSeconds(0.1f); 
+        yield return new WaitForSeconds(0.1f);
         enemy.GetComponent<EnemyMovement>().noVelocityReset = false;
         enemy.GetComponent<EnemyMovement>().idle = true;
     }
@@ -216,7 +214,8 @@ public class PossessController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!Animator.GetBool("Possessing")){
+        if (!Animator.GetBool("Possessing"))
+        {
             if (other.tag == "Enemy")
             {
                 if (enemyToPossess != null)
