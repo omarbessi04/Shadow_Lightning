@@ -57,7 +57,6 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         while (textComponent.color != changeColor)
         {
-            Debug.Log("Changing to RED");
             tick += Time.deltaTime * animationSpeed;
             textComponent.color = Color.Lerp(originalColor, changeColor, tick);
             button.transform.localScale = Vector3.Lerp(originalSize, changeSize, tick);
@@ -68,7 +67,6 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private IEnumerator OnExit()
     {
-        // button.transform.localScale -= new Vector3(3, 1, 0);
         float tick = 0f;
         isDoingUnHover = true;
         while (isDoingHover)
@@ -77,7 +75,6 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         while (textComponent.color != originalColor)
         {
-            Debug.Log("Changing to DEFAULT");
             tick += Time.deltaTime * animationSpeed;
             textComponent.color = Color.Lerp(changeColor, originalColor, tick);
             button.transform.localScale = Vector3.Lerp(changeSize, originalSize, tick);
