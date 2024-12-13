@@ -38,14 +38,14 @@ public class ElectricAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(behind);
         if (player != null)
         {
-            if (direction == Vector2.right && (player.transform.position.x - transform.position.x) < 0)
+            float tolerance = 1f;
+            if (direction == Vector2.right && (player.transform.position.x - transform.position.x) < -tolerance)
             {
                 behind = true;
             }
-            else if (direction == Vector2.left && (player.transform.position.x - transform.position.x) > 0)
+            else if (direction == Vector2.left && (player.transform.position.x - transform.position.x) > tolerance)
             {
                 behind = true;
             }
@@ -53,15 +53,15 @@ public class ElectricAttack : MonoBehaviour
             {
                 behind = false;
             }
-            
         }
         else
         {
             player = GameObject.FindGameObjectWithTag("PlayerEnemy");
         }
 
-        transform.Translate(direction*speed*Time.deltaTime); 
+        transform.Translate(direction * speed * Time.deltaTime);
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
