@@ -6,14 +6,17 @@ public class SpikeScript : MonoBehaviour
     public bool respawnEnemies = false;
     private void OnTriggerEnter2D(Collider2D other) {
 
+        
         if (other.CompareTag("Player")) {
             GameManager.instance.heartSystem.TakeDamage(0.5f);
-            other.GetComponent<PossessController>().unpossessCooldown = 0;
+            GameManager.instance.unpossessTimer = 0;
             other.GetComponent<Transform>().position = wantedPosition;
+
 
         }else if (other.CompareTag("PlayerEnemy")){
             GameManager.instance.heartSystem.TakeDamage(0.5f);
             other.GetComponent<Transform>().position = wantedPosition;
+            GameManager.instance.unpossessTimer = 0;
 
         }else{
             if (other.tag == "Enemy")
