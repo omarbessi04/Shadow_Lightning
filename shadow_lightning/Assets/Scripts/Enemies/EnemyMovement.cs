@@ -71,7 +71,7 @@ public class EnemyMovement : MonoBehaviour
         {
             speed = base_speed;
         }
-        Animator.SetFloat("Xvelocity", MathF.Abs(velocity.x));
+        Animator.SetFloat("xVelocity", MathF.Abs(velocity.x));
         if (enemyDetection.Detected && Player == null)
         {
             Player = GameObject.FindWithTag("PlayerEnemy");
