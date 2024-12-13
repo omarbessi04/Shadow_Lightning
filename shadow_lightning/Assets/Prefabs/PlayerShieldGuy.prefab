@@ -194,7 +194,7 @@ MonoBehaviour:
   playerMovement: {fileID: 6734831337174784435}
   sRen: {fileID: 533427892421338620}
   offset: -0.1
-  lookingRight: 1
+  lookingRight: 0
 --- !u!1 &5792096929184831053
 GameObject:
   m_ObjectHideFlags: 0
