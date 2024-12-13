@@ -68,7 +68,11 @@ public class ShieldBashPlayer : MonoBehaviour
         if (!enemiesHit.Contains(enemy) && enemy.tag == "Enemy")
         {
             enemy.GetComponent<EnemyHealth>().takeDamage(damage);
-            enemy.GetComponent<EnemyMovement>().knockBack(knockBack);
+            if (!enemy.GetComponent<EnemyVariables>().boss)
+            {
+                enemy.GetComponent<EnemyMovement>().knockBack(knockBack);
+            }
+
             enemiesHit.Add(enemy);
         }
     }
