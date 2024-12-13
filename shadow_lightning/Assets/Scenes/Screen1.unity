@@ -21271,9 +21271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trantitionTo: Screen2
-  exitTime: 0
   startPoint: {fileID: 1388657204}
-  exitDirection: {x: 0, y: 0}
 --- !u!1 &1296324065
 GameObject:
   m_ObjectHideFlags: 0
@@ -22773,11 +22771,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.49
+      value: -27.4
       objectReference: {fileID: 0}
     - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22986,7 +22984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bfed9582ca7274bb362f0733a814de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPosition: {x: 21, y: 1.5, z: 1}
+  wantedPosition: {x: 21, y: 2, z: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

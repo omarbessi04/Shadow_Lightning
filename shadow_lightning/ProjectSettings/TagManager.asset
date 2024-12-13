@@ -14,7 +14,6 @@ TagManager:
   - Pillar
   - Projectile
   - CameraAnchor
-  - ShadowSpike
   layers:
   - Default
   - TransparentFX
