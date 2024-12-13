@@ -19,6 +19,13 @@ public class ElectricAttack : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("PlayerEnemy");
+        if (player != null && player.GetComponent<PlayerMovement>().type == "Shield")
+        {
+            if (Mathf.Abs((player.transform.position.x - transform.position.x)) < 1.5f)
+            {
+                Destroy(gameObject);
+            }
+        }
         Destroy(gameObject,10f);
         collider = GetComponent<Collider2D>();
     }
@@ -40,6 +47,7 @@ public class ElectricAttack : MonoBehaviour
             {
                 behind = false;
             }
+            
         }
         else
         {

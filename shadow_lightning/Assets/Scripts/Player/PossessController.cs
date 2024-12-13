@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PossessController : MonoBehaviour
 {
-    public float unpossessCooldown = 30f;
+    public float unpossessCooldown = 10f;
     public float Timer;
     public bool canPossess = false;
     public Collider2D enemyToPossess = null;
