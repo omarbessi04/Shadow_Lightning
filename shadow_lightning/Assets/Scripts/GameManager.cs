@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public string transitionedFromScene;
+    public string currentScene;
 
     public HeartSystem heartSystem;
     public int alive_enemy_count;

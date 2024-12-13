@@ -22,21 +22,18 @@ public class SceneTransitionScript : MonoBehaviour
         }
     }
 
-    public void ResetGame(){
-        GameObject shadow = GameObject.FindGameObjectWithTag("Player");
-        shadow.transform.position = new Vector3(-27.49f, 1.5f, 1f);
-        TeleportTo("Screen1");
-    }
-
     private void OnTriggerEnter2D(Collider2D other) {
         if (!other.CompareTag("Player") && !other.CompareTag("PlayerEnemy")) return;
-        GameManager.instance.transitionedFromScene = SceneManager.GetActiveScene().name;
         TeleportTo(trantitionTo);
 
     }
 
     public void TeleportTo(string goTo){
-        SceneManager.LoadScene(goTo);
+        GameManager.instance.transitionedFromScene = SceneManager.GetActiveScene().name;
+        GameManager.instance.currentScene = trantitionTo;
+        
         GameManager.instance.alive_enemy_count = 0;
+
+        SceneManager.LoadScene(goTo);
     }
 }
