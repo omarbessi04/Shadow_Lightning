@@ -138,7 +138,8 @@ public class ShieldBashPlayer : MonoBehaviour
         if (other.tag == "Boulder" && bashing)
         {
             BoulderShake boulderShake = other.GameObject().GetComponent<BoulderShake>();
-            if (boulderShake) boulderShake.Begin();
+           
+            boulderShake.Begin();
         }
     }
 }
