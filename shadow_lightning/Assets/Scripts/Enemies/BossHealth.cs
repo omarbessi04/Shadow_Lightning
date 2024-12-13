@@ -5,13 +5,11 @@ using System.Data;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class BossHealth : MonoBehaviour
 {
-    public bool boss = false;
-    public float Health = 3f;
+    public float Health = 20f;
     public SpriteRenderer mySprite;
-    private EnemyMovement enemyMovement;
-    private BossMovement BossMovement;
+    private BossMovement EnemyMovement;
     AudioManager audioManager;
 
     [SerializeField] private ParticleSystem DamageParticles;
@@ -26,14 +24,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
-        if (!boss)
-        {
-            enemyMovement = GetComponent<EnemyMovement>();
-        }
-        else
-        {
-            BossMovement = GetComponent<BossMovement>();
-        }
+        EnemyMovement = GetComponent<BossMovement>();
     }
 
     public void takeDamage(float Damage, string type = "")
@@ -53,11 +44,7 @@ public class EnemyHealth : MonoBehaviour
 
         SpawnDamageParticles(GetComponent<Transform>().position.x, GetComponent<Transform>().position.y, 0);
 
-        if (!boss)
-        {
-            enemyMovement.idle = false;
-        }
-
+        EnemyMovement.idle = false;
         Health -= Damage;
        StartCoroutine(ChangeColor());
         if (Health <= 0)
