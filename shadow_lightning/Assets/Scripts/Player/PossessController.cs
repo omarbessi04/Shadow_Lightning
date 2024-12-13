@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PossessController : MonoBehaviour
 {
-    public float unpossessCooldown = 30f;
+    public float unpossessCooldown = 10f;
     public float Timer;
     public bool canPossess = false;
     public Collider2D enemyToPossess = null;
@@ -44,20 +44,19 @@ public class PossessController : MonoBehaviour
 
     private void Update()
     {
-
         GameManager.instance.unpossessTimer = Timer;
-        if (Timer >= 0)
-        {
-            Timer -= Time.deltaTime;
-        }
-        if (possessed == true)
-        {
-            if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
-            {
-                unpossess();
-               
-            }
-        }
+         if (Timer >= 0)
+         {
+             Timer -= Time.deltaTime;
+         }
+         if (possessed == true)
+         {
+             if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
+             {
+                 unpossess();
+                
+             }
+         }
         if (canPossess && possessed == false)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
