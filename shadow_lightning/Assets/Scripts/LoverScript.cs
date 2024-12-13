@@ -1,9 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LoverScript : MonoBehaviour
 {
     [SerializeField] private GameObject LoveParticleGameObject;
     private AudioManager audioManager;
+
+    public float gameEndTimer;
 
     private void Awake()
     {
@@ -15,7 +19,16 @@ public class LoverScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            LoveParticleGameObject.SetActive(true);
+            StartCoroutine(EndGame());
         }
+    }
+
+    private IEnumerator EndGame(){
+        LoveParticleGameObject.SetActive(true);
+        yield return new WaitForSeconds(gameEndTimer);
+        Time.timeScale = 0.2f;
+        yield return new WaitForSeconds(0.3f);
+        Time.timeScale = 1;
+        SceneTransitionScript.instance.TeleportTo("MainMenu");
     }
 }
