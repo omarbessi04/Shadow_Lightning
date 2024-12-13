@@ -62,7 +62,6 @@ public class EnemyHealth : MonoBehaviour
     }
 
     public void SpawnDamageParticles(float a, float b, float c){
-        audioManager.PlaySFX(audioManager.Boom);
 
         player_for_pos = GameObject.FindGameObjectWithTag("PlayerEnemy");
         if (!playerPos) player_for_pos = GameObject.FindGameObjectWithTag("Player");

@@ -44,24 +44,19 @@ public class PossessController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetAxisRaw("Unpossess") == 1)// && Timer <= 0)
-            {
-                unpossess();
+        GameManager.instance.unpossessTimer = Timer;
+         if (Timer >= 0)
+         {
+             Timer -= Time.deltaTime;
+         }
+         if (possessed == true)
+         {
+             if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
+             {
+                 unpossess();
                 
-            }
-        // GameManager.instance.unpossessTimer = Timer;
-        // if (Timer >= 0)
-        // {
-        //     Timer -= Time.deltaTime;
-        // }
-        // if (possessed == true)
-        // {
-        //     if Input.GetAxisRaw("Unpossess") == 1) && Timer <= 0)
-        //     {
-        //         unpossess();
-                
-            }
-        }
+             }
+         }
         if (canPossess && possessed == false)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
@@ -164,8 +159,13 @@ public class PossessController : MonoBehaviour
         GameManager.instance.alive_enemy_count += 1;
         GetComponent<PlayerController2D>().enabled = true;
         GetComponent<PlayerMovement>().enabled = true;
-        GameObject.FindGameObjectWithTag("CameraAnchor").GetComponent<CameraFollow>().target =
-            GetComponent<PlayerController2D>();
+        GameObject.FindGameObjectWithTag("CameraAnchor").GetComponent<CameraFollow>().target = GetComponent<PlayerController2D>();
+        Debug.Log(currentEnemy.transform.position);
+
+        Debug.Log(possessedEnemyObject);
+        Debug.Log(possessedEnemyObject.transform);
+        Debug.Log(possessedEnemyObject.transform.position);
+
         currentEnemy.transform.position = possessedEnemyObject.transform.position;
         
 

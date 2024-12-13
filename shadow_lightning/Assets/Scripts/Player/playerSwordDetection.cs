@@ -55,7 +55,7 @@ public class playerSwordDetection : MonoBehaviour
         }
         else if (other.CompareTag("Boulder")){
             GameObject boulder = GameObject.FindGameObjectWithTag("Boulder");
-            boulder.GetComponent<BoulderDestroyerScript>().SpawnBoulderParticles(11.81f, 0f, 0f);
+            boulder.GetComponent<BoulderDestroyerScript>().SpawnBoulderParticles(13.88f, 0f, 0f);
             boulder.transform.parent.gameObject.SetActive(false);
         }
     }
