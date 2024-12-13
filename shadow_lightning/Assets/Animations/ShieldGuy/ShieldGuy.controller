@@ -118,7 +118,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Xvelocity
-    m_EventTreshold: 0
+    m_EventTreshold: 0.2
   - m_ConditionMode: 2
     m_ConditionEvent: Bashing
     m_EventTreshold: 0

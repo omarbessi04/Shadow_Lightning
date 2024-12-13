@@ -44,24 +44,20 @@ public class PossessController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetAxisRaw("Unpossess") == 1 )//&& Timer <= 0)
+
+        GameManager.instance.unpossessTimer = Timer;
+        if (Timer >= 0)
+        {
+            Timer -= Time.deltaTime;
+        }
+        if (possessed == true)
+        {
+            if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
             {
                 unpossess();
-                
+               
             }
-        // GameManager.instance.unpossessTimer = Timer;
-        // if (Timer >= 0)
-        // {
-        //     Timer -= Time.deltaTime;
-        // }
-        // if (possessed == true)
-        // {
-        //     if (Input.GetKeyDown(KeyCode.G) && Timer <= 0)
-        //     {
-        //         unpossess();
-                
-        //     }
-        // }
+        }
         if (canPossess && possessed == false)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)

@@ -195,17 +195,4 @@ public class PlayerMovement : MonoBehaviour
 			velocity.y += (gravity) * Time.deltaTime;
 		}
 	}
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "Spikes")
-		{
-			if (gameObject.tag == "PlayerEnemy"){
-				GameManager.instance.heartSystem.TakeDamage(5000);
-			}
-			
-		}else if (other.CompareTag("ShadowSpike")){
-			GameManager.instance.heartSystem.TakeDamage(5000);
-		}
-	}
 }

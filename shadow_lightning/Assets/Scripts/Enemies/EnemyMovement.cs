@@ -213,12 +213,4 @@ public class EnemyMovement : MonoBehaviour
         }
             
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Spikes")
-        {
-            GetComponent<EnemyHealth>().takeDamage(50000f);
-        }
-    }
 }
