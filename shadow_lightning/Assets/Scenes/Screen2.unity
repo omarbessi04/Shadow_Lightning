@@ -21510,7 +21510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a91314466cd8446884e24062bda1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trantitionTo: Screen3
+  trantitionTo: Screen5
   startPoint: {fileID: 1380424393}
 --- !u!61 &1379512893
 BoxCollider2D:
