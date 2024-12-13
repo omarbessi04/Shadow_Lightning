@@ -38,6 +38,7 @@ public class ElectricAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(behind);
         if (player != null)
         {
             if (direction == Vector2.right && (player.transform.position.x - transform.position.x) < 0)
