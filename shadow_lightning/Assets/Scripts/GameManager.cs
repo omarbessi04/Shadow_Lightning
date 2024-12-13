@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float unpossessTimer;
     public GameObject currentPlayer;
     public bool PlayerHasWallJump;
+    public bool BoulderHasBeenDestroyed = false;
     PlayerMovement pm;
     
     void Awake()

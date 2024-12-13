@@ -133,7 +133,7 @@ public class ShieldBashPlayer : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Boulder" && bashing)
         {

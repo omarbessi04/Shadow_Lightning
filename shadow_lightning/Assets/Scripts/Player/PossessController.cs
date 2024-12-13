@@ -53,7 +53,7 @@ public class PossessController : MonoBehaviour
          {
              if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
              {
-                 unpossess();
+                unpossess();
                 
              }
          }
@@ -102,6 +102,8 @@ public class PossessController : MonoBehaviour
         GameManager.instance.alive_enemy_count -= 1;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
         enemyToPossess.GameObject().SetActive(false);
+        GameObject shadowWall = GameObject.FindGameObjectWithTag("ShadowWall");
+        if (shadowWall) shadowWall.GetComponent<ShadowWallScript>().makePassable(true);
 
         if (enemyType == "Mage")
         {
@@ -160,11 +162,6 @@ public class PossessController : MonoBehaviour
         GetComponent<PlayerController2D>().enabled = true;
         GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("CameraAnchor").GetComponent<CameraFollow>().target = GetComponent<PlayerController2D>();
-        Debug.Log(currentEnemy.transform.position);
-
-        Debug.Log(possessedEnemyObject);
-        Debug.Log(possessedEnemyObject.transform);
-        Debug.Log(possessedEnemyObject.transform.position);
 
         currentEnemy.transform.position = possessedEnemyObject.transform.position;
         
@@ -190,6 +187,8 @@ public class PossessController : MonoBehaviour
         shadow.transform.position = possessedEnemyObject.transform.position;
         shadow.GetComponent<SpriteRenderer>().enabled = true;
         Destroy(possessedEnemyObject);
+        GameObject shadowWall = GameObject.FindGameObjectWithTag("ShadowWall");
+        if (shadowWall) shadowWall.GetComponent<ShadowWallScript>().makePassable(false);
         possessed = false;
     }
 
