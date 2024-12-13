@@ -31,9 +31,5 @@ public class BossDetection : MonoBehaviour
         {
             Detected = true;
         }
-        else
-        {
-            Detected = false;
-        }
     }
 }

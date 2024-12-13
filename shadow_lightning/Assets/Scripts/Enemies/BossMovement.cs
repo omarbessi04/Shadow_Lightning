@@ -87,11 +87,6 @@ public class BossMovement : MonoBehaviour
                 waiting = false;
             }
         }
-        if (idle == false && enemyDetection.Detected == false && waiting == false)
-        {
-            shouldMove = false;
-            idleCoroutine = StartCoroutine(idleWait());
-        }
         if (idle)
         {
 
@@ -166,29 +161,6 @@ public class BossMovement : MonoBehaviour
     public void knockBack(float knockBack)
     {
         velocity.x = knockBack;
-    }
-    IEnumerator idleWait()
-    {
-        waiting = true;
-        yield return new WaitForSeconds(waitTime);
-
-        if (enemyDetection.Detected == false)
-        {
-            idle = true;
-            shouldMove = true;
-
-            if (goingRight)
-            {
-                flipX(false);
-            }
-            else
-            {
-                flipX(true);
-            }
-        }
-
-        waiting = false;
-        idleCoroutine = null; 
     }
 
     public void flipX(bool value)
