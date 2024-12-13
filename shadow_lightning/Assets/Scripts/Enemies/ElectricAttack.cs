@@ -18,6 +18,11 @@ public class ElectricAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (direction == Vector2.left)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+
         player = GameObject.FindGameObjectWithTag("PlayerEnemy");
         if (player != null && player.GetComponent<PlayerMovement>().type == "Shield")
         {
