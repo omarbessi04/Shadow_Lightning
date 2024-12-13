@@ -16,6 +16,7 @@ TagManager:
   - CameraAnchor
   - ShadowSpike
   - ShadowWall
+  - WallJumpPopUp
   layers:
   - Default
   - TransparentFX

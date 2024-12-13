@@ -18069,6 +18069,7 @@ MonoBehaviour:
   unpossessTimer: 0
   currentPlayer: {fileID: 0}
   PlayerHasWallJump: 0
+  BoulderHasBeenDestroyed: 0
 --- !u!4 &1528077484
 Transform:
   m_ObjectHideFlags: 0
@@ -29324,9 +29325,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1810327548}
   - {fileID: 748357527}
+  - {fileID: 1528077484}
   - {fileID: 314292001}
   - {fileID: 230333932}
-  - {fileID: 1528077484}
   - {fileID: 91994787}
   - {fileID: 1884166407}
   - {fileID: 120997733}
