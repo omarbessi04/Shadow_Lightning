@@ -15,6 +15,7 @@ public class BoulderDestroyerScript : MonoBehaviour
 
     public void SpawnBoulderParticles(float a, float b, float c){
         audioManager.PlaySFX(audioManager.Boom);
+        GameManager.instance.BoulderHasBeenDestroyed = true;
         boulderParticlesinstance = Instantiate(boulderParticles, new Vector3(a, b, c), Quaternion.identity);
     }
 }
