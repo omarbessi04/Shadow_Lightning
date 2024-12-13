@@ -7,7 +7,7 @@ public class GameOverManager : MonoBehaviour{
     [SerializeField] private string startScreen;
 
     public void RetryButtonPressed(){
-        SceneTransitionScript.instance.TeleportTo(startScreen);
+        SceneTransitionScript.instance.ResetGame();
     }
 
     public void QuitButtonPressed(){
