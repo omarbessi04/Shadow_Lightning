@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeEnemy: Mage
+  boss: 0
 --- !u!114 &-8674034171054352634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   Health: 2
   mySprite: {fileID: 6955596979211215273}
   DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
+  wallJumpUnlock: {fileID: 0}
 --- !u!114 &7071443362726475564
 MonoBehaviour:
   m_ObjectHideFlags: 0

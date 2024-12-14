@@ -71,10 +71,14 @@ public class EnemyHealth : MonoBehaviour
                 GameManager.instance.BossHasBeenKilled = true;
             };
             GameManager.instance.alive_enemy_count -= 1;
-            Destroy(gameObject);
+            GetComponent<Animator>().SetBool("dying", true);
         }
     }
 
+    public void death()
+    {
+        Destroy(gameObject);
+    }
     private IEnumerator ChangeColor(){
         mySprite.color = Color.red;
         yield return new WaitForSeconds(0.2f);
