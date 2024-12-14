@@ -36,8 +36,11 @@ public class PillarAnimHandler : MonoBehaviour
     }
 
     public bool CameraIsOkay(){
+        if (!Camera) return true;
+        
         if (Camera.transform.position.x >= 3 && Camera.transform.position.y < 12) return true;
-        else return false;
+        
+        return false;
     }
 
     public void MoveUp()

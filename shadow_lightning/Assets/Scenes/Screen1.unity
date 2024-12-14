@@ -23023,9 +23023,9 @@ GameObject:
   - component: {fileID: 2136017229}
   - component: {fileID: 2136017232}
   - component: {fileID: 2136017231}
-  - component: {fileID: 2136017230}
+  - component: {fileID: 2136017233}
   m_Layer: 5
-  m_Name: unpossessCooldown
+  m_Name: unpossessCooldownUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23050,18 +23050,6 @@ RectTransform:
   m_AnchoredPosition: {x: -116.89996, y: -41.200043}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2136017230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136017228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c888f866879dbca42b3f64bc16a572ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2136017231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23159,6 +23147,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136017228}
   m_CullTransparentMesh: 1
+--- !u!114 &2136017233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136017228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c888f866879dbca42b3f64bc16a572ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 2136017231}
 --- !u!1001 &1947853074109386774
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,10 +1,9 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections;
 
 public class SceneTransitionScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     [SerializeField] private string trantitionTo;
     [SerializeField] Transform startPoint;
     public static SceneTransitionScript instance;
@@ -26,6 +25,10 @@ public class SceneTransitionScript : MonoBehaviour
         if (!other.CompareTag("Player") && !other.CompareTag("PlayerEnemy")) return;
         TeleportTo(trantitionTo);
 
+    }
+
+    public void Restart(){
+        SceneManager.LoadScene("GameOver");
     }
 
     public void TeleportTo(string goTo){

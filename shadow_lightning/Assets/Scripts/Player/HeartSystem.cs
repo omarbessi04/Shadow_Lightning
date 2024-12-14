@@ -45,7 +45,7 @@ public class HeartSystem : MonoBehaviour
         Time.timeScale = 0.2f;
         yield return new WaitForSeconds(0.3f);
         Time.timeScale = 1;
-        SceneTransitionScript.instance.TeleportTo("GameOver");
+        SceneTransitionScript.instance.Restart();
     }
 
     public void UpdateHealthBar()

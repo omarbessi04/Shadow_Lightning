@@ -1,17 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class unpossessCooldown : MonoBehaviour
+public class UnpossessCooldown : MonoBehaviour
 {
-    private TMPro.TextMeshProUGUI text; 
-    void Start()
-    {
-        text = GetComponent<TMPro.TextMeshProUGUI>();
-    }
-
+    public TMPro.TextMeshProUGUI text; 
     // Update is called once per frame
     void Update()
     {
