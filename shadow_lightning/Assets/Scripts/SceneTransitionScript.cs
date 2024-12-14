@@ -21,6 +21,12 @@ public class SceneTransitionScript : MonoBehaviour
         }
     }
 
+    private void Update() {
+        if (GameManager.instance.currentScene == ""){
+            GameManager.instance.currentScene = SceneManager.GetActiveScene().name;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (!other.CompareTag("Player") && !other.CompareTag("PlayerEnemy")) return;
         TeleportTo(trantitionTo);

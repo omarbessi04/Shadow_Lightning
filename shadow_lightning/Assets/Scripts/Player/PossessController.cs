@@ -30,6 +30,8 @@ public class PossessController : MonoBehaviour
     [Header("--- Omar Was Here ---")]
     AudioManager audioManager;
 
+    bool m_isAxisInUse;
+
     private bool currentlyUnpossessing = false;
 
     private void Awake()
@@ -52,12 +54,17 @@ public class PossessController : MonoBehaviour
         {
             Timer -= Time.deltaTime;
         }
+        
         if (possessed == true && currentlyUnpossessing == false)
         {
-            if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
+            if (Input.GetAxisRaw("Unpossess") != 0 && Timer <= 0)
             {
-                unpossess();
-
+                if(m_isAxisInUse == false){
+                    unpossess();
+                    m_isAxisInUse = true;
+                }
+            }else if (Input.GetAxisRaw("Unpossess") == 0){
+                m_isAxisInUse = false;
             }
         }
         if (canPossess && possessed == false && GetComponent<PlayerController2D>().collisions.below)
