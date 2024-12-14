@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public float unpossessTimer;
     public GameObject currentPlayer;
+    public bool canZoom = true;
+
+    [Header("Progress Trackers")]
     public bool PlayerHasWallJump = false;
     public bool BoulderHasBeenDestroyed = false;
     public bool BossHasBeenKilled = false;
