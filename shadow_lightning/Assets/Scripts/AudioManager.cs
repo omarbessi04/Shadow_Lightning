@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip MageOuch;
     public AudioClip SwordUgh;
     public AudioClip ShieldOof;
+    public AudioClip ShadowSwoosh;
     public AudioClip Boom;
 
     private void Start(){

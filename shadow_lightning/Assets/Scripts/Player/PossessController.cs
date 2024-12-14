@@ -105,9 +105,9 @@ public class PossessController : MonoBehaviour
 
     public void possess()
     {
+        Debug.Log(enemyToPossess.GetComponent<EnemyVariables>().typeEnemy);
         Timer = unpossessCooldown;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
-        enemyToPossess.GetComponent<Transform>().position = new Vector3(enemyToPossess.transform.position.x, enemyToPossess.transform.position.y, -5f);
         enemyToPossess.GameObject().SetActive(false);
 
         if (enemyType == "Mage")
@@ -153,6 +153,7 @@ public class PossessController : MonoBehaviour
         audioManager.SwitchMusic(audioManager.BattleMusic);
         possessed = true;
         shadow.GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Transform>().position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
     }
 
     void possessAnimationDone()
@@ -216,7 +217,6 @@ public class PossessController : MonoBehaviour
         enemy.GetComponent<EnemyMovement>().idle = true;
         if (!possessedEnemyObject.GetComponent<PlayerController2D>().collisions.below && !enemy.GetComponent<EnemyMovementController>().collisions.right && !enemy.GetComponent<EnemyMovementController>().collisions.left)
         {
-            print("wahhhhh");
             GetComponent<PlayerMovement>().velocity.y += 5f;
             if (enemy.GetComponent<EnemyMovement>().flippedRight)
             {

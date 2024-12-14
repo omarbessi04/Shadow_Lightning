@@ -180,6 +180,7 @@ MonoBehaviour:
   Health: 3
   heartMaterial: {fileID: 2100000, guid: 8a494808b07ed1641b7c688e1a02beb8, type: 2}
   heartAnimationSpeed: 3
+  DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
 --- !u!1 &91175335
 GameObject:
   m_ObjectHideFlags: 0
@@ -25351,11 +25352,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.71
+      value: -27.47
       objectReference: {fileID: 0}
     - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.63
+      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_LocalPosition.z

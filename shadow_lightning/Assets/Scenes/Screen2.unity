@@ -249,7 +249,8 @@ MonoBehaviour:
   - {fileID: 1948688670}
   Health: 3
   heartMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  heartAnimationSpeed: 0
+  heartAnimationSpeed: 3
+  DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
 --- !u!1 &122672023
 GameObject:
   m_ObjectHideFlags: 0
