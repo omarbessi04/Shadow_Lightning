@@ -27,9 +27,10 @@ public class ShieldBashPlayer : MonoBehaviour
 
     private ParticleSystem LightningParticlesinstance;
 
-	private void Awake(){
-		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
-	}
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -51,10 +52,13 @@ public class ShieldBashPlayer : MonoBehaviour
 
         if (bashing)
         {
-            if (particleHandler) {
-                SpawnLightningParticles(transform.position.x, transform.position.y); 
-                particleHandler = false;}
-            else{
+            if (particleHandler)
+            {
+                SpawnLightningParticles(transform.position.x, transform.position.y);
+                particleHandler = false;
+            }
+            else
+            {
                 particleHandler = true;
             }
             if (bashingRight)
@@ -72,7 +76,7 @@ public class ShieldBashPlayer : MonoBehaviour
                 {
                     animationDone();
                 }
-                
+
             }
         }
 
@@ -119,8 +123,8 @@ public class ShieldBashPlayer : MonoBehaviour
 
 
     }
-    
-    
+
+
     public void animationDone()
     {
         //print("done");
@@ -159,16 +163,20 @@ public class ShieldBashPlayer : MonoBehaviour
         if (other.tag == "Boulder" && bashing)
         {
             BoulderShake boulderShake = other.GameObject().GetComponent<BoulderShake>();
-           
+
             boulderShake.Begin();
         }
     }
 
-    public void SpawnLightningParticles(float a, float b){
-        if (bashingRight){
+    public void SpawnLightningParticles(float a, float b)
+    {
+        if (bashingRight)
+        {
             LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.Euler(new Vector3(0, 0, 90)));
-        }else{
-            LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0),  Quaternion.Euler(new Vector3(0, 0, -90)));
+        }
+        else
+        {
+            LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.Euler(new Vector3(0, 0, -90)));
         }
     }
 
