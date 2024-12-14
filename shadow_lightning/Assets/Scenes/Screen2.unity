@@ -26377,7 +26377,7 @@ MonoBehaviour:
   currentPlayer: {fileID: 0}
   PlayerHasWallJump: 0
   BoulderHasBeenDestroyed: 0
-  ShowingPillar: 0
+  BossHasBeenKilled: 0
   currentStateofPlayer: 
 --- !u!4 &926531518
 Transform:
@@ -40076,7 +40076,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09264541, y: 0.36939138}
+  m_Offset: {x: -0.049894273, y: 0.36939138}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -40087,7 +40087,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1766596, y: 1.8743466}
+  m_Size: {x: 3.8915792, y: 1.8743466}
   m_EdgeRadius: 0
 --- !u!212 &1445776313
 SpriteRenderer:
