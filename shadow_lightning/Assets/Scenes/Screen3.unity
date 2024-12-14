@@ -30472,7 +30472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71456fb37d1ba24885daa4cb9efae8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeEnemy: Sword
+  typeEnemy: Boss
   boss: 1
 --- !u!1 &3027815638976050115
 GameObject:
