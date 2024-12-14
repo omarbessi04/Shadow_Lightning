@@ -43,6 +43,7 @@ public class EnemyHealth : MonoBehaviour
         string enemyType = GetComponent<EnemyVariables>().typeEnemy;
         if (enemyType == "Mage") audioManager.PlaySFX(audioManager.MageOuch);
         if (enemyType == "Sword") audioManager.PlaySFX(audioManager.SwordUgh);
+        if (enemyType == "Shield") audioManager.PlaySFX(audioManager.ShieldOof);
 
         if (enemyType == "Shield" && type == "Sword")
         {

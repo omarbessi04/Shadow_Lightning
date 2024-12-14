@@ -112,6 +112,7 @@ public class PossessController : MonoBehaviour
     {
         Timer = unpossessCooldown;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
+        enemyToPossess.GetComponent<Transform>().position = new Vector3(enemyToPossess.transform.position.x, enemyToPossess.transform.position.y, -5f);
         enemyToPossess.GameObject().SetActive(false);
 
         if (enemyType == "Mage")
