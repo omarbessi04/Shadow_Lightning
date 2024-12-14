@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public bool PlayerHasWallJump;
     public bool BoulderHasBeenDestroyed = false;
     PlayerMovement pm;
+
+    public string currentStateofPlayer;
     
     void Awake()
     {
@@ -27,6 +29,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PossessController>().possessed)
+        {
+            currentStateofPlayer = "Enemy";
+        }
+        else
+        {
+            currentStateofPlayer = "Shadow";
+        }
         if (currentPlayer){
             if (PlayerHasWallJump){
                 pm = currentPlayer.GetComponent<PlayerMovement>();

@@ -66,7 +66,7 @@ public class PossessController : MonoBehaviour
                 myCamEffects.StartZoom();
             }
 
-            if (Input.GetAxisRaw("Ability") == 1)
+            if (Input.GetAxisRaw("Unpossess") == 1)
             {
                 GetComponent<PlayerController2D>().enabled = false;
                 GetComponent<PlayerMovement>().enabled = false;
@@ -194,7 +194,7 @@ public class PossessController : MonoBehaviour
 
     private IEnumerator ReenableMovement(GameObject enemy)
     {
-        yield return new WaitForSeconds(0.1f); 
+        yield return new WaitForSeconds(0.05f); 
         enemy.GetComponent<EnemyMovement>().noVelocityReset = false;
         enemy.GetComponent<EnemyMovement>().idle = true;
         if (!GetComponent<PlayerController2D>().collisions.below)

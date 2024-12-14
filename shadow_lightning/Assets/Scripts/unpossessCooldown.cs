@@ -21,7 +21,7 @@ public class unpossessCooldown : MonoBehaviour
         }
         else
         {
-            text.text = MathF.Round(GameManager.instance.unpossessTimer).ToString();
+            text.text = "Time until you can unpossess: " + MathF.Round(GameManager.instance.unpossessTimer).ToString();
         }
     }
 }
