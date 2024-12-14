@@ -180,6 +180,7 @@ MonoBehaviour:
   Health: 3
   heartMaterial: {fileID: 2100000, guid: 8a494808b07ed1641b7c688e1a02beb8, type: 2}
   heartAnimationSpeed: 3
+  DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
 --- !u!1001 &154080611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4839,9 +4840,10 @@ MonoBehaviour:
   alive_enemy_count: 0
   unpossessTimer: 0
   currentPlayer: {fileID: 1947853074109386775}
+  canZoom: 1
   PlayerHasWallJump: 0
   BoulderHasBeenDestroyed: 0
-  ShowingPillar: 0
+  BossHasBeenKilled: 0
   currentStateofPlayer: 
 --- !u!4 &926531518
 Transform:
