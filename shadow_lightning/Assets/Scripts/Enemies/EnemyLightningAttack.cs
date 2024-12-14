@@ -38,16 +38,19 @@ public class EnemyLightningAttack : MonoBehaviour
         if (enemyDetect.Detected)
         {
             Movement.velocity.x = 0;
-            float distanceToPlayer = (transform.position.x - Player.transform.position.x);
-            if (Animator.GetBool("Attacking") == false)
+            if (Player)
             {
-                if (distanceToPlayer > 0)
+                float distanceToPlayer = (transform.position.x - Player.transform.position.x);
+                if (Animator.GetBool("Attacking") == false)
                 {
-                    Movement.flipX(true);
-                }
-                else
-                {
-                    Movement.flipX(false);
+                    if (distanceToPlayer > 0)
+                    {
+                        Movement.flipX(true);
+                    }
+                    else
+                    {
+                        Movement.flipX(false);
+                    }
                 }
             }
         }
@@ -73,18 +76,26 @@ public class EnemyLightningAttack : MonoBehaviour
 
     public void setProjectileDirection()
     {
-        Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
-        if (playerDirection.x > 0)
+        if (Player)
         {
-            playerDirection = new Vector2(1, 0);
+            Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
+            if (playerDirection.x > 0)
+            {
+                playerDirection = new Vector2(1, 0);
+            }
+            else
+            {
+                playerDirection = new Vector2(-1, 0);
+            }
+
+            lightningAttack.GetComponent<ElectricAttack>().direction = new Vector2(playerDirection.x, 0);
+            currentProjectile = Instantiate(lightningAttack, marker2D.position, quaternion.identity);
+            currentProjectile.SetActive(false);
         }
         else
         {
-            playerDirection = new Vector2(-1, 0);
+            currentProjectile = Instantiate(lightningAttack, marker2D.position, quaternion.identity);
         }
-        lightningAttack.GetComponent<ElectricAttack>().direction = new Vector2(playerDirection.x, 0);
-        currentProjectile = Instantiate(lightningAttack, marker2D.position, quaternion.identity);
-        currentProjectile.SetActive(false);
     }
 
     public void AnimationReset()
