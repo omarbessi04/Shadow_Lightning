@@ -24,6 +24,7 @@ public class SignScalerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameManager.instance.canZoom = false;
         if (collision.CompareTag("Player") || collision.CompareTag("PlayerEnemy")){
             if (currentCoroutine != null)
             {
@@ -35,6 +36,7 @@ public class SignScalerScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        GameManager.instance.canZoom = true;
         if (collision.CompareTag("Player") || collision.CompareTag("PlayerEnemy")){
             if (currentCoroutine != null)
             {
