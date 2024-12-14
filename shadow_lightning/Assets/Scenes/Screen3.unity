@@ -22285,6 +22285,99 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &981562100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981562101}
+  - component: {fileID: 981562103}
+  - component: {fileID: 981562102}
+  m_Layer: 0
+  m_Name: SwordAttackHitbox (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981562101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981562100}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.186, y: -0.045, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8835173848003897684}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &981562102
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981562100}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.038704887, y: -0.019339941}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.24579248, y: 0.29731572}
+  m_EdgeRadius: 0
+--- !u!114 &981562103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981562100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765f32d19f45794458b72b9bb13c2ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossAttack: {fileID: 8835173848003897685}
+  Left: 1
+  EnemyMovement: {fileID: 8835173848003897686}
 --- !u!1 &989563771
 GameObject:
   m_ObjectHideFlags: 0
@@ -30392,7 +30485,7 @@ Transform:
   m_GameObject: {fileID: 8291037929565739758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.094, y: -0.045, z: 0}
+  m_LocalPosition: {x: -0.018, y: -0.045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30413,21 +30506,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8835173848003897684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1096355692227387153
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8655362933877104711}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.211, y: -0.042, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8835173848003897684}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &1456349255014894249
 Transform:
   m_ObjectHideFlags: 0
@@ -30490,57 +30568,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!68 &3467243197933163822
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8291037929565739758}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.0922527, y: 0.0761894}
-  - {x: -0.08138715, y: 0.0661596}
-  - {x: -0.123369224, y: 0.022689296}
-  - {x: -0.17010662, y: -0.027251536}
-  - {x: -0.18696958, y: -0.08632912}
-  - {x: -0.1810488, y: -0.1713554}
-  - {x: 0.06786085, y: -0.23154512}
-  - {x: 0.18123989, y: -0.07909435}
-  - {x: 0.17079215, y: 0.03956849}
-  - {x: 0.062061332, y: 0.060749356}
-  - {x: -0.04541425, y: 0.07402821}
-  - {x: -0.08782101, y: 0.06922046}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!50 &3941513423179716277
 Rigidbody2D:
   serializedVersion: 4
@@ -30583,57 +30610,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8835173848003897684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &5742751734375884183
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8655362933877104711}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.0922527, y: 0.0761894}
-  - {x: -0.098294735, y: 0.008480383}
-  - {x: -0.16592741, y: -0.03811723}
-  - {x: -0.15840504, y: -0.02892326}
-  - {x: -0.191002, y: -0.043967877}
-  - {x: -0.1944219, y: -0.17302701}
-  - {x: 0.06786085, y: -0.23154512}
-  - {x: 0.18123989, y: -0.07909435}
-  - {x: 0.17079215, y: 0.03956849}
-  - {x: 0.062061332, y: 0.060749356}
-  - {x: -0.04541425, y: 0.07402821}
-  - {x: -0.08782101, y: 0.06922046}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &5772399982696348184
 GameObject:
   m_ObjectHideFlags: 0
@@ -30842,8 +30818,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 406950696194549874}
-  - component: {fileID: 3467243197933163822}
   - component: {fileID: 8291037929565739759}
+  - component: {fileID: 8291037929565739760}
   m_Layer: 0
   m_Name: SwordAttackHitbox
   m_TagString: Untagged
@@ -30866,6 +30842,51 @@ MonoBehaviour:
   BossAttack: {fileID: 8835173848003897685}
   Left: 0
   EnemyMovement: {fileID: 8835173848003897686}
+--- !u!61 &8291037929565739760
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291037929565739758}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.038704887, y: -0.019339941}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.24579248, y: 0.29731572}
+  m_EdgeRadius: 0
 --- !u!58 &8348908628017416780
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30932,39 +30953,6 @@ MonoBehaviour:
     m_Bits: 8
   horizontalRayCount: 4
   verticalRayCount: 4
---- !u!1 &8655362933877104711
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1096355692227387153}
-  - component: {fileID: 5742751734375884183}
-  - component: {fileID: 8655362933877104712}
-  m_Layer: 0
-  m_Name: SwordAttackHitbox (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &8655362933877104712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8655362933877104711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 765f32d19f45794458b72b9bb13c2ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BossAttack: {fileID: 8835173848003897685}
-  Left: 1
-  EnemyMovement: {fileID: 8835173848003897686}
 --- !u!1 &8683404084778240231
 GameObject:
   m_ObjectHideFlags: 0
@@ -31015,7 +31003,7 @@ Transform:
   m_GameObject: {fileID: 8751606964266519300}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.74, y: -6.65, z: 0}
+  m_LocalPosition: {x: 0.5, y: -6.65, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31025,7 +31013,7 @@ Transform:
   - {fileID: 7183463545712399460}
   - {fileID: 304711790962291798}
   - {fileID: 406950696194549874}
-  - {fileID: 1096355692227387153}
+  - {fileID: 981562101}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8835173848003897685
@@ -31048,7 +31036,8 @@ MonoBehaviour:
   Animator: {fileID: 5924888610630249041}
   marker2D: {fileID: 1456349255014894249}
   playerHit: 0
-  playerInAttack: 0
+  playerInLeftAttack: 0
+  playerInRightAttack: 0
 --- !u!114 &8835173848003897686
 MonoBehaviour:
   m_ObjectHideFlags: 0
