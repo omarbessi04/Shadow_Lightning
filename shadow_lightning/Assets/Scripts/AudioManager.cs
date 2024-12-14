@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Jump;
     public AudioClip MageOuch;
     public AudioClip SwordUgh;
+    public AudioClip ShieldOof;
     public AudioClip Boom;
 
     private void Start(){

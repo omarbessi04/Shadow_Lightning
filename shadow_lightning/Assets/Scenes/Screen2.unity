@@ -21908,7 +21908,7 @@ Transform:
   m_GameObject: {fileID: 882338529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.66, y: 1, z: 2}
+  m_LocalPosition: {x: 6.58, y: 1, z: 2}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -21947,7 +21947,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00278759, y: 0}
+  m_Offset: {x: 0.028422415, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -21958,7 +21958,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.63053393, y: 0.48}
+  m_Size: {x: 0.5792643, y: 0.48}
   m_EdgeRadius: 0
 --- !u!1 &923750568
 GameObject:
@@ -26875,7 +26875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.45
+      value: -29.01
       objectReference: {fileID: 0}
     - target: {fileID: 7583503762274752687, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40323,7 +40323,7 @@ Transform:
   m_GameObject: {fileID: 1203799033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.68, y: 1, z: 2}
+  m_LocalPosition: {x: 3.34, y: 1, z: 2}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -40362,7 +40362,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016726077, y: 0.05575317}
+  m_Offset: {x: -0.06540957, y: 0.05575317}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -40373,7 +40373,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8479707, y: 0.59150636}
+  m_Size: {x: 0.6836994, y: 0.59150636}
   m_EdgeRadius: 0
 --- !u!1 &1221419464
 GameObject:
