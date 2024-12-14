@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(gameScreen);
+        GameManager.instance.currentScene = gameScreen;
     }
     public void QuitGame()
     {

@@ -436,6 +436,7 @@ MonoBehaviour:
   stunned: 0
   enemiesHit: []
   bashing: 0
+  LightningParticles: {fileID: 5848480600364867627, guid: b66c66d3e7918eb4ca1b1d9fc45b37f8, type: 3}
 --- !u!114 &3214245391055280335
 MonoBehaviour:
   m_ObjectHideFlags: 0
