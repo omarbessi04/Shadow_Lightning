@@ -17,7 +17,7 @@ public class SignScalerScript : MonoBehaviour
     public float initialY;
     public float targetHeight;
 
-    private void Awake() {
+    private void Start() {
         TransformingSign.GetComponent<Transform>().localScale = minScale;
         initialY = TransformingSign.GetComponent<Transform>().position.y;
     }

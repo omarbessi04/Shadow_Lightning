@@ -55,6 +55,10 @@ public class EnemyMovement : MonoBehaviour
             
             flipX(true);
         }
+        else
+        {
+            flipX(false);
+        }
         wayPointPos1 = wayPoint1.position;
         wayPointPos2 = wayPoint2.position;
         controller = GetComponent<EnemyMovementController>();
