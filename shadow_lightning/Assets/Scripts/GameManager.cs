@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
 
     public float unpossessTimer;
     public GameObject currentPlayer;
-    public bool PlayerHasWallJump;
+    public bool PlayerHasWallJump = false;
     public bool BoulderHasBeenDestroyed = false;
-    public bool ShowingPillar = false;
+    public bool BossHasBeenKilled = false;
     PlayerMovement pm;
 
     public string currentStateofPlayer;
@@ -52,6 +52,12 @@ public class GameManager : MonoBehaviour
         }else{
             currentPlayer = GameObject.FindGameObjectWithTag("Player");
         }
+    }
+
+    public void ResetGame(){
+        PlayerHasWallJump = false;
+        BoulderHasBeenDestroyed = false;
+        BossHasBeenKilled = false;
     }
 
 }

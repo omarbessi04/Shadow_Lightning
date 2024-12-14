@@ -84,7 +84,6 @@ public class CameraFollow : MonoBehaviour {
 		}
 
 		public void Update(Bounds targetBounds) {
-			if(!GameManager.instance.ShowingPillar){
 				float shiftX = 0;
 				if (targetBounds.min.x < left) {
 					shiftX = targetBounds.min.x - left;
@@ -104,7 +103,6 @@ public class CameraFollow : MonoBehaviour {
 				bottom += shiftY;
 				centre = new Vector2((left+right)/2,(top +bottom)/2);
 				velocity = new Vector2 (shiftX, shiftY);
-			}
 		}
 	}
 

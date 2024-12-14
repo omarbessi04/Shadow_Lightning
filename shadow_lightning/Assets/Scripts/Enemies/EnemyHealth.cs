@@ -67,6 +67,7 @@ public class EnemyHealth : MonoBehaviour
         {
             if (GetComponent<EnemyVariables>().boss){
                 wallJumpUnlock.GetComponent<WallJumpPopUpScript>().Unlock();
+                GameManager.instance.BossHasBeenKilled = true;
             };
             GameManager.instance.alive_enemy_count -= 1;
             Destroy(gameObject);
