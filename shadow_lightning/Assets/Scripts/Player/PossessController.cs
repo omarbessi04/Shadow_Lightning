@@ -105,11 +105,11 @@ public class PossessController : MonoBehaviour
 
     public void possess()
     {
-        Debug.Log(enemyToPossess.GetComponent<EnemyVariables>().typeEnemy);
+        
         Timer = unpossessCooldown;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
         enemyToPossess.GameObject().SetActive(false);
-
+        
         if (enemyType == "Mage")
         {
             if (turningRight == false)
@@ -208,6 +208,10 @@ public class PossessController : MonoBehaviour
         }
 
         shadow.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public void FixZForPossess(){
+        GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 1);
     }
 
     private IEnumerator ReenableMovement(GameObject enemy)
