@@ -199,14 +199,14 @@ public class PossessController : MonoBehaviour
         if (!GetComponent<PlayerController2D>().collisions.below)
         {
             print("wahhhhh");
-            GetComponent<PlayerMovement>().velocity.y += 2f;
+            GetComponent<PlayerMovement>().velocity.y += 5f;
             if (enemy.GetComponent<EnemyMovement>().flippedRight)
             {
-                GetComponent<PlayerMovement>().velocity.x += 15f;
+                GetComponent<PlayerMovement>().velocity.x += 20f;
             }
             else
             {
-                GetComponent<PlayerMovement>().velocity.x -= 15f;
+                GetComponent<PlayerMovement>().velocity.x -= 20f;
             }
         }
 
