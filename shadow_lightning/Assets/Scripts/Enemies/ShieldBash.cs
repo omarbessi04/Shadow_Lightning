@@ -66,19 +66,22 @@ public class ShieldBash : MonoBehaviour
 
         if (Detection.Detected && !stunned)
         {
-            float distanceToPlayer = (transform.position.x - Player.transform.position.x);
-            if (Animator.GetBool("Bashing") == false && canFlip == true)
+            if (Player)
             {
-                if (distanceToPlayer > 0)
+                float distanceToPlayer = (transform.position.x - Player.transform.position.x);
+                if (Animator.GetBool("Bashing") == false && canFlip == true)
                 {
-                    EnemyMovement.flipX(true);
-                }
-                else
-                {
-                    EnemyMovement.flipX(false);
+                    if (distanceToPlayer > 0)
+                    {
+                        EnemyMovement.flipX(true);
+                    }
+                    else
+                    {
+                        EnemyMovement.flipX(false);
+                    }
                 }
             }
-            
+
         }
 
         if(bashing){
