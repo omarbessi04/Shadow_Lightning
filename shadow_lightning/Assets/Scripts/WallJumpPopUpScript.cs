@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Data;
 using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WallJumpPopUpScript : MonoBehaviour
@@ -12,6 +13,14 @@ public class WallJumpPopUpScript : MonoBehaviour
 
     public void Unlock(){
         GameManager.instance.PlayerHasWallJump = true;
+        for (int i = 0; i < transform.parent.childCount; i++)
+        {
+            GameObject child = transform.parent.GetChild(i).GameObject();
+            if (child != gameObject)
+            {
+                child.SetActive(false);
+            }
+        }
         gameObject.SetActive(true);
         StartCoroutine(Deletion());
     }
@@ -21,6 +30,14 @@ public class WallJumpPopUpScript : MonoBehaviour
         if (reading){
             
             if (Input.anyKeyDown){
+                for (int i = 0; i < transform.parent.childCount; i++)
+                {
+                    GameObject child = transform.parent.GetChild(i).GameObject();
+                    if (child != gameObject)
+                    {
+                        child.SetActive(true);
+                    }
+                }
                 GameObject obj = GameObject.FindGameObjectWithTag("PlayerEnemy");
                 if (!obj) GameObject.FindGameObjectWithTag("Player");
                 obj.GetComponent<PlayerMovement>().enabled = true;

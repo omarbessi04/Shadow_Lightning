@@ -41,10 +41,13 @@ public class GameManager : MonoBehaviour
         }
         if (currentPlayer){
             if (PlayerHasWallJump){
-                pm = currentPlayer.GetComponent<PlayerMovement>();
-                pm.wallJumpClimb = new Vector2(7.5f, 16);
-                pm.wallJumpOff = new Vector2(8.5f, 7);
-                pm.wallLeap = new Vector2(18, 17);
+                if (currentStateofPlayer == "Shadow")
+                {
+                    pm = currentPlayer.GetComponent<PlayerMovement>();
+                    pm.wallJumpClimb = new Vector2(7.5f, 16);
+                    pm.wallJumpOff = new Vector2(8.5f, 7);
+                    pm.wallLeap = new Vector2(18, 17);
+                }
             }
         }else{
             currentPlayer = GameObject.FindGameObjectWithTag("Player");
