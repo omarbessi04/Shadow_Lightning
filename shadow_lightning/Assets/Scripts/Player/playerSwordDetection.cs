@@ -53,7 +53,7 @@ public class playerSwordDetection : MonoBehaviour
                 PlayerSwordAttack.enemiesHit.Add(other.gameObject);
             }
         }
-        else if (other.CompareTag("Boulder")){
+        else if (other.CompareTag("Boulder") && PlayerSwordAttack.Animator.GetBool("Attacking")){
             GameObject boulder = GameObject.FindGameObjectWithTag("Boulder");
             boulder.GetComponent<BoulderDestroyerScript>().SpawnBoulderParticles(13.88f, 0f, 0f);
             boulder.transform.parent.gameObject.SetActive(false);

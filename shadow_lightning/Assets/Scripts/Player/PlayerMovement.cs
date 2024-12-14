@@ -60,8 +60,7 @@ public class PlayerMovement : MonoBehaviour
 		
 		Animator.SetFloat("yVelocity", velocity.y);
 		Animator.SetFloat("xVelocity", Mathf.Abs(velocity.x));
-		
-		controller.Move (velocity * Time.deltaTime, directionalInput);
+		controller.Move(velocity * Time.deltaTime, directionalInput);
 
 		if (controller.collisions.above || controller.collisions.below) {
 			if (controller.collisions.slidingDownMaxSlope) {

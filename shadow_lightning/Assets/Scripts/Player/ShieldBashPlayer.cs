@@ -143,7 +143,6 @@ public class ShieldBashPlayer : MonoBehaviour
             bashing = true;
             particleHandler = true;
             //print("BASHING");
-            print(PlayerAnimator.lookingRight);
             if (PlayerAnimator.lookingRight)
             {
                 Movement.velocity.x = +bashSpeed;

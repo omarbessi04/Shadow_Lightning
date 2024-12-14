@@ -66,7 +66,9 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        if (controller.collisions.above || controller.collisions.below) {
+            velocity.y = 0;
+        }
         if (enemyDetection.Detected)
         {
             speed = base_speed + 1;
@@ -135,9 +137,6 @@ public class EnemyMovement : MonoBehaviour
                     direction = new Vector2(direction.x * -1, direction.y);
                     flipX(false); 
                 }
-            }
-            if (controller.collisions.above || controller.collisions.below) {
-                velocity.y = 0;
             }
             if (controller.collisions.below && shouldMove && !noVelocityReset)
             {

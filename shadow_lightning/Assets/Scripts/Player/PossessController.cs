@@ -29,8 +29,7 @@ public class PossessController : MonoBehaviour
 
     [Header("--- Omar Was Here ---")]
     AudioManager audioManager;
-
-    bool m_isAxisInUse;
+    
 
     private bool currentlyUnpossessing = false;
 
@@ -54,19 +53,15 @@ public class PossessController : MonoBehaviour
         {
             Timer -= Time.deltaTime;
         }
-        
-        if (possessed == true && currentlyUnpossessing == false)
+
+        if (possessed && !currentlyUnpossessing)
         {
-            if (Input.GetAxisRaw("Unpossess") != 0 && Timer <= 0)
+            if (Timer <= 0 && (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.R)))
             {
-                if(m_isAxisInUse == false){
-                    unpossess();
-                    m_isAxisInUse = true;
-                }
-            }else if (Input.GetAxisRaw("Unpossess") == 0){
-                m_isAxisInUse = false;
+                unpossess();
             }
         }
+
         if (canPossess && possessed == false && GetComponent<PlayerController2D>().collisions.below)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
@@ -74,7 +69,7 @@ public class PossessController : MonoBehaviour
                 myCamEffects.StartZoom();
             }
 
-            if (Input.GetAxisRaw("Unpossess") == 1)
+            if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.R))
             {
                 GetComponent<PlayerController2D>().enabled = false;
                 GetComponent<PlayerMovement>().enabled = false;
@@ -134,12 +129,12 @@ public class PossessController : MonoBehaviour
             if (turningRight == false)
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
-                possessedEnemyObject = Instantiate(sword, new Vector2(enemyToPossess.transform.position.x + 0.85f, enemyToPossess.transform.position.y), Quaternion.identity);
+                possessedEnemyObject = Instantiate(sword, new Vector2(enemyToPossess.transform.position.x + 0.85f, transform.position.y+0.5f), Quaternion.identity);
             }
             else
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
-                possessedEnemyObject = Instantiate(sword, enemyToPossess.transform.position, Quaternion.identity);
+                possessedEnemyObject = Instantiate(sword, new Vector2(enemyToPossess.transform.position.x, transform.position.y+0.5f), Quaternion.identity);
             }
         }
         else if (enemyType == "Shield")
@@ -169,6 +164,8 @@ public class PossessController : MonoBehaviour
     void unpossess()
     {
         currentlyUnpossessing = true;
+        possessedEnemyObject.tag = "Untagged";
+        possessedEnemyObject.layer = 0;
         GameObject currentEnemy = enemyToPossess.GameObject();
         GetComponent<PlayerController2D>().enabled = true;
         GetComponent<PlayerMovement>().enabled = true;
@@ -195,9 +192,22 @@ public class PossessController : MonoBehaviour
         StartCoroutine(ReenableMovement(currentEnemy));
         currentEnemy.GetComponent<EnemyMovement>().velocity = possessedEnemyObject.GetComponent<PlayerMovement>().velocity;
         currentEnemy.SetActive(true);
-        shadow.transform.position = possessedEnemyObject.transform.position;
+        if (possessedEnemyObject.GetComponent<PlayerController2D>().collisions.right)
+        {
+            print("going left");
+            shadow.transform.position = new Vector2(possessedEnemyObject.transform.position.x-2f, possessedEnemyObject.transform.position.y);
+        }
+        else if (possessedEnemyObject.GetComponent<PlayerController2D>().collisions.left)
+        {
+            print("going right");
+            shadow.transform.position = new Vector2(possessedEnemyObject.transform.position.x+2f, possessedEnemyObject.transform.position.y);
+        }
+        else
+        {
+            shadow.transform.position = possessedEnemyObject.transform.position;
+        }
+
         shadow.GetComponent<SpriteRenderer>().enabled = true;
-        Destroy(possessedEnemyObject);
     }
 
     private IEnumerator ReenableMovement(GameObject enemy)
@@ -205,7 +215,7 @@ public class PossessController : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         enemy.GetComponent<EnemyMovement>().noVelocityReset = false;
         enemy.GetComponent<EnemyMovement>().idle = true;
-        if (!GetComponent<PlayerController2D>().collisions.below)
+        if (!possessedEnemyObject.GetComponent<PlayerController2D>().collisions.below && !enemy.GetComponent<EnemyMovementController>().collisions.right && !enemy.GetComponent<EnemyMovementController>().collisions.left)
         {
             GetComponent<PlayerMovement>().velocity.y += 5f;
             if (enemy.GetComponent<EnemyMovement>().flippedRight)
@@ -217,8 +227,14 @@ public class PossessController : MonoBehaviour
                 GetComponent<PlayerMovement>().velocity.x -= 20f;
             }
         }
-
+        else
+        {
+            GetComponent<PlayerMovement>().velocity = Vector3.zero;
+        }
+        
+        
         currentlyUnpossessing = false;
+        Destroy(possessedEnemyObject);
         possessed = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
