@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeEnemy: Shield
+  boss: 0
 --- !u!114 &3560416744369007161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +258,7 @@ MonoBehaviour:
   Health: 3
   mySprite: {fileID: 8028295196516921742}
   DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
+  wallJumpUnlock: {fileID: 0}
 --- !u!114 &1064678573442664854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +322,7 @@ MonoBehaviour:
     m_Bits: 256
   bashSpeed: 25
   Timer: 0
-  BashCooldown: 2.5
+  BashCooldown: 1.5
   bashingRight: 0
   inRange: 0
   Animator: {fileID: 0}

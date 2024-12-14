@@ -54,11 +54,13 @@ public class CameraEffectScript : MonoBehaviour
 
     public void StartZoom()
     {
-        if (currentCoroutine != null)
-        {
-            StopCoroutine(currentCoroutine);
+        if (GameManager.instance.canZoom){
+            if (currentCoroutine != null)
+            {
+                StopCoroutine(currentCoroutine);
+            }
+            currentCoroutine = StartCoroutine(ZoomIn());
         }
-        currentCoroutine = StartCoroutine(ZoomIn());
     }
 
     public void StopZoom()

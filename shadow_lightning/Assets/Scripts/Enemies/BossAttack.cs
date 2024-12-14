@@ -81,7 +81,15 @@ public class BossAttack : MonoBehaviour
         while (BossDetection.Detected)
         {
             Animator.SetBool("Attacking", true);
-            yield return new WaitForSeconds(attackCooldown);
+            if (inRange)
+            {
+                yield return new WaitForSeconds(attackCooldown/2);
+            }
+            else
+            {
+                yield return new WaitForSeconds(attackCooldown);    
+            }
+            
             
         }
         isAttacking = false; 
