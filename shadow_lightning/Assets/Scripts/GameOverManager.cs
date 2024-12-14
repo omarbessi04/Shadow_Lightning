@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour{
 
-    [SerializeField] private string startScreen;
+    [SerializeField] string lastScene = GameManager.instance.transitionedFromScene;
 
     public void RetryButtonPressed(){
-        SceneTransitionScript.instance.ResetGame();
+        SceneTransitionScript.instance.TeleportTo(lastScene);
     }
 
     public void QuitButtonPressed(){

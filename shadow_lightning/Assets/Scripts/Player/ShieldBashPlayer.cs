@@ -21,6 +21,16 @@ public class ShieldBashPlayer : MonoBehaviour
     public bool stunned = false;
     public List<GameObject> enemiesHit = new List<GameObject>();
     public bool bashing = false;
+    bool particleHandler = true;
+    AudioManager audioManager;
+    [SerializeField] private ParticleSystem LightningParticles;
+
+    private ParticleSystem LightningParticlesinstance;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -37,10 +47,20 @@ public class ShieldBashPlayer : MonoBehaviour
         if (!bashing && Timer < 0 && Input.GetAxisRaw("Ability") == 1)
         {
             Animator.SetBool("Bashing", true);
+            audioManager.PlaySFX(audioManager.ShieldDash);
         }
 
         if (bashing)
         {
+            if (particleHandler)
+            {
+                SpawnLightningParticles(transform.position.x, transform.position.y);
+                particleHandler = false;
+            }
+            else
+            {
+                particleHandler = true;
+            }
             if (bashingRight)
             {
                 Movement.velocity.x -= airResistince;
@@ -68,7 +88,11 @@ public class ShieldBashPlayer : MonoBehaviour
         if (!enemiesHit.Contains(enemy) && enemy.tag == "Enemy")
         {
             enemy.GetComponent<EnemyHealth>().takeDamage(damage);
-            enemy.GetComponent<EnemyMovement>().knockBack(knockBack);
+            if (!enemy.GetComponent<EnemyVariables>().boss)
+            {
+                enemy.GetComponent<EnemyMovement>().knockBack(knockBack);
+            }
+
             enemiesHit.Add(enemy);
         }
     }
@@ -117,6 +141,9 @@ public class ShieldBashPlayer : MonoBehaviour
             Movement.canMove = false;
             Timer = BashCooldown;
             bashing = true;
+            particleHandler = true;
+            //print("BASHING");
+            print(PlayerAnimator.lookingRight);
             if (PlayerAnimator.lookingRight)
             {
                 Movement.velocity.x = +bashSpeed;
@@ -131,7 +158,7 @@ public class ShieldBashPlayer : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Boulder" && bashing)
         {
@@ -140,5 +167,18 @@ public class ShieldBashPlayer : MonoBehaviour
             boulderShake.Begin();
         }
     }
+
+    public void SpawnLightningParticles(float a, float b)
+    {
+        if (bashingRight)
+        {
+            LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.Euler(new Vector3(0, 0, 90)));
+        }
+        else
+        {
+            LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.Euler(new Vector3(0, 0, -90)));
+        }
+    }
+
 }
 

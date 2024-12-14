@@ -30,6 +30,8 @@ public class PossessController : MonoBehaviour
     [Header("--- Omar Was Here ---")]
     AudioManager audioManager;
 
+    private bool currentlyUnpossessing = false;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
@@ -50,7 +52,7 @@ public class PossessController : MonoBehaviour
         {
             Timer -= Time.deltaTime;
         }
-        if (possessed == true)
+        if (possessed == true && currentlyUnpossessing == false)
         {
             if (Input.GetAxisRaw("Unpossess") == 1 && Timer <= 0)
             {
@@ -58,14 +60,14 @@ public class PossessController : MonoBehaviour
 
             }
         }
-        if (canPossess && possessed == false)
+        if (canPossess && possessed == false && GetComponent<PlayerController2D>().collisions.below)
         {
             if (!myCamEffects.WorkingOnIt && myCam.orthographicSize == myCamEffects.maxZoom)
             {
                 myCamEffects.StartZoom();
             }
 
-            if (Input.GetAxisRaw("Ability") == 1)
+            if (Input.GetAxisRaw("Unpossess") == 1)
             {
                 GetComponent<PlayerController2D>().enabled = false;
                 GetComponent<PlayerMovement>().enabled = false;
@@ -102,7 +104,6 @@ public class PossessController : MonoBehaviour
     public void possess()
     {
         Timer = unpossessCooldown;
-        GameManager.instance.alive_enemy_count -= 1;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
         enemyToPossess.GameObject().SetActive(false);
 
@@ -158,8 +159,8 @@ public class PossessController : MonoBehaviour
     }
     void unpossess()
     {
+        currentlyUnpossessing = true;
         GameObject currentEnemy = enemyToPossess.GameObject();
-        GameManager.instance.alive_enemy_count += 1;
         GetComponent<PlayerController2D>().enabled = true;
         GetComponent<PlayerMovement>().enabled = true;
         GameObject.FindGameObjectWithTag("CameraAnchor").GetComponent<CameraFollow>().target = GetComponent<PlayerController2D>();
@@ -188,14 +189,29 @@ public class PossessController : MonoBehaviour
         shadow.transform.position = possessedEnemyObject.transform.position;
         shadow.GetComponent<SpriteRenderer>().enabled = true;
         Destroy(possessedEnemyObject);
-        possessed = false;
     }
 
     private IEnumerator ReenableMovement(GameObject enemy)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         enemy.GetComponent<EnemyMovement>().noVelocityReset = false;
         enemy.GetComponent<EnemyMovement>().idle = true;
+        if (!GetComponent<PlayerController2D>().collisions.below)
+        {
+            print("wahhhhh");
+            GetComponent<PlayerMovement>().velocity.y += 2f;
+            if (enemy.GetComponent<EnemyMovement>().flippedRight)
+            {
+                GetComponent<PlayerMovement>().velocity.x += 15f;
+            }
+            else
+            {
+                GetComponent<PlayerMovement>().velocity.x -= 15f;
+            }
+        }
+
+        currentlyUnpossessing = false;
+        possessed = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

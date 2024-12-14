@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LoverScript : MonoBehaviour
@@ -29,6 +30,8 @@ public class LoverScript : MonoBehaviour
         Time.timeScale = 0.2f;
         yield return new WaitForSeconds(0.3f);
         Time.timeScale = 1;
+        GameManager.instance.BoulderHasBeenDestroyed = false;
+        GameManager.instance.PlayerHasWallJump = false;
         SceneTransitionScript.instance.TeleportTo("MainMenu");
     }
 }

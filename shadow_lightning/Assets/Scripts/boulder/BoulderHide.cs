@@ -5,8 +5,10 @@ using UnityEngine;
 public class boulderHide : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other) {
-        GameObject boulder = GameObject.FindGameObjectWithTag("Boulder");
 
-        if(boulder) boulder.transform.parent.gameObject.SetActive(false);
+        if (GameManager.instance.BoulderHasBeenDestroyed){
+            GameObject boulder = GameObject.FindGameObjectWithTag("Boulder");
+            if(boulder) boulder.transform.parent.gameObject.SetActive(false);
+        }
     }
 }

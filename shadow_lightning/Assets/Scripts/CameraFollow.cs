@@ -84,25 +84,27 @@ public class CameraFollow : MonoBehaviour {
 		}
 
 		public void Update(Bounds targetBounds) {
-			float shiftX = 0;
-			if (targetBounds.min.x < left) {
-				shiftX = targetBounds.min.x - left;
-			} else if (targetBounds.max.x > right) {
-				shiftX = targetBounds.max.x - right;
-			}
-			left += shiftX;
-			right += shiftX;
+			if(!GameManager.instance.ShowingPillar){
+				float shiftX = 0;
+				if (targetBounds.min.x < left) {
+					shiftX = targetBounds.min.x - left;
+				} else if (targetBounds.max.x > right) {
+					shiftX = targetBounds.max.x - right;
+				}
+				left += shiftX;
+				right += shiftX;
 
-			float shiftY = 0;
-			if (targetBounds.min.y < bottom) {
-				shiftY = targetBounds.min.y - bottom;
-			} else if (targetBounds.max.y > top) {
-				shiftY = targetBounds.max.y - top;
+				float shiftY = 0;
+				if (targetBounds.min.y < bottom) {
+					shiftY = targetBounds.min.y - bottom;
+				} else if (targetBounds.max.y > top) {
+					shiftY = targetBounds.max.y - top;
+				}
+				top += shiftY;
+				bottom += shiftY;
+				centre = new Vector2((left+right)/2,(top +bottom)/2);
+				velocity = new Vector2 (shiftX, shiftY);
 			}
-			top += shiftY;
-			bottom += shiftY;
-			centre = new Vector2((left+right)/2,(top +bottom)/2);
-			velocity = new Vector2 (shiftX, shiftY);
 		}
 	}
 

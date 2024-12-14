@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public string transitionedFromScene;
+    public string currentScene;
 
     public HeartSystem heartSystem;
     public int alive_enemy_count;
@@ -13,7 +14,11 @@ public class GameManager : MonoBehaviour
     public float unpossessTimer;
     public GameObject currentPlayer;
     public bool PlayerHasWallJump;
+    public bool BoulderHasBeenDestroyed = false;
+    public bool ShowingPillar = false;
     PlayerMovement pm;
+
+    public string currentStateofPlayer;
     
     void Awake()
     {
@@ -26,6 +31,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
+        if (GameObject.FindGameObjectWithTag("Player") && GameObject.FindGameObjectWithTag("Player").GetComponent<PossessController>().possessed)
+        {
+            currentStateofPlayer = "Enemy";
+        }
+        else
+        {
+            currentStateofPlayer = "Shadow";
+        }
         if (currentPlayer){
             if (PlayerHasWallJump){
                 pm = currentPlayer.GetComponent<PlayerMovement>();

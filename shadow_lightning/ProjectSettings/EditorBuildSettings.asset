@@ -23,7 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Screen3.unity
     guid: 3be0b3e04bc903d42aa843e1754d561d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Screen4.unity
     guid: ff82b6b891e320743964b3a5063f79f9
+  - enabled: 1
+    path: Assets/Scenes/Screen5.unity
+    guid: a31c3340962c383438261961dca05d45
   m_configObjects: {}

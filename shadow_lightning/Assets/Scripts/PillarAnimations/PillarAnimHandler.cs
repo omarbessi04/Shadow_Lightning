@@ -8,6 +8,7 @@ public class PillarAnimHandler : MonoBehaviour
     public bool isMovingUp = false;
     private float initialY;
     public bool hasMovedUp = false;
+    [SerializeField] GameObject Camera;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class PillarAnimHandler : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.alive_enemy_count == 0)
+        if (GameManager.instance.alive_enemy_count == 0 && CameraIsOkay())
         {
             MoveUp();
         }
@@ -32,6 +33,14 @@ public class PillarAnimHandler : MonoBehaviour
                 hasMovedUp = true;
             }
         }
+    }
+
+    public bool CameraIsOkay(){
+        if (!Camera) return true;
+        
+        if (Camera.transform.position.x >= 3 && Camera.transform.position.y < 12) return true;
+        
+        return false;
     }
 
     public void MoveUp()

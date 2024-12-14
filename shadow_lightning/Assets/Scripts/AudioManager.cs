@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     [Header("--- SFX Clips ---")]
     public AudioClip SwordHit;
     public AudioClip ElectricZap; 
+    public AudioClip ShieldDash;
     public AudioClip Jump;
     public AudioClip MageOuch;
     public AudioClip SwordUgh;

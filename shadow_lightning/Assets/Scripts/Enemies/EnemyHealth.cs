@@ -20,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
     GameObject player_for_pos;
     Transform playerPos;
 
+    public GameObject wallJumpUnlock;
+
 	private void Awake(){
 		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
 	}
@@ -60,12 +62,15 @@ public class EnemyHealth : MonoBehaviour
 
         Health -= Damage;
        StartCoroutine(ChangeColor());
+
         if (Health <= 0)
         {
+            if (GetComponent<EnemyVariables>().boss){
+                wallJumpUnlock.GetComponent<WallJumpPopUpScript>().Unlock();
+            };
             GameManager.instance.alive_enemy_count -= 1;
             Destroy(gameObject);
         }
-    
     }
 
     private IEnumerator ChangeColor(){

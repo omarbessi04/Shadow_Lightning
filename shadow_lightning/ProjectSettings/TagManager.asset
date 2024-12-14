@@ -14,6 +14,9 @@ TagManager:
   - Pillar
   - Projectile
   - CameraAnchor
+  - ShadowSpike
+  - ShadowWall
+  - WallJumpPopUp
   layers:
   - Default
   - TransparentFX
