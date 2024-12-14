@@ -1,9 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
-using UnityEditor;
-using UnityEngine.Rendering;
-// using UnityEngine.UIElements;
+using Unity.VisualScripting.Dependencies.Sqlite;
 
 public class HeartSystem : MonoBehaviour
 {
@@ -12,7 +10,10 @@ public class HeartSystem : MonoBehaviour
     public Material heartMaterial;
     public float heartAnimationSpeed;
     private bool isColorChanging = false;
+    [SerializeField] private ParticleSystem DamageParticles;
+    private ParticleSystem DamageParticlesinstance;
     CameraEffectScript myCamEffects;
+    AudioManager audioManager;
     private void Start()
     {
         UpdateHealthBar();
@@ -22,11 +23,18 @@ public class HeartSystem : MonoBehaviour
 
     private void Awake() {
         myCamEffects = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraEffectScript>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
     }
 
 
     public void TakeDamage(float damage)
     {
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerEnemy");
+        if (player){
+            SpawnDamageParticles(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        }
+        audioManager.PlaySFX(audioManager.ShadowSwoosh);
+
         Health -= damage;
         UpdateHealthBar();
 
@@ -92,5 +100,22 @@ public class HeartSystem : MonoBehaviour
         }
         heartMaterial.color = Color.white;
         isColorChanging = false;
+    }
+
+    public void SpawnDamageParticles(float a, float b, float c){
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerEnemy");
+        if (!player) return;
+        
+        PlayerAnimator pa = GetComponent<PlayerAnimator>();
+
+        if(pa){
+            if(pa.lookingRight){
+                DamageParticlesinstance = Instantiate(DamageParticles, new Vector3(a, b, c), Quaternion.Euler(0, 180, 0));
+            }else{
+                DamageParticlesinstance = Instantiate(DamageParticles, new Vector3(a, b, c), Quaternion.identity);
+            }
+        }else{
+            DamageParticlesinstance = Instantiate(DamageParticles, new Vector3(a, b, c), Quaternion.identity);
+        }
     }
 }
