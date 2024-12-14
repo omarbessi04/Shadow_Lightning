@@ -29,7 +29,7 @@ public class PossessController : MonoBehaviour
 
     [Header("--- Omar Was Here ---")]
     AudioManager audioManager;
-    
+
 
     private bool currentlyUnpossessing = false;
 
@@ -105,7 +105,6 @@ public class PossessController : MonoBehaviour
 
     public void possess()
     {
-        
         Timer = unpossessCooldown;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
         enemyToPossess.GameObject().SetActive(false);
@@ -129,12 +128,12 @@ public class PossessController : MonoBehaviour
             if (turningRight == false)
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = false;
-                possessedEnemyObject = Instantiate(sword, new Vector2(enemyToPossess.transform.position.x + 0.85f, transform.position.y+0.5f), Quaternion.identity);
+                possessedEnemyObject = Instantiate(sword, new Vector2(enemyToPossess.transform.position.x + 0.85f, transform.position.y + 0.5f), Quaternion.identity);
             }
             else
             {
                 sword.GetComponentInChildren<PlayerAnimator>().lookingRight = true;
-                possessedEnemyObject = Instantiate(sword, new Vector2(enemyToPossess.transform.position.x, transform.position.y+0.5f), Quaternion.identity);
+                possessedEnemyObject = Instantiate(sword, new Vector2(enemyToPossess.transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
             }
         }
         else if (enemyType == "Shield")
@@ -194,13 +193,11 @@ public class PossessController : MonoBehaviour
         currentEnemy.SetActive(true);
         if (possessedEnemyObject.GetComponent<PlayerController2D>().collisions.right)
         {
-            print("going left");
-            shadow.transform.position = new Vector2(possessedEnemyObject.transform.position.x-2f, possessedEnemyObject.transform.position.y);
+            shadow.transform.position = new Vector2(possessedEnemyObject.transform.position.x - 2f, possessedEnemyObject.transform.position.y);
         }
         else if (possessedEnemyObject.GetComponent<PlayerController2D>().collisions.left)
         {
-            print("going right");
-            shadow.transform.position = new Vector2(possessedEnemyObject.transform.position.x+2f, possessedEnemyObject.transform.position.y);
+            shadow.transform.position = new Vector2(possessedEnemyObject.transform.position.x + 2f, possessedEnemyObject.transform.position.y);
         }
         else
         {
@@ -235,8 +232,8 @@ public class PossessController : MonoBehaviour
         {
             GetComponent<PlayerMovement>().velocity = Vector3.zero;
         }
-        
-        
+
+
         currentlyUnpossessing = false;
         Destroy(possessedEnemyObject);
         possessed = false;
