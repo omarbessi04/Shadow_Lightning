@@ -21471,9 +21471,6 @@ MonoBehaviour:
   targetHeight: 5
   isMovingUp: 0
   hasMovedUp: 0
-  mainCamera: {fileID: 519420031}
-  cameraOffset: {x: 0, y: 5, z: -10}
-  cameraMoveSpeed: 2
 --- !u!1 &1199271541
 GameObject:
   m_ObjectHideFlags: 0
