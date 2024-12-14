@@ -67,7 +67,6 @@ public class EnemyHealth : MonoBehaviour
         {
             if (GetComponent<EnemyVariables>().boss){
                 wallJumpUnlock.GetComponent<WallJumpPopUpScript>().Unlock();
-                GameObject.FindGameObjectWithTag("ShadowWall").GetComponent<ShadowWallScript>().MakeThrough();
             };
             GameManager.instance.alive_enemy_count -= 1;
             Destroy(gameObject);

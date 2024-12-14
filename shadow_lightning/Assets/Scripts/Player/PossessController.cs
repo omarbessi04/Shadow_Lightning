@@ -103,8 +103,6 @@ public class PossessController : MonoBehaviour
         Timer = unpossessCooldown;
         string enemyType = enemyToPossess.GetComponent<EnemyVariables>().typeEnemy;
         enemyToPossess.GameObject().SetActive(false);
-        GameObject shadowWall = GameObject.FindGameObjectWithTag("ShadowWall");
-        if (shadowWall) shadowWall.GetComponent<ShadowWallScript>().makePassable(true);
 
         if (enemyType == "Mage")
         {
@@ -188,8 +186,6 @@ public class PossessController : MonoBehaviour
         shadow.transform.position = possessedEnemyObject.transform.position;
         shadow.GetComponent<SpriteRenderer>().enabled = true;
         Destroy(possessedEnemyObject);
-        GameObject shadowWall = GameObject.FindGameObjectWithTag("ShadowWall");
-        if (shadowWall) shadowWall.GetComponent<ShadowWallScript>().makePassable(false);
     }
 
     private IEnumerator ReenableMovement(GameObject enemy)
@@ -200,14 +196,14 @@ public class PossessController : MonoBehaviour
         if (!GetComponent<PlayerController2D>().collisions.below)
         {
             print("wahhhhh");
-            GetComponent<PlayerMovement>().velocity.y += 5f;
+            GetComponent<PlayerMovement>().velocity.y += 2f;
             if (enemy.GetComponent<EnemyMovement>().flippedRight)
             {
-                GetComponent<PlayerMovement>().velocity.x += 20f;
+                GetComponent<PlayerMovement>().velocity.x += 15f;
             }
             else
             {
-                GetComponent<PlayerMovement>().velocity.x -= 20f;
+                GetComponent<PlayerMovement>().velocity.x -= 15f;
             }
         }
 
