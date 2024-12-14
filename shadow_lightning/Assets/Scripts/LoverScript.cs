@@ -30,8 +30,7 @@ public class LoverScript : MonoBehaviour
         Time.timeScale = 0.2f;
         yield return new WaitForSeconds(0.3f);
         Time.timeScale = 1;
-        GameManager.instance.BoulderHasBeenDestroyed = false;
-        GameManager.instance.PlayerHasWallJump = false;
+        GameManager.instance.ResetGame();
         SceneTransitionScript.instance.TeleportTo("MainMenu");
     }
 }
