@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject currentPlayer;
     public bool PlayerHasWallJump;
     public bool BoulderHasBeenDestroyed = false;
+    public bool ShowingPillar = false;
     PlayerMovement pm;
     
     void Awake()
