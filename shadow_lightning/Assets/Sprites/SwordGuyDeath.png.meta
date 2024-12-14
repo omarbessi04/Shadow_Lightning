@@ -115,8 +115,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 44
-        height: 43
+        width: 65
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,7 +124,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9091d9cdad570a42bd67e5cb817320a
+      spriteID: 67b9c42269a14a84ebd9fa9f32c18385
       internalID: 2116683795
       vertices: []
       indices: 
@@ -134,10 +134,10 @@ TextureImporter:
       name: SwordGuyDeath_1
       rect:
         serializedVersion: 2
-        x: 44
+        x: 65
         y: 0
-        width: 44
-        height: 43
+        width: 65
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e2f28dca4ece0b46bb7d0f008ea6c50
+      spriteID: 02c3446c94d4ce54d98ae99e90c903a7
       internalID: -2093062303
       vertices: []
       indices: 
@@ -155,10 +155,10 @@ TextureImporter:
       name: SwordGuyDeath_2
       rect:
         serializedVersion: 2
-        x: 88
+        x: 130
         y: 0
-        width: 44
-        height: 43
+        width: 65
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,7 +166,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e697e8671381694c995bd92f4644cb1
+      spriteID: cff88e25f525c6a4eace642dafaabecb
       internalID: 376634596
       vertices: []
       indices: 
@@ -176,10 +176,10 @@ TextureImporter:
       name: SwordGuyDeath_3
       rect:
         serializedVersion: 2
-        x: 132
+        x: 195
         y: 0
-        width: 44
-        height: 43
+        width: 65
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 465bb0fd97da25940af1decd027b66c1
+      spriteID: c0f0d34566a2d354c8f88eada22677db
       internalID: 447335477
       vertices: []
       indices: 
@@ -197,10 +197,10 @@ TextureImporter:
       name: SwordGuyDeath_4
       rect:
         serializedVersion: 2
-        x: 176
+        x: 260
         y: 0
-        width: 44
-        height: 43
+        width: 65
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,7 +208,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11d31a6a8ad00aa40bbb672b2a4270d5
+      spriteID: 0660b2d98ed5b484a8c424527a225ffe
       internalID: 1864045167
       vertices: []
       indices: 
@@ -218,10 +218,10 @@ TextureImporter:
       name: SwordGuyDeath_5
       rect:
         serializedVersion: 2
-        x: 220
+        x: 325
         y: 0
-        width: 44
-        height: 43
+        width: 65
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,7 +229,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9aba5ca5c1ecf674e8df41f24a5fe57b
+      spriteID: 499510f0c99a25c408bf8265fd7d8b42
       internalID: 1096994331
       vertices: []
       indices: 
