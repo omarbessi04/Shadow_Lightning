@@ -54,3 +54,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: CoolLayer
+    uniqueID: 2291524753
+    locked: 0
