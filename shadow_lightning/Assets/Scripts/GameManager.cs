@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PossessController>().possessed)
+        if (GameObject.FindGameObjectWithTag("Player") && GameObject.FindGameObjectWithTag("Player").GetComponent<PossessController>().possessed)
         {
             currentStateofPlayer = "Enemy";
         }
