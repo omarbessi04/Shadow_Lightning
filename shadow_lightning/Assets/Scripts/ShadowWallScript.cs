@@ -3,17 +3,15 @@ using UnityEngine;
 
 public class ShadowWallScript : MonoBehaviour
 {
-    public LayerMask ground;
-    public LayerMask normal;
     public void Update()
     {
         if (GameManager.instance.currentStateofPlayer == "Shadow")
         {
-            gameObject.layer = ground;
+            gameObject.layer = 3;
         }
         else
         {
-            gameObject.layer = normal;
+            gameObject.layer = 0;
         }
     }
 }
