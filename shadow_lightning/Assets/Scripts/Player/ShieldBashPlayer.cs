@@ -127,7 +127,6 @@ public class ShieldBashPlayer : MonoBehaviour
 
     public void animationDone()
     {
-        //print("done");
         enemiesHit.Clear();
         Movement.velocity.x = 0;
         Movement.canMove = true;
@@ -142,7 +141,6 @@ public class ShieldBashPlayer : MonoBehaviour
             Timer = BashCooldown;
             bashing = true;
             particleHandler = true;
-            //print("BASHING");
             if (PlayerAnimator.lookingRight)
             {
                 Movement.velocity.x = +bashSpeed;

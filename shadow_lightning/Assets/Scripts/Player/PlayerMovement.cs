@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
 
-[RequireComponent (typeof (PlayerController2D))]
+[RequireComponent(typeof(PlayerController2D))]
 public class PlayerMovement : MonoBehaviour
 {
 	public string type;
@@ -37,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
 	int wallDirX;
 	AudioManager audioManager;
 
-	private void Awake(){
+	private void Awake()
+	{
 		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
 	}
 
@@ -46,26 +47,30 @@ public class PlayerMovement : MonoBehaviour
 	{
 		GameManager.instance.currentPlayer = gameObject;
 		Animator = GetComponent<Animator>();
-		controller = GetComponent<PlayerController2D> ();
+		controller = GetComponent<PlayerController2D>();
 
-		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+		gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
-		//print(gravity);
+		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 	}
 
-	void Update() {
-		CalculateVelocity ();
-		HandleWallSliding ();
-		
+	void Update()
+	{
+		CalculateVelocity();
+		HandleWallSliding();
+
 		Animator.SetFloat("yVelocity", velocity.y);
 		Animator.SetFloat("xVelocity", Mathf.Abs(velocity.x));
 		controller.Move(velocity * Time.deltaTime, directionalInput);
 
-		if (controller.collisions.above || controller.collisions.below) {
-			if (controller.collisions.slidingDownMaxSlope) {
+		if (controller.collisions.above || controller.collisions.below)
+		{
+			if (controller.collisions.slidingDownMaxSlope)
+			{
 				velocity.y += controller.collisions.slopeNormal.y * -gravity * Time.deltaTime;
-			} else {
+			}
+			else
+			{
 				velocity.y = 0;
 			}
 		}
@@ -75,11 +80,13 @@ public class PlayerMovement : MonoBehaviour
 	{
 		velocity.x = distance;
 	}
-	public void SetDirectionalInput (Vector2 input) {
+	public void SetDirectionalInput(Vector2 input)
+	{
 		directionalInput = input;
 	}
 
-	public void OnJumpInputDown() {
+	public void OnJumpInputDown()
+	{
 		if (canMove)
 		{
 			audioManager.PlaySFX(audioManager.Jump);
@@ -121,8 +128,10 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	public void OnJumpInputUp() {
-		if (velocity.y > minJumpVelocity) {
+	public void OnJumpInputUp()
+	{
+		if (velocity.y > minJumpVelocity)
+		{
 			velocity.y = minJumpVelocity;
 		}
 	}
@@ -139,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
 			wallDirX = (controller.collisions.left) ? -1 : 1;
 			wallSliding = false;
 			if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below &&
-			    velocity.y < 0)
+				velocity.y < 0)
 			{
 				wallSliding = true;
 
@@ -184,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
 			targetVelocityX = velocity.x;
 		}
 
-		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 		if (canMove)
 		{
 			velocity.y += gravity * Time.deltaTime;
