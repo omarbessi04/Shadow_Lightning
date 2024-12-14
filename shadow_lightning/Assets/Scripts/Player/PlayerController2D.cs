@@ -10,10 +10,9 @@ public class PlayerController2D : RaycastController
 	PlayerController2D instance;
 
 	public CollisionInfo collisions;
-	[HideInInspector]
 	public Vector2 playerInput;
 
-	[HideInInspector] public bool onPlatform = false;
+	public bool onPlatform = false;
 
 	public override void Start() {
 		base.Start ();

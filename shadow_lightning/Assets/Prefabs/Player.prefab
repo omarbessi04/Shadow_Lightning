@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56318a1ce0535fe439228a9e912aaae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unpossessCooldown: 10
+  unpossessCooldown: 5
   Timer: 0
   canPossess: 0
   enemyToPossess: {fileID: 0}

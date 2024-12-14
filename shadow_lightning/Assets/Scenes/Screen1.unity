@@ -4839,9 +4839,10 @@ MonoBehaviour:
   alive_enemy_count: 0
   unpossessTimer: 0
   currentPlayer: {fileID: 1947853074109386775}
+  canZoom: 1
   PlayerHasWallJump: 0
   BoulderHasBeenDestroyed: 0
-  ShowingPillar: 0
+  BossHasBeenKilled: 0
   currentStateofPlayer: 
 --- !u!4 &926531518
 Transform:
@@ -23178,7 +23179,7 @@ PrefabInstance:
       objectReference: {fileID: 7396385534021377977, guid: a4bac514889c89540a3e74ff44b203e4, type: 3}
     - target: {fileID: 5171222400010422988, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: unpossessCooldown
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6459170870227389949, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_IsTrigger

@@ -25339,7 +25339,7 @@ PrefabInstance:
       objectReference: {fileID: 7396385534021377977, guid: a4bac514889c89540a3e74ff44b203e4, type: 3}
     - target: {fileID: 5171222400010422988, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: unpossessCooldown
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6459170870227389949, guid: 75b7216d258a9f64e80b0f5ea2156ea6, type: 3}
       propertyPath: m_IsTrigger
