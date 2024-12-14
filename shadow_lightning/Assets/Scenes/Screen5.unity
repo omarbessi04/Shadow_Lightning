@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a91314466cd8446884e24062bda1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trantitionTo: Screen2
+  trantitionTo: Screen1
   startPoint: {fileID: 609334884}
 --- !u!61 &275873500
 BoxCollider2D:
@@ -3907,6 +3907,7 @@ MonoBehaviour:
   currentPlayer: {fileID: 1947853074109386775}
   PlayerHasWallJump: 0
   BoulderHasBeenDestroyed: 0
+  currentStateofPlayer: 
 --- !u!4 &926531518
 Transform:
   m_ObjectHideFlags: 0
@@ -21230,7 +21231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a91314466cd8446884e24062bda1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trantitionTo: Screen3
+  trantitionTo: Screen2
   startPoint: {fileID: 1388657204}
 --- !u!1 &1296324065
 GameObject:
