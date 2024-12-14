@@ -32,9 +32,10 @@ public class ShieldBash : MonoBehaviour
     private ParticleSystem LightningParticlesinstance;
     AudioManager audioManager;
 
-	private void Awake(){
-		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
-	}
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -84,11 +85,15 @@ public class ShieldBash : MonoBehaviour
 
         }
 
-        if(bashing){
-            if (particleHandler) {
-                SpawnLightningParticles(transform.position.x, transform.position.y); 
-                particleHandler = false;}
-            else{
+        if (bashing)
+        {
+            if (particleHandler)
+            {
+                SpawnLightningParticles(transform.position.x, transform.position.y);
+                particleHandler = false;
+            }
+            else
+            {
                 particleHandler = true;
             }
         }
@@ -123,11 +128,10 @@ public class ShieldBash : MonoBehaviour
                 }
             }
         }
-        
+
 
         if (bashing)
         {
-            //print(EnemyMovement.velocity.x);
             RaycastHit2D hit2;
             if (EnemyMovement.flippedRight)
             {
@@ -140,11 +144,9 @@ public class ShieldBash : MonoBehaviour
 
             if (hit2)
             {
-                //print("playerhit");
                 EnemyMovement.velocity.x = 0;
                 bashing = false;
                 StartCoroutine(flipTime());
-                //Animator.SetBool("Bashing", false);
                 if (bashingRight)
                 {
                     hit2.collider.GameObject().GetComponent<PlayerMovement>().knockBack(knockBack);
@@ -160,12 +162,9 @@ public class ShieldBash : MonoBehaviour
                 EnemyMovement.velocity.x -= airResistince;
                 if (EnemyMovement.velocity.x < 0)
                 {
-                    //print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
                     StartCoroutine(flipTime());
-                    //Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
-                    //print("RESET1");
                 }
             }
             else
@@ -173,20 +172,17 @@ public class ShieldBash : MonoBehaviour
                 EnemyMovement.velocity.x += airResistince;
                 if (EnemyMovement.velocity.x > 0)
                 {
-                    //print("CURRENT VEL: " + EnemyMovement.velocity.x);
                     bashing = false;
                     StartCoroutine(flipTime());
-                    //Animator.SetBool("Bashing", false);
                     EnemyMovement.velocity.x = 0;
-                    //print("RESET2");
                 }
-                
+
             }
         }
 
 
     }
-    
+
     public void stunCheck()
     {
         if (!stunned)
@@ -219,11 +215,10 @@ public class ShieldBash : MonoBehaviour
         canFlip = true;
 
     }
-    
+
     public void animationDone()
     {
         StartCoroutine(flipTime());
-        //print("done");
         Animator.SetBool("Bashing", false);
     }
     public void Bash()
@@ -234,7 +229,6 @@ public class ShieldBash : MonoBehaviour
             bashing = true;
             particleHandler = true;
 
-            //print("BASHING");
             if (EnemyMovement.flippedRight)
             {
                 EnemyMovement.velocity.x = +bashSpeed;
@@ -248,16 +242,21 @@ public class ShieldBash : MonoBehaviour
         }
     }
 
-    public void SpawnLightningParticles(float a, float b){
-        if (bashingRight){
+    public void SpawnLightningParticles(float a, float b)
+    {
+        if (bashingRight)
+        {
             LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.Euler(new Vector3(0, 0, 90)));
-        }else{
-            LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0),  Quaternion.Euler(new Vector3(0, 0, -90)));
+        }
+        else
+        {
+            LightningParticlesinstance = Instantiate(LightningParticles, new Vector3(a, b, 0), Quaternion.Euler(new Vector3(0, 0, -90)));
         }
     }
 
-    public void playDash(){
+    public void playDash()
+    {
         audioManager.PlaySFX(audioManager.ShieldDash);
     }
-    
+
 }
