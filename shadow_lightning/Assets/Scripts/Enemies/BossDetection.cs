@@ -22,14 +22,32 @@ public class BossDetection : MonoBehaviour
         RaycastHit2D hitJump = Physics2D.Raycast(jumpTransform.position, enemyMovement.direction, detectionRange, mask);
         RaycastHit2D hitOther = Physics2D.Raycast(marker2D.transform.position, new Vector2(enemyMovement.direction.x*-1, enemyMovement.direction.y), detectionRange, mask);
         RaycastHit2D hitOtherJump = Physics2D.Raycast(jumpTransform.position, new Vector2(enemyMovement.direction.x*-1, enemyMovement.direction.y), detectionRange, mask);
-        if (hit.collider != null || (hitJump.collider != null && !GameManager.instance.currentPlayer.GetComponent<PlayerController2D>().collisions.below))
+        if (!Detected && hit.collider != null || (hitJump.collider != null && !GameManager.instance.currentPlayer.GetComponent<PlayerController2D>().collisions.below))
         {
             Detected = true;
+            KillAllHumans();
+            
         }
 
-        else if (enemyMovement.idle == false && (hitOther.collider != null || (hitOtherJump.collider != null && !GameManager.instance.currentPlayer.GetComponent<PlayerController2D>().collisions.below)))
+        else if (!Detected && enemyMovement.idle == false && (hitOther.collider != null || (hitOtherJump.collider != null && !GameManager.instance.currentPlayer.GetComponent<PlayerController2D>().collisions.below)))
         {
             Detected = true;
+            KillAllHumans();
+        }
+    }
+
+    void KillAllHumans()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            GameObject enemy = enemies[i];
+
+            if (enemy != gameObject)
+            {
+                enemy.GetComponent<EnemyMovement>().Animator.SetBool("dying", true);
+            }
         }
     }
 }

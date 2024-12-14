@@ -11,7 +11,8 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     private EnemyMovementController controller;
     public bool idle = true;
-    
+
+    public bool shouldmoveWaypoints = true;
     public Transform wayPoint1;
     public Transform wayPoint2;
 
@@ -99,7 +100,7 @@ public class EnemyMovement : MonoBehaviour
             shouldMove = false;
             idleCoroutine = StartCoroutine(idleWait());
         }
-        if (idle)
+        if (idle && shouldmoveWaypoints)
         {
 
             float distanceToWaypoint1 = Mathf.Abs(transform.position.x - wayPointPos1.x);

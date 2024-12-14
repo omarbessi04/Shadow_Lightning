@@ -20644,6 +20644,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 358594136616584110, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
+      propertyPath: shouldmoveWaypoints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3436447740072198065, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_Name
       value: EnemyLightningMage
@@ -29693,6 +29697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: w
       objectReference: {fileID: 0}
+    - target: {fileID: 7770779266424460931, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
+      propertyPath: shouldmoveWaypoints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7847448673523092867, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.714
@@ -30268,6 +30276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 901549325648605003, guid: 7c1ee48aebf6f604ca1379882bc33b33, type: 3}
+      propertyPath: shouldmoveWaypoints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5595616920855475663, guid: 7c1ee48aebf6f604ca1379882bc33b33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.627
@@ -30514,9 +30526,11 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.0922527, y: 0.0761894}
-  - {x: -0.047309786, y: -0.0015494339}
-  - {x: -0.0706442, y: -0.05817686}
-  - {x: -0.0665416, y: -0.11201225}
+  - {x: -0.08138715, y: 0.0661596}
+  - {x: -0.123369224, y: 0.022689296}
+  - {x: -0.17010662, y: -0.027251536}
+  - {x: -0.18696958, y: -0.08632912}
+  - {x: -0.1810488, y: -0.1713554}
   - {x: 0.06786085, y: -0.23154512}
   - {x: 0.18123989, y: -0.07909435}
   - {x: 0.17079215, y: 0.03956849}
@@ -30605,9 +30619,11 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.0922527, y: 0.0761894}
-  - {x: -0.047309786, y: -0.0015494339}
-  - {x: -0.0706442, y: -0.05817686}
-  - {x: -0.0665416, y: -0.11201225}
+  - {x: -0.098294735, y: 0.008480383}
+  - {x: -0.16592741, y: -0.03811723}
+  - {x: -0.15840504, y: -0.02892326}
+  - {x: -0.191002, y: -0.043967877}
+  - {x: -0.1944219, y: -0.17302701}
   - {x: 0.06786085, y: -0.23154512}
   - {x: 0.18123989, y: -0.07909435}
   - {x: 0.17079215, y: 0.03956849}
@@ -30999,7 +31015,7 @@ Transform:
   m_GameObject: {fileID: 8751606964266519300}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.74, y: -5.76, z: 0}
+  m_LocalPosition: {x: 24.74, y: -6.65, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31099,7 +31115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: 1
-  Health: 4
+  Health: 20
   mySprite: {fileID: 7738333890569284546}
   DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
   wallJumpUnlock: {fileID: 897080498}
