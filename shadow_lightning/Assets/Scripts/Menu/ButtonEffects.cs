@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+public class ButtonEffects : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     public GameObject button;
     public float animationSpeed;
@@ -30,20 +30,6 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     void Update()
     {
 
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        // textComponent.color = Color.red;
-        if (!isDoingHover)
-            StartCoroutine(OnHover());
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        // textComponent.color = Color.black;
-        if (!isDoingUnHover)
-            StartCoroutine(OnExit());
     }
 
     public void OnSelect(BaseEventData baseEventData)
