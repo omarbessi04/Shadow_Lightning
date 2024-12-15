@@ -8,6 +8,11 @@ public class Reselect : MonoBehaviour
     public EventSystem eventSystem;
     private GameObject lastSelectedObject;
     // Start is called before the first frame update
+    void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
