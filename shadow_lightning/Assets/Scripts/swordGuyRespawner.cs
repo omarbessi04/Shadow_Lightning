@@ -20,7 +20,17 @@ public class swordGuyRespawner : MonoBehaviour
     {
         if (currentSword == null)
         {
-            currentSword = Instantiate(sword,spawnPoint, quaternion.identity);
+            StartCoroutine(respawn());
         }
+        else
+        {
+            StopAllCoroutines();
+        }
+    }
+
+    private IEnumerator respawn()
+    {
+        yield return new WaitForSeconds(1f);
+        currentSword = Instantiate(sword,spawnPoint, quaternion.identity);
     }
 }
