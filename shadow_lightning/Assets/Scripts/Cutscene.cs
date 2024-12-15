@@ -32,6 +32,7 @@ public class Cutscene : MonoBehaviour
             }
             else if (currentScene == scene3)
             {
+                GameManager.instance.currentScene = "Screen1";
                 SceneManager.LoadScene("Screen1");
             }
         }

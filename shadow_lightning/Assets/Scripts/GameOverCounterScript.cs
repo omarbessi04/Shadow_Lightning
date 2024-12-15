@@ -18,6 +18,8 @@ public class GameOverCounterScript : MonoBehaviour
             myTime -= 1;
             yield return new WaitForSeconds(1f);
         }
+
+        GameManager.instance.alive_enemy_count = 0;
         SceneManager.LoadScene(GameManager.instance.currentScene);
     }
 
