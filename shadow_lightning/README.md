@@ -1,10 +1,9 @@
 **Running the Game**
-
-1. 
+ 
     Play on your browser through Itch.io
     https://tryggvi04.itch.io/shadow-lightning
 
-2. 
+Or
 
     Clone the repository into your computer.
 
