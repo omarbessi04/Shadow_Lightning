@@ -1,14 +1,22 @@
 **Running the Game**
 
-Clone the repository into your computer.
+1. 
+    Play on your browser through Itch.io
+    https://tryggvi04.itch.io/shadow-lightning
 
-Open the "shadow_lightning" folder in Unity.
+2. 
 
-Go into shadow_lightning/Assets/Scenes and open the "MainMenu" scene.
+    Clone the repository into your computer.
 
-Press the play button in Unity.
+    Open the "shadow_lightning" folder in Unity.
+
+    Go into shadow_lightning/Assets/Scenes and open the "MainMenu" scene.
+
+    Press the play button in Unity.
 
 **Basic Controls**
 
 WASD / Arrow Keys - Move Around
 Space - Jump
+E or J to use abilities
+R or K to possess / unpossess
