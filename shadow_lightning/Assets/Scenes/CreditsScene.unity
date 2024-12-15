@@ -857,7 +857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -119.1}
+  m_AnchoredPosition: {x: 0, y: -124.66}
   m_SizeDelta: {x: 600, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1321743767
@@ -880,7 +880,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'explosion sound: SFX_Explosion_07.wav by jalastram'
+  m_text: 'explosion sound: SFX_Explosion_07.wav by jalastram
+
+    Sword hit sound:
+    heavy_metal_hit_w_loud_ringout_noises_01_08242024 by Artninja'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc5519378e48f0949b02d49025ea8bae, type: 2}
   m_sharedMaterial: {fileID: -8476799456319869835, guid: bc5519378e48f0949b02d49025ea8bae, type: 2}
@@ -907,8 +910,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1796,7 +1799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_AnchoredPosition: {x: 0, y: 20.1}
   m_SizeDelta: {x: 600, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2137867111
