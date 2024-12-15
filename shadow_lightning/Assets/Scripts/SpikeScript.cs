@@ -4,6 +4,8 @@ public class SpikeScript : MonoBehaviour
 {
     public Vector3 wantedPosition;
     public bool respawnEnemies = false;
+    public bool scene5 = false;
+    public bool makeEnemyDie = false;
     private void OnTriggerEnter2D(Collider2D other) {
 
         
@@ -21,8 +23,31 @@ public class SpikeScript : MonoBehaviour
         }else{
             if (other.tag == "Enemy")
             {
-                if (respawnEnemies)
+                if (respawnEnemies && !scene5)
                 {
+                    other.transform.position = wantedPosition;
+                }
+                else if (respawnEnemies && scene5 && !makeEnemyDie)
+                {
+                    if (GameManager.instance.alive_enemy_count == 1)
+                    {
+                        other.transform.position = wantedPosition;
+                    }
+                    else
+                    {
+                        other.GetComponent<EnemyHealth>().takeDamage(500);
+                    }
+                }
+                else if (makeEnemyDie && GameManager.instance.alive_enemy_count == 1)
+                {
+                    other.GetComponent<EnemyMovement>().goingRight = true;
+                    if (!other.GetComponent<EnemyMovement>().flippedRight)
+                    {
+                        other.GetComponent<EnemyMovement>().flipX(true);
+                    }
+                    other.GetComponent<EnemyMovement>().shouldmoveWaypoints = true;
+                    makeEnemyDie = false;
+                    respawnEnemies = false;
                     other.transform.position = wantedPosition;
                 }
                 else
