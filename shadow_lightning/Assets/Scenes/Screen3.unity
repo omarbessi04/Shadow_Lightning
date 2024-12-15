@@ -34640,7 +34640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: 1
-  Health: 20
+  Health: 15
   mySprite: {fileID: 7738333890569284546}
   DamageParticles: {fileID: 8037980508187882066, guid: 5205e4f9d68b2ee439a2a4e336500f27, type: 3}
   wallJumpUnlock: {fileID: 897080498}
