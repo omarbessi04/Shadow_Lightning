@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Falling he felt a spirit pulling him, he should have died from that height
+  m_text: Falling, he felt a spirit pulling him, he should have died from that height
     but instead he became a <b>Shadow</b>. Still determined to save his love, he
     ventured forth...
   m_isRightToLeft: 0
@@ -1288,8 +1288,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Scared, but determined, he ventured forth. He heard his true love scream
-    as if falling. Noticing her clothes he investigated before falling down too...
+  m_text: Scared, but determined, he pressed on. He heard his true love scream as
+    if falling. Noticing her clothes, he investigated before falling down too...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc5519378e48f0949b02d49025ea8bae, type: 2}
   m_sharedMaterial: {fileID: -8476799456319869835, guid: bc5519378e48f0949b02d49025ea8bae, type: 2}

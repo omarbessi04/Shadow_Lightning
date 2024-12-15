@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,14 +18,36 @@ public class SignScalerScript : MonoBehaviour
     public float initialY;
     public float targetHeight;
 
+    private bool startedAsShadow = false;
+
     private void Start() {
         TransformingSign.GetComponent<Transform>().localScale = minScale;
         initialY = TransformingSign.GetComponent<Transform>().position.y;
     }
 
+    private void Update()
+    {
+        if (startedAsShadow && GameManager.instance.currentStateofPlayer == "Enemy" || (!startedAsShadow && GameManager.instance.currentStateofPlayer == "Shadow"))
+        {
+            if (currentCoroutine != null)
+            {
+                StopCoroutine(currentCoroutine);
+            }
+            currentCoroutine = StartCoroutine(ScaleToTarget(minScale, false));
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager.instance.canZoom = false;
+        if (collision.CompareTag("Player"))
+        {
+            startedAsShadow = true;
+        }
+        else
+        {
+            startedAsShadow = false;
+        }
         if (collision.CompareTag("Player") || collision.CompareTag("PlayerEnemy")){
             if (currentCoroutine != null)
             {
