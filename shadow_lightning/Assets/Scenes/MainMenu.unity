@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36bb0331326af3439ba181d69d4a146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScreen: Screen1
+  gameScreen: Cutscene
   creditsScreen: CreditsScene
   menuScreen: MainMenu
 --- !u!1 &945036200
