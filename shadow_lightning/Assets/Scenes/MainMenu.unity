@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36bb0331326af3439ba181d69d4a146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScreen: Screen1
+  gameScreen: Cutscene
   creditsScreen: CreditsScene
   menuScreen: MainMenu
 --- !u!1 &945036200
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1043023330}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1287863157

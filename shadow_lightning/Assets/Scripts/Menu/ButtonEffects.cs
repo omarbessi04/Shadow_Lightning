@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
     public GameObject button;
     public float animationSpeed;
@@ -46,6 +46,17 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             StartCoroutine(OnExit());
     }
 
+    public void OnSelect(BaseEventData baseEventData)
+    {
+        if (!isDoingHover)
+            StartCoroutine(OnHover());
+    }
+
+    public void OnDeselect(BaseEventData baseEventData)
+    {
+        if (!isDoingUnHover)
+            StartCoroutine(OnExit());
+    }
     private IEnumerator OnHover()
     {
         // button.transform.localScale += new Vector3(3, 1, 0);
