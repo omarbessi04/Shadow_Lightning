@@ -22971,12 +22971,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 708425013}
+  verticalOffset: 0
   verticalOffsetGround: 2
   verticalOffsetOnPlatform: 1
   lookAheadDstX: 2
   lookSmoothTimeX: 0.2
   verticalSmoothTime: 0.2
   focusAreaSize: {x: 3, y: 5}
+  workingOnIt: 0
 --- !u!4 &2117558847
 Transform:
   m_ObjectHideFlags: 0
@@ -23336,3 +23338,4 @@ SceneRoots:
   - {fileID: 1917477620}
   - {fileID: 468368657}
   - {fileID: 301093010}
+  - {fileID: 1589091471}
