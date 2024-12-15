@@ -661,7 +661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -116.89996, y: -41.200043}
+  m_AnchoredPosition: {x: -117, y: -41.25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285827063
@@ -21362,11 +21362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5321971001047337232, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.4
+      value: -30.67
       objectReference: {fileID: 0}
     - target: {fileID: 5321971001047337232, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.9
+      value: -9.67
       objectReference: {fileID: 0}
     - target: {fileID: 5321971001047337232, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25229,7 +25229,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 960, y: 540}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -32689,7 +32689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51.899982, y: -51.899933}
+  m_AnchoredPosition: {x: 52, y: -51.875}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1539465475
@@ -32770,11 +32770,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690879912354010432, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.1
+      value: -21.67
       objectReference: {fileID: 0}
     - target: {fileID: 690879912354010432, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.3
+      value: -9.72
       objectReference: {fileID: 0}
     - target: {fileID: 690879912354010432, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33839,11 +33839,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8835173848400173453, guid: 7c1ee48aebf6f604ca1379882bc33b33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.36
+      value: -9.87
       objectReference: {fileID: 0}
     - target: {fileID: 8835173848400173453, guid: 7c1ee48aebf6f604ca1379882bc33b33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.63
+      value: -9.45
       objectReference: {fileID: 0}
     - target: {fileID: 8835173848400173453, guid: 7c1ee48aebf6f604ca1379882bc33b33, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34455,9 +34455,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05236082, y: 0.05576682}
+  m_Offset: {x: 0.09506526, y: 0.05576682}
   serializedVersion: 2
-  m_Radius: 0.2900029
+  m_Radius: 0.2302166
 --- !u!114 &8348908628017416781
 MonoBehaviour:
   m_ObjectHideFlags: 0

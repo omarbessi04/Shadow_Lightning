@@ -8,6 +8,9 @@ https://assetstore.unity.com/packages/2d/environments/platformer-set-150023
 
 GX310 on Itch; https://gx310.itch.io/sign-posts
 
+- Bones:
+Bones asset pack by Lil Cthulhu -- https://lil-cthulhu.itch.io/ 
+
 
 **General SFX**
 

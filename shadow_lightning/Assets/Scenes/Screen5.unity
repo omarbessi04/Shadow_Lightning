@@ -23388,7 +23388,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 960, y: 540}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -23449,9 +23449,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 358594136616584110, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
+      propertyPath: flippedRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 358594136616584110, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
+      propertyPath: shouldmoveWaypoints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3436447740072198065, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_Name
       value: EnemyLightningMage (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037722846881682782, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.104
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037722846881682782, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5321971001047337232, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23492,6 +23508,10 @@ PrefabInstance:
     - target: {fileID: 5321971001047337232, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6955596979211215273, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7809974542567793698, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24649,7 +24669,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 690879912354010432, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.2
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 690879912354010432, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24694,6 +24714,14 @@ PrefabInstance:
     - target: {fileID: 5152215007448642990, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
       propertyPath: m_Name
       value: ShieldGuy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770779266424460931, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
+      propertyPath: flippedRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770779266424460931, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
+      propertyPath: shouldmoveWaypoints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7847448673523092867, guid: 6229fbf464d08e048a7f8200c6577a3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25207,6 +25235,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 358594136616584110, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
+      propertyPath: goingRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 358594136616584110, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
+      propertyPath: shouldmoveWaypoints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3436447740072198065, guid: 5cdc33ae5f70203418124323a0b1fe95, type: 3}
       propertyPath: m_Name
       value: EnemyLightningMage
@@ -25462,12 +25498,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 708425013}
+  verticalOffset: 0
   verticalOffsetGround: 2
   verticalOffsetOnPlatform: 1
   lookAheadDstX: 2
   lookSmoothTimeX: 0.2
   verticalSmoothTime: 0.2
   focusAreaSize: {x: 3, y: 5}
+  workingOnIt: 0
 --- !u!4 &2117558847
 Transform:
   m_ObjectHideFlags: 0
@@ -25477,7 +25515,7 @@ Transform:
   m_GameObject: {fileID: 2117558845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -26.3, y: 18.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
