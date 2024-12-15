@@ -61,15 +61,6 @@ public class BossMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        if (enemyDetection.Detected)
-        {
-            speed = base_speed + 1;
-        }
-        else
-        {
-            speed = base_speed;
-        }
         Animator.SetFloat("xVelocity", MathF.Abs(velocity.x));
         if (enemyDetection.Detected && Player == null)
         {
@@ -79,63 +70,9 @@ public class BossMovement : MonoBehaviour
         {
             idle = false;
             
-            if (idleCoroutine != null)
-            {
-                shouldMove = true;
-                StopCoroutine(idleCoroutine);
-                idleCoroutine = null;
-                waiting = false;
-            }
-        }
-        if (idle)
-        {
-
-            float distanceToWaypoint1 = Mathf.Abs(transform.position.x - wayPointPos1.x);
-
-            if (goingRight)
-            {
-                if (distanceToWaypoint1 < 0.1f && controller.collisions.below)
-                {
-                    goingRight = false;
-                    direction = new Vector2(direction.x * -1, direction.y);
-                    flipX(true);
-                }
-
-                if (controller.collisions.right)
-                {
-                    goingRight = false;
-                    direction = new Vector2(direction.x * -1, direction.y);
-                    flipX(true);
-                }
-            }
-            else
-            {
-                float distanceToWaypoint2 = Mathf.Abs(transform.position.x - wayPointPos2.x);
-
-                if (distanceToWaypoint2 < 0.1f && controller.collisions.below)
-                {
-                    goingRight = true;
-                    direction = new Vector2(direction.x * -1, direction.y);
-                    flipX(false);
-                }
-
-                if (controller.collisions.left)
-                {
-                    goingRight = true;
-                    direction = new Vector2(direction.x * -1, direction.y);
-                    flipX(false); 
-                }
-            }
-            if (controller.collisions.above || controller.collisions.below) {
-                velocity.y = 0;
-            }
-            if (controller.collisions.below && shouldMove && !noVelocityReset)
-            {
-                velocity.x = direction.x * speed;
-            }
         }
 
-        else if (moveTowardsPlayer && shouldMove && idle == false && Player != null)
+        if (moveTowardsPlayer && shouldMove && idle == false && Player != null)
         {
             Vector2 playerDirection = ((Player.transform.position - transform.position).normalized);
             if (controller.collisions.below && !noVelocityReset)

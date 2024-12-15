@@ -11,64 +11,58 @@ public class BossSwordDetect : MonoBehaviour
     public BossMovement EnemyMovement;
 
     private EdgeCollider2D collider;
+    private bool playerInLeft;
+    private bool playerInRight;
 
     private void Start()
     {
         collider = GetComponent<EdgeCollider2D>();
     }
 
-    private void Update()
-    {
-        if (BossAttack.Animator.GetBool("Attacking") == false)
-        {
-            collider.enabled = false;
-        }
-        else if (BossAttack.Animator.GetBool("Attacking") == true)
-        {
-            collider.enabled = true;
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "PlayerEnemy")
         {
-            if (Left && !EnemyMovement.flippedRight)
+            if (Left)
             {
-                BossAttack.playerInAttack = true;
+                BossAttack.playerInLeftAttack = true;
             }
-            else if (!Left && EnemyMovement.flippedRight)
+            else if (!Left)
             {
-                BossAttack.playerInAttack = true;
+                BossAttack.playerInRightAttack = true;
             }
         }
     }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "PlayerEnemy")
         {
-            if (Left && !EnemyMovement.flippedRight)
+            if (Left)
             {
-                BossAttack.playerInAttack = true;
+                BossAttack.playerInLeftAttack = true;
             }
-            else if (!Left && EnemyMovement.flippedRight)
+            else if (!Left)
             {
-                BossAttack.playerInAttack = true;
+                BossAttack.playerInRightAttack = true;
             }
         }
     }
+
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "PlayerEnemy")
         {
-            if (Left && !EnemyMovement.flippedRight)
+            if (Left)
             {
-                BossAttack.playerInAttack = false;
+                BossAttack.playerInLeftAttack = false;
             }
-            else if (!Left && EnemyMovement.flippedRight)
+            else if (!Left)
             {
-                BossAttack.playerInAttack = false;
+                BossAttack.playerInRightAttack = false;
             }
         }
     }
+
+    // Update the playerInAttack flag based on the left and right states
 }

@@ -29,7 +29,7 @@ public class BossDetection : MonoBehaviour
             
         }
 
-        else if (!Detected && enemyMovement.idle == false && (hitOther.collider != null || (hitOtherJump.collider != null && !GameManager.instance.currentPlayer.GetComponent<PlayerController2D>().collisions.below)))
+        else if (!Detected && (hitOther.collider != null || (hitOtherJump.collider != null && !GameManager.instance.currentPlayer.GetComponent<PlayerController2D>().collisions.below)))
         {
             Detected = true;
             KillAllHumans();

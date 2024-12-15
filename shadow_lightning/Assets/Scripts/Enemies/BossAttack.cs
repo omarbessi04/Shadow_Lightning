@@ -19,8 +19,10 @@ public class BossAttack : MonoBehaviour
     private bool isAttacking = false;
 
     public bool playerHit = false;
-    public bool playerInAttack;
+    public bool playerInLeftAttack;
+    public bool playerInRightAttack;
     AudioManager audioManager;
+    
 
 	private void Awake(){
 		audioManager = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<AudioManager>();
@@ -109,7 +111,7 @@ public class BossAttack : MonoBehaviour
 
     public void Attack()
     {
-        if (!playerHit && playerInAttack)
+        if (!playerHit && ((playerInLeftAttack && !Movement.flippedRight) || (playerInRightAttack && Movement.flippedRight)))
         {
             GameManager.instance.heartSystem.TakeDamage(damage);
             playerHit = true;
