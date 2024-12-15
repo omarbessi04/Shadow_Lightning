@@ -6,6 +6,7 @@ public class CameraEffectScript : MonoBehaviour
     [Header("General")]
     public bool WorkingOnIt = false;
     private Coroutine currentCoroutine = null;
+    private CameraFollow CameraFollow;
     [SerializeField] private Camera cam;
 
     [Header("--- Items for Zooming ---")]
@@ -25,6 +26,7 @@ public class CameraEffectScript : MonoBehaviour
     void Start()
     {
         zoom = cam.orthographicSize;
+        CameraFollow = transform.parent.GetComponent<CameraFollow>();
         originalPosition = transform.localPosition;
     }
 
@@ -75,6 +77,7 @@ public class CameraEffectScript : MonoBehaviour
     private IEnumerator ZoomIn()
     {
         WorkingOnIt = true;
+        CameraFollow.workingOnIt = true;
 
         while (Mathf.Abs(cam.orthographicSize - minZoom) > 0.01f)
         {
@@ -90,6 +93,7 @@ public class CameraEffectScript : MonoBehaviour
 
     private IEnumerator ZoomOut()
     {
+        CameraFollow.workingOnIt = false;
         WorkingOnIt = true;
 
         while (Mathf.Abs(cam.orthographicSize - maxZoom) > 0.01f)
